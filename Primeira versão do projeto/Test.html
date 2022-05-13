@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="TestCSS.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Questionário</title>
+    </head>
+    <body>
+        <center>
+            <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-dark">
+              <a class="navbar-brand falconiBar" href="https://landing.falconi.com/falconi_en.html?campaignid=14854666518&adgroupid=137499698378&adid=595975280850&gclid=CjwKCAjwjtOTBhAvEiwASG4bCGkScSEl_UYRwaA7oSTXnCuYEjMll0ovHzFx3d1B0Bhxc9eM0WpQ7RoCkgUQAvD_BwE" target="_blank">FALCONI</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse bg-whitecolor" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="homeBtn()">Início</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="surveyBtn()">Questionário</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="editSurveyBtn()">Editar questionário</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="knowMoreBtn()">Saiba mais</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+        </center> 
+          <div id="home" class="home">
+            <div id="home2" class="home2">
+              <h1 class="fontSize58 homeText fontGeneva">Qual é o seu desafio?</h1>
+              <div class="middle">
+                <div class="homeText2 fontThin fontGeneva">
+                  <p>Com um novo olhar, ajudamos organizações privadas, públicas e do terceiro setor a</p>
+                  <p>construir as respostas para os seus desafios. A cada resposta, movemos o futuro e</p>
+                  <p>aquela dúvida não existe mais. Qual é a próxima?</p>
+                  <p>Uma abordagem customizada, da estratégia à prática, de ponta a ponta, que</p>
+                  <p>incorpora tecnologias e conta com um time excepcional que faz acontecer, junto.</p>
+                </div>
+                <div class="homeInfos fontGeneva fontThin">
+                  <h3 class="fontSize30">17% de escolas privadas</h3>
+                  <h3 class="fontSize30">50% de escolas municipais</h3>
+                  <h3 class="fontSize30">32% de escolas estaduais</h3>
+                  <h3 class="fontSize30">1% de escolas federais</h3>
+                </div>
+              </div>
+              <div class="bottom">
+                <button class="queryBtn fontGeneva fontThin">Faça sua consulta</button>
+              </div>
+              <div class="ptop20"></div>
+            </div>
+          </div>
+          <center>
+            <div id="survey" style="display: none;">
+                <div id="container" class="container">
+                    <h1 id="title" class="text-white">Questionário</h1>
+                    <br>
+                    <div id="heptagonGraphDiv" class="heptagonGraphDivClass" style="display: none;"><canvas id="heptagonGraph" width="400" height="400"></canvas></div>
+                    <div id="questions"></div>
+                    <br>
+                    <button class="answers_Btn" type="button" onclick=passar(1) id="button1">Consolidado</button>
+                    <br>
+                    <button class="answers_Btn" type="button" onclick=passar(2) id="button2">Desenvolvido</button> 
+                    <br> 
+                    <button class="answers_Btn" type="button" onclick=passar(3) id="button3">Desenvolvimento intermediário</button>
+                    <br>
+                    <button class="answers_Btn" type="button" onclick=passar(4) id="button4">Pouco desenvolvido</button>
+                    <br>
+                    <button class="answers_Btn" type="button" onclick=passar(5) id="button5">A desenvolver</button>
+                    <br><br>
+                    <button class="answers_Btn" type="button" onclick=next() id="buttonNext" style="display: none;">Prosseguir</button>
+                    <p id="teachingPoints"></p>
+                    <p id="peoplePoints"></p>
+                </div>
+            </div>
+            <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
+              <h1 class="text-black">Editar Questionário</h1>
+              <br>
+              <button onclick="addQuestion()" class="addQuestion">Adicionar Pegunta</button>
+              <br>
+            </div>
+            <div id="knowMore" class="knowMore" style="display: none;">
+              <div class="layout">
+                <div class="layout__backdrop height-100"></div>
+                <div class="layout__frontdrop height-100"></div>
+                <div class="layout__wrapper height-100">
+                  <header class="layout__header height-100">
+                    <nav>
+                      <ul class="nav nav--header nav--header-1 height-100">
+                        <li class="nav__item nav__item--about">
+                          <a class="nav__link" href="#thomas">Quem somos?</a>
+                        </li>
+                        <li class="nav__item nav__item--clients">
+                          <a class="nav__link" href="#timeDev">Desenvolvedores</a>
+                        </li>
+                        <li class="nav__item nav__item--contact">
+                          <a class="nav__link" href="#contato">Contato</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </header>
+                </div>
+                  <main class="layout__main" id="thomas">
+                    <section class='padding-top-5'>
+                      <div class="hero-block hero-block--header" id="quemSomos">
+                        <h1 class="hero-title">
+                          Quem somos? <em>Conheça nosso time.</em>
+                          
+                        </h1>
+                        <p class="hero-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quasi? Ex animi rem, non molestiae, numquam eaque deserunt cumque exercitationem natus modi veritatis ipsum repellendus officia incidunt, unde minus assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis deserunt quibusdam veniam nesciunt quis, maxime non cupiditate ratione ex dolorem dolores fugiat, ea odit minus ipsum explicabo eum distinctio minima.</p>
+                      </div>
+                    </section>
+                  </main>
+              </div>
+              <section class="padding-top-5" id="timeDev">
+                <div class="hero-block hero-block--header">
+                  <h1 class="hero-title">
+                    Desenvolvedores <em>Equipe responsável pelo projeto.</em>
+                    
+                  </h1>
+                  <p class="desenvolvedoresBox">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex fuga ipsum nemo possimus, mollitia maxime fugit a distinctio exercitationem tempore nisi molestias repudiandae optio laborum ullam temporibus. Placeat, sapiente non. </p>
+        
+                <div class="containerSaibaMais">
+                    <div>
+                      <img src="images/pessoas1.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">Antonio</p>
+                    </div>
+                    <div>
+                      <img src="images/pessoas2.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">João</p>
+                    </div>
+                    <div>
+                      <img src="images/pessoas3.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">Malu</p>
+                    </div>
+                    <div>
+                      <img src="images/pessoas4.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">Marcos</p>
+                    </div>
+                    <div>
+                      <img src="images/pessoas5.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">Priscila</p>
+                    </div>
+                    <div>
+                      <img src="images/pessoa6.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">Thomas</p>
+                    </div>
+                    <div>
+                      <img src="images/pessoas7.jpg" alt="foto" class = "pessoa">
+                      <p class="nome">Vitor</p>
+                    </div>
+                  </div>
+        
+                </div>
+              </section>
+        
+              <section id="contato" class="padding-top-5">
+                <div class="hero-block hero-block--header">
+                  <h1 class="hero-title">
+                    Contato <em>Fale conosco!</em>
+                    
+                  </h1>
+                  <p class="contatoBox">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores fuga ab amet, dolorem maxime similique consequatur possimus ipsam explicabo a delectus, fugit distinctio sed neque illum aperiam, in assumenda. Ad?Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, exercitationem consectetur voluptates optio ullam accusantium quam, repellat, quaerat necessitatibus quisquam quos iure dolore atque sint inventore esse officia iste labore! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum harum ipsa quam sint, aliquid expedita, est eaque qui optio ad ex numquam maxime ipsam quisquam! Animi voluptatibus optio temporibus maiores.</p>
+                </div>
+              </section>
+            </div>
+        </center>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="TestJS.js"></script>
+    </body>
+</html>

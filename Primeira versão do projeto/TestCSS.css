@@ -1,0 +1,474 @@
+*{
+    --primary-color: #948d28;
+    --black: #010101;
+    --white: #F3F3F3;
+}
+
+body{
+    top: 0; right: 0; bottom: 0; left: 0;
+    padding: 0;
+    margin: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--primary-color);
+}
+
+.surveyEdit{
+    background: var(--primary-color)
+}
+
+.home{
+    background-image: url("images/Escola\ inicio.jpg");
+    background-size: 100%;
+}
+
+.home2{
+    background-color: rgba(0,0,0, 0.7);
+    height: 1000%;
+    width: 100%;
+    background-size: 1000%;
+}
+
+.knowMore{
+    background-color: var(--white);
+}
+
+.questionBtn{
+    margin-bottom: 7px;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border-radius: 3px;
+    border: 1.5px solid rgb(205, 205, 205);
+    background-color: var(--black);
+    margin: 2px;
+}
+
+.question_Btn:hover{
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+
+.answers_Btn{
+    color: white;
+    background-color: var(--black);
+    border: 1px groove white;
+    width: 27rem;
+    height: 3rem;
+}
+
+.answers_Btn:hover{
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+
+.container{
+    background-color: var(--black);
+	max-width: 500px;
+	margin: 12% auto;
+	overflow: auto;
+	min-height: 300px;
+	border: 2px solid white;
+	padding: 35px;
+	border-radius: 10px;
+}
+
+.heptagonGraphDivClass{
+    background-color: white;
+}
+
+.navbar{
+    height: 50px;
+}
+
+.falconiBar{
+    color: #7c7511 !important;
+    font-weight: 700;
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+.bg-primarycolor{
+    background-color: var(--primary-color);
+}
+
+.text-primarycolor{
+    color: var(--primary-color);
+}
+.text-primarycolor:hover{
+    color: var(--primary-color);
+}
+
+.text-black{
+    color: var(--primary-color);
+}
+
+.text-white{
+    color: var(--white);
+}
+
+.bg-blackcolor{
+    background-color: var(--black);
+    width: 100%;
+}
+
+.bg-whitecolor{
+    background: var(--white);
+}
+
+.modifyBtn{
+    border-radius: 100px;
+    margin: 1px;
+}
+
+.addQuestion{
+    border-radius: 5px;
+    border: 2px solid var(--black);
+    height: 30px;
+    margin: 2px;
+}
+
+.weightAxleSize{
+    width: 100px;
+}
+
+.margin{
+    margin: 10px;
+}
+
+.fontSize58{
+    font-size: 58px;
+}
+
+.fontSize30{
+    font-size: 30px;
+}
+
+.middle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom{
+    padding-left: 37vh;
+    height: 20%;
+}
+
+.homeText{
+    padding-left: 20vh;
+    padding-top: 26vh;
+    color: whitesmoke;
+}
+
+.homeText2{
+    padding-left: 20vh;
+    padding-top: 1vh;
+    color: var(--white);
+    font-size: 15px;
+    line-height: 10px;   
+}
+
+.homeInfos{
+    padding-right: 30vh;
+    color: whitesmoke;
+}
+
+.queryBtn{
+    display: block;
+    font-size: 25px;
+    color: #7c7511;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    padding-top: 0.7vh;
+    padding-bottom: 0.7vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+.ptop20{
+    padding-top: 20.5vh;
+}
+
+.fontGeneva{
+    font-family: 'Public Sans', sans-serif;
+}
+
+.fontThin{
+    font-style: 'thin';
+}
+
+
+
+
+
+
+
+
+  .padding-top-5{
+    padding-top: 5rem;
+  }
+  
+  .height-100{
+    height: 100%;
+  }
+  
+  .layout {
+    background-image: url(images/Saiba\ mais.png);
+    background-position: 0 0;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .layout.nav--active main {
+    opacity: .2;
+  }
+  
+  .layout__backdrop,
+  .layout__frontdrop {
+    background-color: rgba(0, 0, 0, .3);
+    content: '';
+    display: block;
+    left: 0;
+    position: fixed;
+    transform-origin: 0% 0% 70%;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  .layout__backdrop {
+    transform: scaleX(.34) translateX(calc(67% * 3));
+  }
+  
+  .layout__frontdrop {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+  }
+  
+  .layout__wrapper {
+    display: grid;
+    position: fixed;
+    grid-template-columns: 300px repeat(3, 1fr);
+    margin: auto;
+  }
+  
+  .layout__main {
+    transition: opacity .3s;
+    z-index: 1;
+  }
+  
+  .hero-title {
+    color: #7c7511;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 4.75rem;
+    line-height: 1.2;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 8rem;
+    position: relative;
+    width: 32.5rem;
+    z-index: 1;
+  }
+  
+  .hero-title em {
+    display: block;
+    font-size: 2rem;
+    font-style: normal;
+    line-height: 1.2;
+    transform: translateX(2.5rem);
+    padding-bottom: 0px;
+  }
+  
+  .hero-text {
+    background-color: rgba(0, 0, 0, 0.744);
+    color: #fff;
+    font-size: .92rem;
+    line-height: 1.75;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 4rem;
+    padding: 5rem 3rem 3rem;
+    transform: translateY(-3rem);
+    width: 50%;
+    z-index: 0;
+  }
+  
+  .contatoBox{
+    background-color: rgba(0, 0, 0, 0.272);
+    color: #fff;
+    font-size: .92rem;
+    line-height: 1.75;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 4rem;
+    padding: 5rem 3rem 3rem;
+    transform: translateY(-3rem);
+    width: 50%;
+    z-index: 0;
+  }
+  
+  .desenvolvedoresBox{
+    background-color: rgba(0, 0, 0, 0.272);
+    color: #fff;
+    font-size: .92rem;
+    line-height: 1.75;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 4rem;
+    padding: 5rem 3rem 3rem;
+    transform: translateY(-3rem);
+    width: 50%;
+    z-index: 0;
+  }
+  
+  .hero-text a {
+    box-shadow: 0 4px #4c4b4b;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .hero-block--content > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  .layout__main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .layout__header {
+    z-index: 2;
+  }
+  
+  .layout__header nav {
+    height: 100%;
+    opacity: 0%;
+  }
+  
+  .layout__header nav:hover {
+    height: 100%;
+    transition: 0.5s;
+    opacity: 100%;
+  }
+  
+  
+  .layout__main {
+    grid-column: span 3;
+  }
+  
+  .nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav--header-1 {
+    counter-reset: n;
+    padding: 0 2rem;
+    position: relative;
+  }
+  
+  .nav--header-1 > .nav__item:not(.nav__item--home) {
+    counter-increment: n;
+  }
+  
+  .nav--header-1 > .nav__item:not(.nav__item--home) > .nav__link {
+    color: #7c7511;
+    display: block;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.75rem;
+    line-height: 1;
+    letter-spacing: .045em;
+    padding: 1rem 1rem;
+    padding-left: 3rem;
+    padding-top: 3rem;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform .2s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+    z-index: 1;
+  }
+  
+  .nav--header-1 > .nav__item > .nav__link::before {
+    content: counter(n, decimal-leading-zero);
+    display: block;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 6rem;
+    font-weight: bold;
+    left: 0;
+    top: 0;
+    opacity: .25;
+    position: absolute;
+    transition: transform .2s;
+    z-index: -1;
+  }
+  
+  .nav--header-1 > .nav__item > .nav__link:hover,
+  .nav--header-1 > .nav__item.nav__item--active > .nav__link {
+    color: #525252;
+    transform: translateX(.5rem);
+  }
+  
+  /* .nav--header-1 > .nav__item.nav__item--active .nav--header-2 {
+    visibility: visible;
+  } */
+  
+  .nav--header-1 .nav__item--home {
+    background-position: 0px 50%;
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    margin-bottom: 60px;
+    padding: 0;
+  }
+  
+  .nav--header-1 .nav__item--home > .nav__link {
+    display: block; /* Necessary for text-indent to work */
+    height: calc(60px + 40px);
+    text-indent: -999px;
+  }
+  
+  .nav--header-2 {
+    height: 100%;
+    left: 270px;
+    opacity: 0;
+    padding: 2.5rem 5rem;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+  }
+  
+  .nav--header-2 > .nav__item {
+    margin-bottom: 2.75rem;
+  }
+  
+  .falconi{
+    color: #7c7511;
+    font-weight: 700;
+    padding-left: 3%;
+  }
+  
+  .pessoa{
+    width: 5.5rem;
+    height: 7rem;
+    padding: 2px;
+  }
+  
+  .nome{
+    text-align: center;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+    color: #7c7511;
+  }
+  
+  .containerSaibaMais{
+    margin-left: 35rem;
+    display: flex;
+    flex-direction: row;
+  }
