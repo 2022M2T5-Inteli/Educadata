@@ -47,11 +47,9 @@ function passar(i) {
   var totalWeight = 0
   for (var a = 0; a < questions.length; a++){
     totalWeight += Number(questions[a].peso);
-    console.log(totalWeight)
   }
   for (var a = 0; a < questions.length; a++){
     teaching += allPoints[a] * ((100/totalWeight)/5);
-    console.log(teaching)
   }
   people = 0;
   for (var i = 14; i <= 33; i++){
