@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="visao falconi.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Falconi</title>
+    </head>
+    <body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
+  <a class="navbar-brand falconiBar" href="https://landing.falconi.com/falconi_en.html?campaignid=14854666518&adgroupid=137499698378&adid=595975280850&gclid=CjwKCAjwjtOTBhAvEiwASG4bCGkScSEl_UYRwaA7oSTXnCuYEjMll0ovHzFx3d1B0Bhxc9eM0WpQ7RoCkgUQAvD_BwE" target="_blank">FALCONI</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse bg-whitecolor" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="profileBtn()">Perfil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="registeredSchoolsBtn()">Escolas cadastradas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="surveyEditBtn()">Editar questionário</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- ESCOLAS CADASTRADAS -->
+          <div id="home" class="home">
+            <div id="registeredSchools" class="schools">
+              <div class="row">
+                <div class="col-1">
+                  <p class="caixadetexto1">Filtrar</p>
+                  <br>
+                  <p class="caixadetexto1">Classificar</p>
+                </div>
+                <div class="col-2">
+                  <p class="caixadetexto2">Lista de escolas</p>
+                </div>
+                <div class="col-2">
+                  <p class="caixadetexto2">Cidade e estado</p>
+                </div>
+                <div class="col-2">
+                  <p class="caixadetexto2">Avaliação geral</p>
+                </div>
+              </div>
+            </div>             
+<!-- PERFIL -->
+          <div id="profile" class="main-body">
+        
+            <div class="row gutters-sm">
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="fotos/pessoas1.jpg" alt="Admin" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                        <h4>Antonio Nassar</h4>
+                        <p class="text-secondary mb-1">Gestor Falconi</p>
+                        <p class="text-muted font-size-sm">São Paulo, Brasil</p>
+                        <button class="btn btn-primary">Contato</button>
+                        <button class="btn btn-outline-primary">???</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Nome completo</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        Antonio Nassar
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Email</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        teste@inteli.edu
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">ID Falconi</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        F-5378734
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Celular</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        (11) 98739-7363
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Endereço</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        Prof.Almeida Prado, 520
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Editar informações</a>
+                        <button type="button" class="btn btn-success">Acessar questionário</button>
+                        <button type="button" class="btn btn-danger">Resultados</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row gutters-sm">
+                  <div class="col-sm-6 mb-3">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Atribuido</i>Status de Gestão</h6>
+                        <small>Rede de Escolas</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Professores/responsáveis</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Análise</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Extra 1</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Extra 2</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-sm-6 mb-3">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Novas atividades</i>Status</h6>
+                        <small>Info</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Info</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Info</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Info</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Info</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+  
+              </div>
+            </div>
+<!-- EDIÇÃO DE QUESTIONÁRIO -->
+        <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
+          <h1 class="text-black">Editar Questionário</h1>
+          <br>
+          <button onclick="addQuestion()" class="addQuestion">Adicionar Pergunta</button>
+          <br>
+        </div>
+  
+  </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="visao falconi.js"></script>
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    </body>
+</html>
