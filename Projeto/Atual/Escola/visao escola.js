@@ -217,6 +217,7 @@ function profileBtn(){
   document.getElementById("profile").style.display = "block";
   document.getElementById("survey").style.display = "none";
   document.getElementById("results").style.display = "none";
+  document.getElementById("editProfile").style.display = "none";
   loadSurvey();
 }
 
@@ -224,6 +225,7 @@ function surveyBtn(){
   document.getElementById("profile").style.display = "none";
   document.getElementById("survey").style.display = "block";
   document.getElementById("results").style.display = "none";
+  document.getElementById("editProfile").style.display = "none";
   loadSurvey();
 }
 
@@ -231,10 +233,14 @@ function resultsBtn(){
   document.getElementById("profile").style.display = "none";
   document.getElementById("survey").style.display = "none";
   document.getElementById("results").style.display = "block";
+  document.getElementById("editProfile").style.display = "none";
   resetSurvey();
 }
 function editProfileBtn(){
-  document.getElementById("editProfile").style.display = "none";
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("survey").style.display = "none";
+  document.getElementById("results").style.display = "none";
+  document.getElementById("editProfile").style.display = "block";
 }
 
 

@@ -190,6 +190,7 @@ function profileBtn(){
   document.getElementById("profile").style.display = "block";
   document.getElementById("registeredSchools").style.display = "none";
   document.getElementById("surveyEdit").style.display = "none";
+  document.getElementById("editProfile").style.display = "none";
 }
 
 
@@ -197,16 +198,22 @@ function registeredSchoolsBtn(){
   document.getElementById("profile").style.display = "none";
   document.getElementById("registeredSchools").style.display = "block";
   document.getElementById("surveyEdit").style.display = "none";
-
+  document.getElementById("editProfile").style.display = "none";
 }
 
 function surveyEditBtn(){
   document.getElementById("profile").style.display = "none";
   document.getElementById("registeredSchools").style.display = "none";
   document.getElementById("surveyEdit").style.display = "block";
-
+  document.getElementById("editProfile").style.display = "none";
 }
 
+function editProfileBtn(){
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("registeredSchools").style.display = "none";
+  document.getElementById("surveyEdit").style.display = "none";
+  document.getElementById("editProfile").style.display = "block";
+}
 
 //Cria uma pergunta nova na array "questions[]"
 function addQuestion(){

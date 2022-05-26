@@ -34,8 +34,45 @@ body{
 }
 
 
-
-
+/* EDITAR CADASTRO */
+.container {
+  background: #7c7c7c;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+}
+.edicao{
+  background-color: #F3F3F3;
+  color: #7c7511;
+  width: fit-content;
+  align-items: center;
+}
+.textprofile{
+  font-family: 'Public Sans', sans-serif;
+  padding-top: 2vh;
+}
+.labels{
+  font-family: 'Public Sans', sans-serif;
+}
+.form-control{
+  width: 50vh;
+}
+.botaoEdicao{
+  display: block;
+  font-size: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #F3F3F3;
+  background-color: #7c7511;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10vh;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
 
 
 /* PERFIL */
@@ -146,46 +183,6 @@ body{
 
 
 
-
-
-  /* .registeredSchoolsCanvas{
-    background-color: #C4C4C4;
-    width: 190vh;
-    height: 80vh;
-    margin-top: 5vh;
-    margin-left: 10vh;
-    margin-right: 10vh;
-    font-size: 20px;
-    color: #010101;
-    border-radius: 1vh;
-    text-align: center;
-  } */
-  /* .optionsBox{
-    background-color: #fff;
-    size: 30vh;
-    position: relative;
-    border-radius: 1vh;
-    padding: 0vh;
-  }
-  
- 
-  
-
-  
-  .editInfoBtns:hover {
-    color: black
-  }
-  
-
-  .titulo{
-    font-family: 'Public Sans', sans-serif;
-    font-size: 50px;
-    font-weight: bolder;
-  }
-  .schoolsList{
-    list-style-image: url(images/School-Icon.png);
-    text-align: left;
-  } */
 
 
 
