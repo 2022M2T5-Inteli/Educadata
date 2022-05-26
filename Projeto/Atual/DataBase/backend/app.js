@@ -6,6 +6,7 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const DBPATH = 'questionario.db';
 const bodyParser = require('body-parser');
+const { param } = require('express/lib/request');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static("../frontend/"));
@@ -37,9 +38,23 @@ app.post('/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql = "INSERT INTO Questionário (Agenda, Eixo, Perguntas,Resposta) VALUES (" + req.body.Agenda + ', ' +  req.body.Eixo + ', ' + req.body.Perguntas + ', ' + req.body.Resposta + ")";
+  // ANDRÉ:
+  // sql = "INSERT INTO Questionário (Agenda, Eixo, Perguntas,Resposta) VALUES (" + req.body.Agenda + ', ' +  req.body.Eixo + ', ' + req.body.Perguntas + ', ' + req.body.Resposta + ")";
+
+
+// GABRIO:
+  sql = "INSERT INTO Questionário (Agenda, Eixo, Perguntas,Resposta) VALUES (?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
-  db.run(sql, [],  err => {
+  var params = []
+  params.push(req.body.Agenda);
+  params.push(req.body.Eixo);
+  params.push(req.body.Perguntas);
+  params.push(req.body.Resposta);
+
+
+
+
+  db.run(sql, params,  err => {
       if (err) {
           throw err;
       }
