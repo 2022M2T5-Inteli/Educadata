@@ -53,8 +53,8 @@ body{
     background-color: var(--primary-color);
 }
 
-.container{
-    background-color: var(--gray);
+.survey{
+  background-color: var(--gray);
 	max-width: 500px;
   overflow: auto;
 	min-height: 300px;
@@ -86,6 +86,47 @@ body{
 
 
 
+
+
+/* EDITAR CADASTRO */
+/* .editProfile {
+  background: #7c7c7c;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+}
+.edicao{
+  background-color: #F3F3F3;
+  color: #7c7511;
+  width: fit-content;
+  align-items: center;
+}
+.textprofile{
+  font-family: 'Public Sans', sans-serif;
+  padding-top: 2vh;
+}
+.labels{
+  font-family: 'Public Sans', sans-serif;
+}
+.form-control{
+  width: 50vh;
+}
+.botaoEdicao{
+  display: block;
+  font-size: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #F3F3F3;
+  background-color: #7c7511;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10vh;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+} */
 
 
 

@@ -30,7 +30,6 @@
   </div>
 </nav>
 <!-- ESCOLAS CADASTRADAS -->
-          <div id="home" class="home">
             <div id="registeredSchools" class="schools" style="display: none;">
               <div class="row">
                 <div class="col-1">
@@ -50,7 +49,7 @@
               </div>
             </div>             
 <!-- PAGINA INICIAL -->
-  <div class="profile" id="profile">
+  <div class="profile teste" id="profile">
     <div class="main-body">
       <div class="row align-items-center" >
         <div class="col-sm-3">
@@ -88,6 +87,33 @@
       </div><!--ROW -->
     </div><!--MAIN-BODY -->
 </div><!--PROFILE -->
+<!-- EDITAR CADASTRO -->
+<div class="container" id="editProfile" style="display: none;">
+  <div class="row edicao">
+      <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://bootdey.com/img/Content/avatar/avatar7.png"><span class="textprofile">Nome</span><span class="textprofile">Email</span><span> </span></div>
+          <div class="mt-5 text-center"><button class="botaoEdicao" type="button">Save Profile</button></div>
+      </div>
+      <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="text-right">Edição de cadastro</h4>
+              </div>
+              <div class="row mt-2">
+                  <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Nome" value=""></div>
+              </div>
+              <div class="row mt-3">
+                  <div class="col-md-12"><label class="labels">Nome da escola</label><input type="text" class="form-control" placeholder="qual é o nome da escola?" value=""></div>        <!-- Rede: sem nada - Falconi: sem nada --> 
+                  <div class="col-md-12"><label class="labels">Rede que pertence</label><input type="text" class="form-control" placeholder="qual rede a escola pertence" value=""></div>     <!-- Rede: tipo de rede - Falconi: sem nada -->
+                  <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="qual cidade" value=""></div>    <!-- Rede: cidade - Falconi: sem nada -->
+                  <div class="col-md-12"><label class="labels">Estado</label><input type="text" class="form-control" placeholder="qual estado" value=""></div>    <!-- Rede: cidade - Falconi: sem nada -->
+                  <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="seu email" value=""></div>       <!-- Rede: email - Falconi: email -->
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- EDIÇÃO DE QUESTIONÁRIO -->
         <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
           <h1 class="text-black">Editar Questionário</h1>
@@ -96,7 +122,6 @@
           <br>
         </div>
   
-  </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
