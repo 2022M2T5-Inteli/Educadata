@@ -245,7 +245,7 @@ var sql = 'SELECT * FROM Escola ORDER BY idEscola COLLATE NOCASE';
 app.post('/escola/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
+  
 // Inserir no código:
   sql = "INSERT INTO Escola (idEscola, Instituicao, Estado, Endereco, Cidade, NumeroAlunos, NumeroFuncionarios, idRede) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
