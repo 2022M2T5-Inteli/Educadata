@@ -15,15 +15,16 @@ app.use(express.json())
 
 /* Definição dos endpoints */
 
-/****** CRUD - endpoint da tabela Diagnóstico Eixo *****************************************/
+
+/****** CRUD - endpoint da tabela Questionário *****************************************/
 
 // Retorna todos registros (é o R do CRUD - Read)
-app.get('/diagnosticoEixo/users', (req, res) => {
+app.get('/questionario/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
   var db = new sqlite3.Database(DBPATH); // Abre o banco
-var sql = 'SELECT * FROM DiagnosticoEixo ORDER BY idDiagnostico COLLATE NOCASE';
+var sql = 'SELECT * FROM Questionario ORDER BY idQuestionario COLLATE NOCASE';
   db.all(sql, [],  (err, rows ) => {
       if (err) {
           throw err;
@@ -33,18 +34,19 @@ var sql = 'SELECT * FROM DiagnosticoEixo ORDER BY idDiagnostico COLLATE NOCASE';
   db.close(); // Fecha o banco
 });
 
+
 // Insere um registro (é o C do CRUD - Create)
-app.post('/diagnosticoEixo/userinsert', urlencodedParser, (req, res) => {
+app.post('/questionario/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 // Inserir no código:
-  sql = "INSERT INTO DiagnosticoEixo (idDiagnostico, Diagnostico, Aconselhamento) VALUES (?, ?, ?)";
+  sql = "INSERT INTO Questionario (idQuestionario, Questionario) VALUES (?, ?)";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
-  params.push(req.body.idDiagnostico);
-  params.push(req.body.Diagnostico);
-  params.push(req.body.Aconselhamento);
+  params.push(req.body.idQuestionario);
+  params.push(req.body.questionario);
+
 
   db.run(sql, params,  err => {
       if (err) {
@@ -55,15 +57,15 @@ app.post('/diagnosticoEixo/userinsert', urlencodedParser, (req, res) => {
   res.end();
 });
 
-/****** CRUD - endpoint da Tabela Diagnostico_Eixo_Escola *****************************************/
+/****** CRUD - endpoint da tabela Diagnostico *****************************************/
 
 // Retorna todos registros (é o R do CRUD - Read)
-app.get('/diagnosticoEixoEscola/users', (req, res) => {
+app.get('/diagnostico/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
   var db = new sqlite3.Database(DBPATH); // Abre o banco
-var sql = 'SELECT * FROM Diagnostico_Eixo_Escola ORDER BY idDiagnostico COLLATE NOCASE';
+var sql = 'SELECT * FROM Diagnostico ORDER BY idDiagnostico COLLATE NOCASE';
   db.all(sql, [],  (err, rows ) => {
       if (err) {
           throw err;
@@ -75,95 +77,12 @@ var sql = 'SELECT * FROM Diagnostico_Eixo_Escola ORDER BY idDiagnostico COLLATE 
 
 
 // Insere um registro (é o C do CRUD - Create)
-app.post('/diagnosticoEixoEscola/userinsert', urlencodedParser, (req, res) => {
+app.post('/diagnostico/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 // Inserir no código:
-  sql = "INSERT INTO Diagnostico_Eixo_Escola (idDiagnostico, idEixo, idEscola, notaEscola) VALUES (?, ?, ?, ?)";
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var params = []
-  params.push(req.body.idDiagnostico);
-  params.push(req.body.idEixo);
-  params.push(req.body.idEscola);
-  params.push(req.body.notaEscola);
-
-  db.run(sql, params,  err => {
-      if (err) {
-          throw err;
-      }
-  });
-  db.close(); // Fecha o banco
-  res.end();
-});
-
-/****** CRUD - endpoint da tabela Diagnostico_Questionario*****************************************/
-
-// Retorna todos registros (é o R do CRUD - Read)
-app.get('/diagnosticoQuestionario/users', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-var sql = 'SELECT * FROM Diagnostico_Questionario ORDER BY idDiagnostico COLLATE NOCASE';
-  db.all(sql, [],  (err, rows ) => {
-      if (err) {
-          throw err;
-      }
-      res.json(rows);
-  });
-  db.close(); // Fecha o banco
-});
-
-
-// Insere um registro (é o C do CRUD - Create)
-app.post('/diagnosticoQuestionario/userinsert', urlencodedParser, (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-// Inserir no código:
-  sql = "INSERT INTO Diagnostico_Questionario (idDiagnostico, Diagnostico, Aconselhamento) VALUES (?, ?, ?)";
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var params = []
-  params.push(req.body.idDiagnostico);
-  params.push(req.body.Diagnostico);
-  params.push(req.body.Aconselhamento);
-
-  db.run(sql, params,  err => {
-      if (err) {
-          throw err;
-      }
-  });
-  db.close(); // Fecha o banco
-  res.end();
-});
-
-/****** CRUD - endpoint da tabela Diagnostico_Questionario_Escola *****************************************/
-
-// Retorna todos registros (é o R do CRUD - Read)
-app.get('/diagnosticoQuestionarioEscola/users', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-var sql = 'SELECT * FROM Diagnostico_Questionario_Escola ORDER BY idDiagnostico COLLATE NOCASE';
-  db.all(sql, [],  (err, rows ) => {
-      if (err) {
-          throw err;
-      }
-      res.json(rows);
-  });
-  db.close(); // Fecha o banco
-});
-
-
-// Insere um registro (é o C do CRUD - Create)
-app.post('/diagnosticoquestionarioEscola/userinsert', urlencodedParser, (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-// Inserir no código:
-  sql = "INSERT INTO Diagnostico (idDiagnostico, idEscola, idQuestionario, notaQuestionario) VALUES (?, ?, ?, ?)";
+  sql = "INSERT INTO Diagnostico (idDiagnostico, Diagnostico, idMaturidade) VALUES (?, ?, ?)";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
   params.push(req.body.idDiagnostico);
@@ -179,6 +98,7 @@ app.post('/diagnosticoquestionarioEscola/userinsert', urlencodedParser, (req, re
   db.close(); // Fecha o banco
   res.end();
 });
+
 
 /****** CRUD - endpoint da tabela Eixo *****************************************/
 
@@ -328,90 +248,6 @@ var sql = 'SELECT * FROM Maturidade ORDER BY idMaturidade COLLATE NOCASE';
       res.json(rows);
   });
   db.close(); // Fecha o banco
-});
-
-
-/****** CRUD - endpoint da tabela Questionário *****************************************/
-
-// Retorna todos registros (é o R do CRUD - Read)
-app.get('/questionario/users', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-var sql = 'SELECT * FROM Questionario ORDER BY idQuestionario COLLATE NOCASE';
-  db.all(sql, [],  (err, rows ) => {
-      if (err) {
-          throw err;
-      }
-      res.json(rows);
-  });
-  db.close(); // Fecha o banco
-});
-
-
-// Insere um registro (é o C do CRUD - Create)
-app.post('/questionario/userinsert', urlencodedParser, (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-// Inserir no código:
-  sql = "INSERT INTO Questionario (idQuestionario, Questionario) VALUES (?, ?)";
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var params = []
-  params.push(req.body.idQuestionario);
-  params.push(req.body.questionario);
-
-
-  db.run(sql, params,  err => {
-      if (err) {
-          throw err;
-      }
-  });
-  db.close(); // Fecha o banco
-  res.end();
-});
-
-/****** CRUD - endpoint da tabela Diagnostico *****************************************/
-
-// Retorna todos registros (é o R do CRUD - Read)
-app.get('/diagnostico/users', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-var sql = 'SELECT * FROM Diagnostico ORDER BY idDiagnostico COLLATE NOCASE';
-  db.all(sql, [],  (err, rows ) => {
-      if (err) {
-          throw err;
-      }
-      res.json(rows);
-  });
-  db.close(); // Fecha o banco
-});
-
-
-// Insere um registro (é o C do CRUD - Create)
-app.post('/diagnostico/userinsert', urlencodedParser, (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-// Inserir no código:
-  sql = "INSERT INTO Diagnostico (idDiagnostico, Diagnostico, idMaturidade) VALUES (?, ?, ?)";
-  var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var params = []
-  params.push(req.body.idDiagnostico);
-  params.push(req.body.Diagnostico);
-  params.push(req.body.idMaturidade);
-
-
-  db.run(sql, params,  err => {
-      if (err) {
-          throw err;
-      }
-  });
-  db.close(); // Fecha o banco
-  res.end();
 });
 
 
