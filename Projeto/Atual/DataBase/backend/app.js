@@ -206,7 +206,7 @@ app.post('/eixo/userinsert', urlencodedParser, (req, res) => {
 });
 
 /****** CRUD - endpoint da tabela Endereço*****************************************/
-app.get('/eixo/users', (req, res) => {
+app.get('/endereco/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -229,9 +229,14 @@ app.post('/endereco/userinsert', urlencodedParser, (req, res) => {
   sql = "INSERT INTO Eixo (idEndereco, Pais, Estado, Cidade, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
-  params.push(req.body.idEixo);
-  params.push(req.body.Eixo);
-  params.push(req.body.idQuestionario);
+  params.push(req.body.idEndereco);
+  params.push(req.body.Pais);
+  params.push(req.body.Estado);
+  params.push(req.body.Cidade);
+  params.push(req.body.Bairro);
+  params.push(req.body.Rua);
+  params.push(req.body.Numero);
+  params.push(req.body.Complemento);
 
 
   db.run(sql, params,  err => {
