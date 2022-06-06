@@ -65,7 +65,8 @@ app.post('/diagnosticoEixo/:idDiagnostico', (req, res) => {
     if (err) return console.error(err.message); 
   });
 
-  db.close
+  db.close();
+  res.end();
 });
 
 // Delete
@@ -79,6 +80,7 @@ app.delete('/diagnosticoEixo/:idDiagnostico', (req, res) => {
   })
 
   db.close();
+  res.end();
 });
 
 /****** CRUD - endpoint da Tabela Diagnostico_Eixo_Escola *****************************************/
