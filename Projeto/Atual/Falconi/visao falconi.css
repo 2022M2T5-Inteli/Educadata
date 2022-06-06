@@ -181,11 +181,74 @@ body{
 }
 
 
+/* Editar Questionário */
+.questionBtn{
+  margin-bottom: 7px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  border-radius: 3px;
+  border: 1.5px solid rgb(205, 205, 205);
+  background-color: var(--black);
+  margin: 2px;
+}
 
+.question_Btn:hover{
+  cursor: pointer;
+  background-color: var(--primary-color);
+}
 
+.answers_Btn{
+  color: white;
+  background-color: var(--black);
+  border: 1px groove white;
+  width: 27rem;
+  height: 3rem;
+}
 
+.answers_Btn:hover{
+  cursor: pointer;
+  background-color: var(--primary-color);
+}
 
+.modifyBtn{
+  border-radius: 100px;
+  margin: 1px;
+  width: 2vw;
+  height: 2vw;
+}
 
+.addQuestion{
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  height: fit-content;
+  margin: 2px;
+  max-width: 50vw;
+}
+
+.weightAxleSize{
+  width: 10vw;
+}
+
+.buttonShow{
+  position: static;
+  background-color: #0D6EFD;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 1vw;
+  margin-top: 1vh;
+  float: right;
+}
+
+.axleShow{
+  position: relative;
+  margin-top: 1px;
+}
+
+.buttonShow, .questionShow{
+  display: inline-block;
+}
 
 
 

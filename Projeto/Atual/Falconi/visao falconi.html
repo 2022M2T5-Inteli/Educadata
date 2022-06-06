@@ -115,17 +115,35 @@
   </div>
 </div>
 <!-- EDIÇÃO DE QUESTIONÁRIO -->
-        <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
-          <h1 class="text-black">Editar Questionário</h1>
-          <br>
-          <button onclick="addQuestion()" class="addQuestion">Adicionar Pergunta</button>
-          <br>
+<center>
+  <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
+    <h1 class="text-black">Editar Questionário</h1>
+    <br>
+    <button onclick="addQuestion()" class="addQuestion">Adicionar Pergunta</button>
+    <br>
+    <div class="modal fade" id="falconiModal">
+      <div class="modal-dialog padding-top-5">
+        <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title"">Editor de respostas</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div id="modalBody" class="modal-body">
+            <button class="borderRadius addAnswer btn" onclick="addAnswer()">+</button>
+          </div>
+          <div class="modal-footer">
+            <button class="modalBtn fontColorGray fontGeneva">Redefinir</button>
+            <button class="modalBtn fontColorBlue fontGeneva" onclick="saveAnswers()">Salvar Mudanças</button>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</center>
   
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script type="text/javascript" src="visao falconi.js"></script>
-        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+        <script src="visao falconi.js"></script>
     </body>
 </html>

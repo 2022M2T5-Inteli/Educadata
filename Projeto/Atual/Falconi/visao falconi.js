@@ -11,21 +11,23 @@ var allPoints = [
 ];
 var teaching = 0;
 var people = 0;
-  var questions = []
-var QuestaoMatriz = {
+var questions = []
+var questaoMatriz = {
   pergunta: "null",
   eixo: 1,
   peso: 1,
   respostas: []
 }
+var respostaMatriz = {
+  resposta: "null",
+  valor: 1
+}
 var quest = 0
-var graphHeptagon = 0
+var answ = 0
 
 
 //Passa  para a próxima questão, faz o cálculo de pontos e soma os pontos na variável do eixo da pergunta
 function passar(i) {
-  console.log(multiplier)
-  console.log(i)
   if (currentQuestion <= questions.length){
     answerButtonBeingUsed = true
     document.getElementById("getQuestion" + currentQuestion).disabled = false;
@@ -98,7 +100,16 @@ function mudarQuestao(i, a) {
   else{
     answerButtonBeingUsed = false
   }
-  console.log(multiplier)
+  for(var a = 0; a < questions[i].respostas.length; a++){
+    var questionAnswers = {
+      answer: document.createElement("button")
+    };
+    questionAnswers.answer.setAttribute("onclick", "passar(" + a + ")");
+    questionAnswers.answer.setAttribute("id", "button" + a);
+    questionAnswers.answer.setAttribute("class", "answers_Btn");
+    questionAnswers.answer.textContent = questions[i].respostas[a].resposta
+    document.getElementById("questions").appendChild(questionAnswers.answer);
+  }
 }
 
 
@@ -181,7 +192,6 @@ function next(){
     document.getElementById('heptagonGraph'),
     config
   );
-  heptagonGraph.push(graphHeptagon);
 }
 
 
@@ -215,16 +225,38 @@ function editProfileBtn(){
   document.getElementById("editProfile").style.display = "block";
 }
 
+
 //Cria uma pergunta nova na array "questions[]"
 function addQuestion(){
   var addNewQuestion = {
+    questionShowDiv: document.createElement("div"),
+    questionShow: document.createElement("p"),
+    axleShow: document.createElement("p"),
+    buttonShow: document.createElement("button"),
+    questionDiv: document.createElement("div"),
     question: document.createElement("input"),
     axle: document.createElement("select"),
     weight: document.createElement("input"),
+    answers: document.createElement("button"),
     confirm: document.createElement("button"),
     erase: document.createElement("button"),
-    jump: document.createElement("p"),
+    jump: document.createElement("p")
   };
+  addNewQuestion.questionShowDiv.setAttribute("id", "questionShowDivID" + quest);
+  addNewQuestion.questionShowDiv.setAttribute("class", "addQuestion");
+  addNewQuestion.questionShowDiv.style.backgroundColor = "#FFFFFF";
+  addNewQuestion.questionShow.setAttribute("id", "questionShowID" + quest);
+  addNewQuestion.questionShow.setAttribute("class", "questionShow")
+  addNewQuestion.questionShow.innerHTML = "Pergunta " + (quest + 1) + ". voce e do rock?";
+  addNewQuestion.axleShow.setAttribute("id", "axleShowID" + quest);
+  addNewQuestion.axleShow.setAttribute("class", "weightAxleSize axleShow");
+  addNewQuestion.axleShow.innerHTML = "Eixo: 1";
+  addNewQuestion.buttonShow.setAttribute("id", "buttonShowID" + quest);
+  addNewQuestion.buttonShow.setAttribute("class", "buttonShow float-right");
+  addNewQuestion.buttonShow.setAttribute("data-bs-toggle", "modal");
+  addNewQuestion.buttonShow.setAttribute("data-bs-target", "#falconiModal");
+  addNewQuestion.buttonShow.setAttribute("onclick", "editQuestion(" + quest + ")");
+  addNewQuestion.questionDiv.setAttribute("id", "questionDivID" + quest);
   addNewQuestion.question.setAttribute("type", "text");
   addNewQuestion.question.setAttribute("id", "questionID" + quest);
   addNewQuestion.question.setAttribute("class", "addQuestion");
@@ -235,27 +267,34 @@ function addQuestion(){
   addNewQuestion.weight.setAttribute("id", "weightID" + quest);
   addNewQuestion.weight.setAttribute("placeholder", "Peso");
   addNewQuestion.weight.setAttribute("class", "addQuestion weightAxleSize");
+  addNewQuestion.answers.setAttribute("id", "answersID" + quest);
+  addNewQuestion.answers.setAttribute("class", "modifyBtn");
+  addNewQuestion.answers.setAttribute("data-bs-toggle", "modal");
+  addNewQuestion.answers.setAttribute("data-bs-target", "#falconiModal");
+  addNewQuestion.answers.setAttribute("onclick", "editQuestion(" + quest + ")");
   addNewQuestion.confirm.setAttribute("onclick", "confirmQuestion(" + quest + ")");
   addNewQuestion.confirm.setAttribute("id", "confirmID" + quest);
   addNewQuestion.confirm.setAttribute("class", "modifyBtn");
   addNewQuestion.confirm.style.backgroundColor = "#7CFC00";
-  addNewQuestion.confirm.style.width = "25px";
-  addNewQuestion.confirm.style.height = "25px";
   addNewQuestion.erase.setAttribute("onclick", "eraseQuestion(" + quest + ")");
   addNewQuestion.erase.setAttribute("id", "eraseID" + quest);
   addNewQuestion.erase.setAttribute("class", "modifyBtn");
   addNewQuestion.erase.style.backgroundColor = "#FF0000";
-  addNewQuestion.erase.style.width = "25px";
-  addNewQuestion.erase.style.height = "25px";
   addNewQuestion.jump.innerHTML = "</br>";
   addNewQuestion.jump.setAttribute("id", "jumpID" + quest);
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.jump);
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.question);
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.axle);
+  document.getElementById("surveyEdit").appendChild(addNewQuestion.questionShowDiv);
+  document.getElementById("questionShowDivID" + quest).appendChild(addNewQuestion.buttonShow);
+  document.getElementById("questionShowDivID" + quest).appendChild(addNewQuestion.questionShow);
+  document.getElementById("questionShowDivID" + quest).appendChild(addNewQuestion.axleShow);
+  document.getElementById("falconiModal").appendChild(addNewQuestion.questionDiv);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.jump);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.question);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.axle);
   document.getElementById("axleID" + quest).innerHTML = "<option value='1'>Eixo 1</option><option value='2'>Eixo 2</option><option value='3'>Eixo 3</option><option value='4'>Eixo 4</option><option value='5'>Eixo 5</option><option value='6'>Eixo 6</option><option value='7'>Eixo 7</option>"
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.weight);
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.confirm);
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.erase);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.weight);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.answers);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.confirm);
+  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.erase);
   confirmQuestion(quest)
   quest ++;
 }
@@ -270,7 +309,7 @@ function loadSurvey(){
     getQuestion.setAttribute("onmouseover", "mouseOver(" + i + ")");
     getQuestion.setAttribute("onmouseout", "mouseOut(" + i + ")");
     document.getElementById("questions").appendChild(getQuestion);
-    document.getElementById("getQuestion" + i).innerHTML = i + 1;
+    document.getElementById("getQuestion" + i).textContent = i + 1;
   }
   var jump = document.createElement("p")
   document.getElementById("questions").appendChild(jump);
@@ -287,7 +326,7 @@ function loadSurvey(){
 
 //Edita a questão ao clicar no botão verde
 function confirmQuestion(i){
-  var objetoCriado = Object.create(QuestaoMatriz);
+  var objetoCriado = Object.create(questaoMatriz);
   objetoCriado.pergunta = document.getElementById("questionID" + i).value;
   objetoCriado.eixo = document.getElementById("axleID" + i).value;
   objetoCriado.peso = document.getElementById("weightID" + i).value;
@@ -303,12 +342,13 @@ function confirmQuestion(i){
 
 //Deleta a questão
 function eraseQuestion(i){
-  document.getElementById("surveyEdit").removeChild(document.getElementById("questionID" + i));
-  document.getElementById("surveyEdit").removeChild(document.getElementById("axleID" + i));
-  document.getElementById("surveyEdit").removeChild(document.getElementById("weightID" + i));
-  document.getElementById("surveyEdit").removeChild(document.getElementById("confirmID" + i));
-  document.getElementById("surveyEdit").removeChild(document.getElementById("eraseID" + i));
-  document.getElementById("surveyEdit").removeChild(document.getElementById("jumpID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("questionDivID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("axleID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("weightID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("answersID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("confirmID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("eraseID" + i));
+  document.getElementById("falconiModal").removeChild(document.getElementById("jumpID" + i));
   for (var a = i; a < questions.length - 1; a++){
     questions[a].pergunta = questions[a+1].pergunta;
     questions[a].eixo = questions[a+1].eixo;
@@ -317,6 +357,8 @@ function eraseQuestion(i){
     document.getElementById("questionID" + a).setAttribute("placeholder", "Digite a pergunta " + (a + 1));
     document.getElementById("axleID" + (a + 1)).id = "axleID" + a;
     document.getElementById("weightID" + (a + 1)).id = "weightID" + a;
+    document.getElementById("answersID" + (a + 1)).setAttribute("onclick", "editQuestion(" + a + ")");
+    document.getElementById("answersID" + (a + 1)).id = "answersID" + a;
     document.getElementById("confirmID" + (a + 1)).setAttribute("onclick", "confirmQuestion(" + a + ")");
     document.getElementById("confirmID" + (a + 1)).id = "confirmID" + a;
     document.getElementById("eraseID" + (a + 1)).setAttribute("onclick", "eraseQuestion(" + a + ")");
@@ -333,8 +375,98 @@ function resetSurvey(){
   for (var i = 0; i < questions.length; i++){
     document.getElementById("questions").removeChild(document.getElementById("getQuestion" + i));
     document.getElementById("questions").removeChild(document.getElementById("question" + i));
+    for(var a = 0; a < questions[i].respostas.length; a++){
+      document.getElementById("questions").removeChild(document.getElementById("button" + a));
+    }
   }
   currentQuestion = 0;
   lastQuestion = 0;
 }
 
+function editQuestion(i){
+  answ = i
+  for(var a = 0; a < questions[answ].respostas.length; a++){
+    var addNewAnswer = {
+      answer: document.createElement("input"),
+      value: document.createElement("input"),
+      erase: document.createElement("button")
+    };
+    addNewAnswer.answer.setAttribute("type", "text");
+    addNewAnswer.answer.setAttribute("id", "answerID" + a);
+    addNewAnswer.answer.setAttribute("class", "addQuestion");
+    addNewAnswer.answer.setAttribute("placeholder", "Resposta " + (a + 1));
+    addNewAnswer.value.setAttribute("type", "number");
+    addNewAnswer.value.setAttribute("id", "valueID" + a);
+    addNewAnswer.value.setAttribute("placeholder", "Peso");
+    addNewAnswer.value.setAttribute("class", "addQuestion weightAxleSize");
+    addNewAnswer.erase.setAttribute("onclick", "eraseAnswer(" + a + ")");
+    addNewAnswer.erase.setAttribute("id", "eraseAnswerID" + a);
+    addNewAnswer.erase.setAttribute("class", "modifyBtn");
+    addNewAnswer.erase.style.backgroundColor = "#FF0000";
+    document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.answer);
+    document.getElementById("answerID" + a).value = questions[answ].respostas.resposta[a]
+    document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.value);
+    document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.erase);
+  }
+}
+
+function addAnswer(){
+  var addNewAnswer = {
+    answer: document.createElement("input"),
+    value: document.createElement("input"),
+    erase: document.createElement("button")
+  };
+  for(var a = 0; a < questions[answ].respostas.length; a++){}
+  addNewAnswer.answer.setAttribute("type", "text");
+  addNewAnswer.answer.setAttribute("id", "answerID" + a);
+  addNewAnswer.answer.setAttribute("class", "addQuestion");
+  addNewAnswer.answer.setAttribute("placeholder", "Resposta " + (a + 1));
+  addNewAnswer.value.setAttribute("type", "number");
+  addNewAnswer.value.setAttribute("id", "valueID" + a);
+  addNewAnswer.value.setAttribute("placeholder", "Peso");
+  addNewAnswer.value.setAttribute("class", "addQuestion weightAxleSize");
+  addNewAnswer.erase.setAttribute("onclick", "eraseAnswer(" + a + ")");
+  addNewAnswer.erase.setAttribute("id", "eraseAnswerID" + a);
+  addNewAnswer.erase.setAttribute("class", "modifyBtn");
+  addNewAnswer.erase.style.backgroundColor = "#FF0000";
+  document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.answer);
+  document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.value);
+  document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.erase);
+  var objetoCriado = Object.create(respostaMatriz);
+  objetoCriado.pergunta = document.getElementById("answerID" + a).value;
+  objetoCriado.valor = document.getElementById("valueID" + a).value;
+  questions[answ].respostas.push(objetoCriado);
+  console.log(questions[answ])
+}
+
+function eraseAnswer(i){
+  document.getElementById("questionShowDivID" + i).removeChild(document.getElementById("answerID" + i));
+  document.getElementById("questionShowDivID" + i).removeChild(document.getElementById("valueID" + i));
+  document.getElementById("questionShowDivID" + i).removeChild(document.getElementById("eraseAnswerID" + i));
+  for (var a = i; a < questions[answ].respostas.length - 1; a++){
+    questions[answ].respostas[a] = questions[answ].respostas[a+1];
+    document.getElementById("answerID" + (a + 1)).id = "answerID" + a
+    document.getElementById("answerID" + a).setAttribute("placeholder", "Pergunta " + (a +1))
+    document.getElementById("valueID" + (a + 1)).id = "valueID" + a
+    document.getElementById("eraseAnswerID" + (a + 1)).id = "eraseAnswerID" + a
+    document.getElementById("eraseAnswerID" + a).setAttribute("onclick", "eraseAnswer(" + a + ")");
+  }
+  questions[answ].respostas.pop();
+}
+
+function resetSurveyEdit(){
+  console.log("bonk survey")
+  for(var a = 0; a < questions[answ].respostas.length; a++){
+    document.getElementById("questionShowDivID" + answ).removeChild(document.getElementById("answerID" + a));
+    document.getElementById("questionShowDivID" + answ).removeChild(document.getElementById("valueID" + a));
+    document.getElementById("questionShowDivID" + answ).removeChild(document.getElementById("eraseAnswerID" + a));
+  }
+}
+
+function saveAnswers(){
+  console.log("bonk 2 save")
+  for(i = 0; i < questions[answ].respostas.length; i++){
+    questions[answ].respostas[i].resposta = document.getElementById("answerID" + i).value;
+  }
+  document.getElementById("falconiModal").style.overflow = "hidden"
+}
