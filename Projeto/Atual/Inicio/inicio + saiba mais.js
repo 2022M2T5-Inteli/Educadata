@@ -11,7 +11,7 @@ function knowMoreBtn(){
 var modal = document.getElementById("loginModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("botao");
+var btn = document.getElementById("btn_login");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
