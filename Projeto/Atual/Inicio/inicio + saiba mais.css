@@ -22,7 +22,7 @@ body{
   color: #7c7511 !important;
   font-weight: 700;
   margin-left: 2vw;
-  font-size: 2vmax;
+  font-size: 1.55vmax;
 }
 
 .navbar{
@@ -40,7 +40,7 @@ body{
 }
 
 .quemsomos{
-    font-size: 3.7em; 
+    font-size: 3.7em;
 }
 .middle{
     display: flex;
@@ -75,13 +75,13 @@ body{
     font-family: 'Public Sans', sans-serif;
     font-style: 'thin';
     color: #7c7511;
-    font-weight: 800;
+    font-weight: bolder;
     border-radius: 10px;
     border: none;
-    padding-top: 0.9vh;
-    padding-bottom: 0.9vh;
-    padding-left: 2.5vh;
-    padding-right: 2.5vh;
+    padding-top: 0.7vh;
+    padding-bottom: 0.7vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
 }
 .botao:hover{
   background-color: #C4C4C4;
@@ -204,15 +204,9 @@ body{
   cursor: pointer;
 }
 
-#btn_login{
-  height: 2.5vh;
-  width: 2.5vw;
-  position: fixed;
-  right: 1vw;
-  padding-top: 1vh;
-}
 
-/* TELA DE SAIBA MAIS */
+
+
 
 
 .knowMore{
@@ -393,7 +387,6 @@ body{
     color: #7c7511;
     display: block;
     font-family: 'Public Sans', sans-serif;
-    font-weight: 900;
     font-size: 1.75rem;
     line-height: 1;
     letter-spacing: .045em;
@@ -413,7 +406,7 @@ body{
     display: block;
     font-family: 'Public Sans', sans-serif;
     font-size: 6rem;
-    font-weight: 900;
+    font-weight: bold;
     left: 0;
     top: 0;
     opacity: .25;
@@ -431,10 +424,6 @@ body{
   /* .nav--header-1 > .nav__item.nav__item--active .nav--header-2 {
     visibility: visible;
   } */
-
-  .navContent{
-    font-weight: 900;
-  }
   
   .nav--header-1 .nav__item--home {
     background-position: 0px 50%;
