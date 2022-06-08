@@ -387,7 +387,18 @@ app.get('/gestor/userupdate', urlencodedParser, (req, res) => {
 });
 
 //Delete
-app.get
+app.get('/gestor/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Gestor WHERE idGestor =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idGestor;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
+  db.close();
+  res.end();
+});
 
 
 /****** CRUD - endpoint da tabela Maturidade *****************************************/
