@@ -446,6 +446,45 @@ app.post('/escola/userinsert', urlencodedParser, (req, res) => {
   res.end();
 });
 
+
+//Update
+app.get('/escola/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+// Inserir no código:
+  sql =   'UPDATE Escola SET Instituição=?, nAluno=?, nFuncionario=?, idRede=?,  WHERE idEsdereço=?';
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = []
+  params.push(req.body.Instituicao);
+  params.push(req.body.nAluno);
+  params.push(req.body.nFuncionario);
+  params.push(req.body.idRede);
+  params.push(req.body.idEndereco);
+  params.push(req.body.idEscola);
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
+
+//Delete
+app.get('/escola/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Escola WHERE idEscola =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idEscola;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
+  db.close();
+  res.end();
+});
+
 /****** CRUD - endpoint da tabela Gestor *****************************************/
 app.get('/gestor/users', (req, res) => {
   res.statusCode = 200;
@@ -481,6 +520,42 @@ app.post('/gestor/userinsert', urlencodedParser, (req, res) => {
           throw err;
       }
   });
+  db.close();
+  res.end();
+});
+
+//Update
+app.get('/gestor/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+// Inserir no código:
+  sql =   'UPDATE Gestor SET Cargo=?, Nome=?, idEscola=? WHERE idGestor=?';
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = []
+  params.push(req.body.Cargo);
+  params.push(req.body.Nome);
+  params.push(req.body.idEscola);
+  params.push(req.body.idGestor);
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
+
+//Delete
+app.get('/gestor/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Gestor WHERE idGestor =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idGestor;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
   db.close();
   res.end();
 });
