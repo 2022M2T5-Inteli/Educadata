@@ -56,11 +56,13 @@ app.post('/diagnosticoEixo/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.post('/diagnosticoEixo/:idDiagnostico', (req, res) => {
+app.post('/diagnosticoEixo/:idDiagnostico', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  const sql = 'UPDATE DiagnosticoEixo SET Diagnostico = ? WHERE idDiagnostico  =?'
+  const sql = 'UPDATE DiagnosticoEixo SET Diagnostico = ? WHERE idDiagnostico =?'
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idDiagnostico;
   db.run(sql, ['msg de diagnostico', idDeOndeVamosAlterar], function(err){
     if (err) return console.error(err.message); 
   });
@@ -70,12 +72,14 @@ app.post('/diagnosticoEixo/:idDiagnostico', (req, res) => {
 });
 
 // Delete
-app.delete('/diagnosticoEixo/:idDiagnostico', (req, res) => {
+app.get('/diagnosticoEixo/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-  const sql = "DELETE FROM diagnosticoEixo WHERE idDiagnostico =?"
-  db.run(sql, idDeOndeVamosApagar, function(err){
+  const sql = "DELETE FROM DiagnosticoEixo WHERE idDiagnostico =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = []
+  params.push(req.body.idDiagnostico);
+  db.run("DELETE FROM DiagnosticoEixo WHERE idDiagnostico =", params, function(err){
     if (err) return console.error(err.message);
   })
 
@@ -97,6 +101,7 @@ var sql = 'SELECT * FROM Diagnostico_Eixo_Escola ORDER BY idDiagnostico COLLATE 
       res.json(rows);
   });
   db.close();
+  res.end();
 });
 
 

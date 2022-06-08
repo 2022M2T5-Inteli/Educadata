@@ -10,7 +10,6 @@ const { param } = require('express/lib/request');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static("../frontend/"));
-
 app.use(express.json())
 
 /* Definição dos endpoints */
@@ -45,6 +44,43 @@ app.post('/diagnosticoEixo/userinsert', urlencodedParser, (req, res) => {
   params.push(req.body.idDiagnostico);
   params.push(req.body.Diagnostico);
   params.push(req.body.Aconselhamento);
+
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
+// Delete
+app.get('/diagnosticoEixo/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM DiagnosticoEixo WHERE idDiagnostico =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idDiagnostico;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
+
+  db.close();
+  res.end();
+});
+
+// Update
+app.get('/diagnosticoEixo/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+// Inserir no código:
+  sql =   'UPDATE DiagnosticoEixo SET Diagnostico=?, Aconselhamento=? WHERE idDiagnostico =?';
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = []
+  params.push(req.body.Diagnostico);
+  params.push(req.body.Aconselhamento);
+  params.push(req.body.idDiagnostico);
 
   db.run(sql, params,  err => {
       if (err) {
