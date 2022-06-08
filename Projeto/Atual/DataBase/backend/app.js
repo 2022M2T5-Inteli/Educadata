@@ -272,11 +272,10 @@ app.get('/diagnosticoQuestionarioEscola/userdelete', urlencodedParser, (req, res
 });
 
 
-/****** CRUD - endpoint da tabela Eixo *****************************************/
+/***** CRUD - endpoint da tabela Eixo *****************************************/
 app.get('/eixo/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-
   var db = new sqlite3.Database(DBPATH);
 var sql = 'SELECT * FROM Eixo ORDER BY idEixo COLLATE NOCASE';
   db.all(sql, [],  (err, rows ) => {
@@ -287,20 +286,16 @@ var sql = 'SELECT * FROM Eixo ORDER BY idEixo COLLATE NOCASE';
   });
   db.close();
 });
-
-
 app.post('/eixo/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-
   sql = "INSERT INTO Eixo (idEixo, Eixo, idQuestionario) VALUES (?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idEixo);
   params.push(req.body.Eixo);
   params.push(req.body.idQuestionario);
-
-
+  params.push(req.body.Dominio);
   db.run(sql, params,  err => {
       if (err) {
           throw err;
@@ -309,12 +304,41 @@ app.post('/eixo/userinsert', urlencodedParser, (req, res) => {
   db.close();
   res.end();
 });
+app.get('/eixo/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  sql = "UPDATE Eixo SET Eixo=?, idQuestionario=?, Dominio=? WHERE idEixo=? ";
+  var db = new sqlite3.Database(DBPATH);
+  var params = []
+  params.push(req.body.Eixo);
+  params.push(req.body.idQuestionario);
+  params.push(req.body.Dominio);
+  params.push(req.body.idEixo);
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close();
+  res.end();
+});
+app.get('/eixo/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Eixo WHERE idEixo =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idEixo;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
+  db.close();
+  res.end();
+});
 
 /****** CRUD - endpoint da tabela Endereço*****************************************/
 app.get('/endereco/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-
   var db = new sqlite3.Database(DBPATH);
 var sql = 'SELECT * FROM Endereco ORDER BY idEndereco COLLATE NOCASE';
   db.all(sql, [],  (err, rows ) => {
@@ -325,13 +349,10 @@ var sql = 'SELECT * FROM Endereco ORDER BY idEndereco COLLATE NOCASE';
   });
   db.close();
 });
-
-
 app.post('/endereco/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-
-  sql = "INSERT INTO Eixo (idEndereco, Pais, Estado, Cidade, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?)";
+  sql = "INSERT INTO Endereco (idEndereco, Pais, Estado, Cidade, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idEndereco);
@@ -342,13 +363,45 @@ app.post('/endereco/userinsert', urlencodedParser, (req, res) => {
   params.push(req.body.Rua);
   params.push(req.body.Numero);
   params.push(req.body.Complemento);
-
-
   db.run(sql, params,  err => {
       if (err) {
           throw err;
       }
   });
+  db.close();
+  res.end();
+});
+app.get('/endereco/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  sql = "UPDATE Endereco SET Pais=?, Estado=?, Cidade=?, Bairro=?, Rua=?, Numero=?, Complemento=? WHERE idEndereco=? ";
+  var db = new sqlite3.Database(DBPATH);
+  var params = []
+  params.push(req.body.Pais);
+  params.push(req.body.Estado);
+  params.push(req.body.Cidade);
+  params.push(req.body.Bairro);
+  params.push(req.body.Rua);
+  params.push(req.body.Numero);
+  params.push(req.body.Complemento);
+  params.push(req.body.idEndereco);
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close();
+  res.end();
+});
+app.get('/endereco/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Endereco WHERE idEndereco =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idEndereco;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
   db.close();
   res.end();
 });
