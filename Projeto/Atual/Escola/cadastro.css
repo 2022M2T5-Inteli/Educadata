@@ -73,7 +73,7 @@
     margin-top: 1rem;
 }
 .btn-primary {
-    background-color: transparent;
+    background-color: #7c7511;
     border: 1px solid #fff;
     transition: background-color .5s;
 }
@@ -81,39 +81,11 @@
     background-color: #fff;
     color: #7c7511;
 }
-.btn-second {
-    background-color: #7c7511;
-    border: 1px solid #7c7511;
-    transition: background-color .5s;
-    text-align: start;
-}
-.btn-second:hover {
-    background-color: #fff;
-    border: 1px solid #7c7511;
-    color: #7c7511;
-}
 
 .cadastroEscola{
     background-color: #7c7c7c6c;
 }
 
-.first-content {
-    display: flex;
-}
-.first-content .second-column {
-    z-index: 11;
-}
-.first-column {
-    text-align: center;
-    width: 40%;
-    z-index: 10;
-}
-.second-column {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .form {
     display: flex;
     flex-direction: column;
@@ -122,7 +94,6 @@
 .form input {
     height: 45px;
     width: 100%;
-    border: none;
     background-color: #ecf0f1;
 }
 .label-input {
@@ -131,12 +102,4 @@
     align-items: center;
     margin: 8px;
     border-radius: 10px;
-}
-.icon-modify {
-    color: #7C7C7C;
-    padding: 0 5px;
-}
-#icon{
-    padding-left: 1vh;
-    padding-right: 1vh;
 }

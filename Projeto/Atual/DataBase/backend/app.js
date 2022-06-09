@@ -112,13 +112,13 @@ app.post('/diagnosticoEixoEscola/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  sql = "INSERT INTO Diagnostico_Eixo_Escola (idDiagnostico, idEixo, idEscola, notaEscola) VALUES (?, ?, ?, ?)";
+  sql = "INSERT INTO Diagnostico_Eixo_Escola (idDiagnostico, idEixo, idEscola, notaEixo) VALUES (?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idDiagnostico);
   params.push(req.body.idEixo);
   params.push(req.body.idEscola);
-  params.push(req.body.notaEscola);
+  params.push(req.body.notaEixo);
 
   db.run(sql, params,  err => {
       if (err) {
@@ -134,7 +134,7 @@ app.post('/diagnosticoEixoEscola/userinsert', urlencodedParser, (req, res) => {
 app.get('/diagnosticoEixoEscola/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-  const sql = "DELETE FROM DiagnosticoEixoEscola WHERE idDiagnostico =?";
+  const sql = "DELETE FROM Diagnostico_Eixo_Escola WHERE idDiagnostico=?";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = req.body.idDiagnostico;
   db.run(sql, params, function(err){
@@ -148,7 +148,7 @@ app.get('/diagnosticoEixoEscola/userdelete', urlencodedParser, (req, res) => {
 app.get('/diagnosticoEixoEscola/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-  sql =   'UPDATE DiagnosticoEixoEscola SET idEixo=?, idEscola=?, notaEixo=? WHERE idDiagnostico=?';
+  sql =   'UPDATE Diagnostico_Eixo_Escola SET idEixo=?, idEscola=?, notaEixo=? WHERE idDiagnostico=?';
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idEixo);
@@ -202,11 +202,12 @@ app.post('/diagnosticoQuestionario/userinsert', urlencodedParser, (req, res) => 
   res.end();
 });
 
+//Update
 app.get('/diagnosticoQuestionario/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql =   'UPDATE Diagnostico_Questionario SET idDiagnostico = ?, Diagnostico = ?, Aconselhamento = ? WHERE idDiagnostico =?';
+  sql =   'UPDATE Diagnostico_Questionario SET Diagnostico=?, Aconselhamento=? WHERE idDiagnostico=?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
   params.push(req.body.Diagnostico);
@@ -222,6 +223,7 @@ app.get('/diagnosticoQuestionario/userupdate', urlencodedParser, (req, res) => {
   res.end();
 });
 
+//Delete
 app.get('/diagnosticoQuestionario/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -257,7 +259,7 @@ app.post('/diagnosticoQuestionarioEscola/userinsert', urlencodedParser, (req, re
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); 
 
-  sql = "INSERT INTO Diagnostico (idDiagnostico, idEscola, idQuestionario, notaQuestionario) VALUES (?, ?, ?, ?)";
+  sql = "INSERT INTO diagnostico_Questionario_Escola (idDiagnostico, idEscola, idQuestionario, notaQuestionario) VALUES (?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
   params.push(req.body.idDiagnostico);
@@ -279,13 +281,13 @@ app.get('/diagnosticoQuestionarioEscola/userupdate', urlencodedParser, (req, res
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql =   'UPDATE Diagnostico_Questionario_Escola SET idDiagnostico = ?, idEscola = ?, idQuestionario = ?, notaQuestionario = ? WHERE idDiagnostico =?';
+  sql =   'UPDATE Diagnostico_Questionario_Escola SET idEscola = ?, idQuestionario = ?, notaQuestionario = ? WHERE idDiagnostico =?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
-  params.push(req.body.idDiagnostico);
   params.push(req.body.idEscola);
   params.push(req.body.idQuestionario);
   params.push(req.body.notaQuestionario);
+  params.push(req.body.idDiagnostico);
 
   db.run(sql, params,  err => {
       if (err) {
@@ -312,6 +314,8 @@ app.get('/diagnosticoQuestionarioEscola/userdelete', urlencodedParser, (req, res
 
 
 /***** CRUD - endpoint da tabela Eixo *****************************************/
+
+//Get
 app.get('/eixo/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -325,10 +329,12 @@ var sql = 'SELECT * FROM Eixo ORDER BY idEixo COLLATE NOCASE';
   });
   db.close();
 });
+
+//Insert
 app.post('/eixo/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-  sql = "INSERT INTO Eixo (idEixo, Eixo, idQuestionario) VALUES (?, ?, ?)";
+  sql = "INSERT INTO Eixo (idEixo, Eixo, idQuestionario, Dominio) VALUES (?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idEixo);
@@ -343,6 +349,8 @@ app.post('/eixo/userinsert', urlencodedParser, (req, res) => {
   db.close();
   res.end();
 });
+
+//Update
 app.get('/eixo/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -361,6 +369,8 @@ app.get('/eixo/userupdate', urlencodedParser, (req, res) => {
   db.close();
   res.end();
 });
+
+//Delete
 app.get('/eixo/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
@@ -466,7 +476,7 @@ app.post('/escola/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  sql = "INSERT INTO Escola (idEscola, Instituicao, nAluno, nFuncionario, idRede, idEndereco) VALUES (?, ?, ?, ?, ?, ?)";
+  sql = "INSERT INTO Escola (idEscola, Instituicao, nAluno, nFuncionario, idRede, idEndereco, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idEscola);
@@ -475,6 +485,7 @@ app.post('/escola/userinsert', urlencodedParser, (req, res) => {
   params.push(req.body.nFuncionario);
   params.push(req.body.idRede);
   params.push(req.body.idEndereco);
+  params.push(req.body.Email);
 
   db.run(sql, params,  err => {
       if (err) {
@@ -491,7 +502,7 @@ app.get('/escola/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 // Inserir no código:
-  sql =   'UPDATE Escola SET Instituição=?, nAluno=?, nFuncionario=?, idRede=?,  WHERE idEsdereço=?';
+  sql = 'UPDATE Escola SET Instituicao=?, nAluno=?, nFuncionario=?, idRede=?, idEndereco=?, Email=? WHERE idEscola=?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
   params.push(req.body.Instituicao);
@@ -499,6 +510,7 @@ app.get('/escola/userupdate', urlencodedParser, (req, res) => {
   params.push(req.body.nFuncionario);
   params.push(req.body.idRede);
   params.push(req.body.idEndereco);
+  params.push(req.body.Email);
   params.push(req.body.idEscola);
   db.run(sql, params,  err => {
       if (err) {
@@ -545,7 +557,7 @@ app.post('/gestor/userinsert', urlencodedParser, (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
 
-  sql = "INSERT INTO Gestor (idGestor, Cargo, Nome, idEscola) VALUES (?, ?, ?)";
+  sql = "INSERT INTO Gestor (idGestor, Cargo, Nome, idEscola) VALUES (?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idGestor);
@@ -639,13 +651,49 @@ app.post('/maturidade/userinsert', urlencodedParser, (req, res) => {
   res.end();
 });
 
+// Delete
+app.get('/maturidade/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Maturidade WHERE idMaturidade=?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idMaturidade;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
+  db.close();
+  res.end();
+});
+
+// Update
+app.get('/maturidade/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+  sql =   'UPDATE maturidade SET Maturidade=?, Peso=?, idDiagnostico=? WHERE idMaturidade=?';
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = []
+  params.push(req.body.Maturidade);
+  params.push(req.body.Peso);
+  params.push(req.body.idDiagnostico);
+  params.push(req.body.idMaturidade);
+
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
 /****** CRUD - endpoint da tabela Pergunta *****************************************/
 app.get('/pergunta/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); 
 
   var db = new sqlite3.Database(DBPATH);
-var sql = 'SELECT * FROM Pergunta ORDER BY idPergunta COLLATE NOCASE';
+  var sql = 'SELECT * FROM Pergunta ORDER BY idPergunta COLLATE NOCASE';
   db.all(sql, [],  (err, rows ) => {
       if (err) {
           throw err;
@@ -679,12 +727,12 @@ app.post('/pergunta/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Delete
-app.post('/pergunta/userdelete', urlencodedParser, (req, res) => {
+app.get('/pergunta/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Pergunta WHERE idPergunta=?";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var params = req.body.idRede;
+  var params = req.body.idPergunta;
   db.run(sql, params, function(err){
     if (err) return console.error(err.message);
   })
@@ -693,12 +741,12 @@ app.post('/pergunta/userdelete', urlencodedParser, (req, res) => {
   res.end();
 });
 
-// Update
-app.post('/pergunta/userupdate', urlencodedParser, (req, res) => {
+//Update
+app.get('/pergunta/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql =   'UPDATE pergunta SET Pergunta=?, Peso=?, idEixo=? WHERE idPergunta=?';
+  sql =   'UPDATE Pergunta SET Pergunta=?, Peso=?, idEixo=? WHERE idPergunta=?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
   params.push(req.body.Pergunta);
@@ -734,49 +782,11 @@ var sql = 'SELECT * FROM Questionario ORDER BY idQuestionario COLLATE NOCASE';
 app.post('/questionario/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-
-
-  sql = "INSERT INTO Questionario (idQuestionario, questionario) VALUES (?, ?)";
+  sql = "INSERT INTO Questionario (idQuestionario, Questionario) VALUES (?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idQuestionario);
-  params.push(req.body.questionario);
-
-  db.run(sql, params,  err => {
-      if (err) {
-          throw err;
-      }
-  });
-  db.close();
-  res.end();
-});
-
-/****** CRUD - endpoint da tabela Questionario *****************************************/
-app.get('/questionario/users', (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
-
-  var db = new sqlite3.Database(DBPATH);
-var sql = 'SELECT * FROM Questionario ORDER BY idQuestionario COLLATE NOCASE';
-  db.all(sql, [],  (err, rows ) => {
-      if (err) {
-          throw err;
-      }
-      res.json(rows);
-  });
-  db.close();
-});
-
-app.post('/questionario/userinsert', urlencodedParser, (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
-
-  sql = "INSERT INTO Questionario (idQuestionario, questionario) VALUES (?, ?)";
-  var db = new sqlite3.Database(DBPATH);
-  var params = []
-  params.push(req.body.idQuestionario);
-  params.push(req.body.Pergunta);
+  params.push(req.body.Questionario);
 
   db.run(sql, params,  err => {
       if (err) {
@@ -859,7 +869,7 @@ app.post('/rede/userinsert', urlencodedParser, (req, res) => {
 
 
 // Delete
-app.post('/rede/userdelete', urlencodedParser, (req, res) => {
+app.get('/rede/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM rede WHERE idrede =?";
@@ -874,17 +884,17 @@ app.post('/rede/userdelete', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.post('/rede/userupdate', urlencodedParser, (req, res) => {
+app.get('/rede/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql =   'UPDATE rede SET Rede=?, Tipo=?, email=? WHERE idrede =?';
+  sql =   'UPDATE rede SET Rede=?, Tipo=?, Email=? WHERE idRede =?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
-  params.push(req.body.idRede);
   params.push(req.body.Rede);
   params.push(req.body.Tipo);
   params.push(req.body.email);
+  params.push(req.body.idRede);
 
   db.run(sql, params,  err => {
       if (err) {
@@ -934,10 +944,10 @@ app.post('/resposta/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Delete
-app.post('/resposta/userdelete', urlencodedParser, (req, res) => {
+app.get('/resposta/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-  const sql = "DELETE FROM resposta WHERE idResposta =?";
+  const sql = "DELETE FROM Resposta WHERE idResposta=?";
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = req.body.idResposta;
   db.run(sql, params, function(err){
@@ -949,17 +959,17 @@ app.post('/resposta/userdelete', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.post('/resposta/userupdate', urlencodedParser, (req, res) => {
+app.get('/resposta/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-  sql =   'UPDATE resposta SET idPergunta =?, Resposta=?, Maturidade=? WHERE idResposta =?';
+  sql =   'UPDATE Resposta SET Resposta=?, Maturidade=?, idPergunta=? WHERE idResposta=?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
-  params.push(req.body.idResposta);
   params.push(req.body.Resposta);
   params.push(req.body.Maturidade);
   params.push(req.body.idPergunta);
+  params.push(req.body.idResposta);
 
   db.run(sql, params,  err => {
       if (err) {
