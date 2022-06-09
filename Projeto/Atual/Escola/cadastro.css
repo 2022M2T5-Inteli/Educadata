@@ -6,13 +6,46 @@
     font-family: 'Public Sans', sans-serif;
 }
 
+.logo{
+    max-width:80px;
+    max-height:80px;
+    padding-left: 2vw;
+}
+
+.falconiBar{
+    color: #7c7511 !important;
+    font-weight: 800;
+    margin-left: 2vw;
+    font-size: 1.55vmax;
+  }
+  
+.navbar{
+    background-color: #fff;
+    font-size: 15px;
+    height: 9vh;
+    margin-bottom: 0px;
+}
+
+.nav-item{
+    padding-left: 2vw;
+}
+
 .title {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 900;
+    color: #7c7511;
+    padding-top: 2vh;
+}
+
+.row1{
+    display: flex;
+    flex-direction: row;
 }
 
 .title-primary {
-    color: #fff;
+    color: rgba(92, 92, 92, 0.493);
+    text-align: left;
+    padding-left: 1vw;
 }
 .title-second {
     color: #7c7511;
@@ -59,6 +92,11 @@
     border: 1px solid #7c7511;
     color: #7c7511;
 }
+
+.cadastroEscola{
+    background-color: #7c7c7c6c;
+}
+
 .first-content {
     display: flex;
 }
@@ -92,6 +130,7 @@
     display: flex;
     align-items: center;
     margin: 8px;
+    border-radius: 10px;
 }
 .icon-modify {
     color: #7C7C7C;
