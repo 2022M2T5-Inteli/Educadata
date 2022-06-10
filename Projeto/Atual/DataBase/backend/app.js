@@ -536,6 +536,81 @@ app.get('/escola/userdelete', urlencodedParser, (req, res) => {
   res.end();
 });
 
+/****** CRUD - endpoint da tabela Falconi *****************************************/
+app.get('/falconi/users', (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  var db = new sqlite3.Database(DBPATH); 
+var sql = 'SELECT * FROM Falconi ORDER BY idFalconi COLLATE NOCASE';
+  db.all(sql, [],  (err, rows ) => {
+      if (err) {
+          throw err;
+      }
+      res.json(rows);
+  });
+  db.close();
+});
+
+app.post('/falconi/userinsert', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  sql = "INSERT INTO Falconi (idFalconi, nome, email, cargo) VALUES (?, ?, ?, ?)";
+  var db = new sqlite3.Database(DBPATH);
+  var params = []
+  params.push(req.body.idFalconi);
+  params.push(req.body.nome);
+  params.push(req.body.email);
+  params.push(req.body.cargo);
+
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close();
+  res.end();
+});
+
+
+//Update
+app.get('/falconi/userupdate', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+// Inserir no código:
+  sql = 'UPDATE Escola SET nome=?, email=?, cargo=? WHERE idFalconi=?';
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = []
+  params.push(req.body.nome);
+  params.push(req.body.email);
+  params.push(req.body.cargo);
+  params.push(req.body.idFalconi);
+  db.run(sql, params,  err => {
+      if (err) {
+          throw err;
+      }
+  });
+  db.close(); // Fecha o banco
+  res.end();
+});
+
+
+//Delete
+app.get('/falconi/userdelete', urlencodedParser, (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+  const sql = "DELETE FROM Falconi WHERE idFalconi =?";
+  var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var params = req.body.idFalconi;
+  db.run(sql, params, function(err){
+    if (err) return console.error(err.message);
+  })
+  db.close();
+  res.end();
+});
+
+
 /****** CRUD - endpoint da tabela Gestor *****************************************/
 app.get('/gestor/users', (req, res) => {
   res.statusCode = 200;
