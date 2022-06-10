@@ -104,7 +104,14 @@ body{
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
 }
+
+.FalconiAtributes{
+  width: 33.33%;
+}
+
 .card-informations{
   background-color: #c4c4c4;
   border-top: 10vh;

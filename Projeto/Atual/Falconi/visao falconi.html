@@ -53,6 +53,7 @@
     <div class="main-body">
       <div class="row align-items-center" >
         <div class="col-sm-3">
+          <button onclick="getFalconi()">Refresh</button>
           <div class="card-picture">
             <div class="card-body">
               <div class="d-flex flex-column align-items-center text-center">
@@ -70,9 +71,9 @@
       <div class="col-sm-6">
         <div class="card-informations mb-3">
           <div class="card-body">
-              <table class="col-sm-3">
-
-              </table>
+            <div class="FalconiAtributes" id="nomeFalconi"><h4>NOME</h4></div>
+            <div class="FalconiAtributes" id="emailFalconi"><h4>EMAIL</h4></div>
+            <div class="FalconiAtributes" id="cargoFalconi"><h4>CARGO</h4></div>
             </div><!--CARD BODY  -->
         </div><!--CARD INFORMATIONS -->
       </div><!--COL SM 6 -->
@@ -84,7 +85,7 @@
   <div class="row edicao">
       <div class="col-md-3 border-right">
           <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://bootdey.com/img/Content/avatar/avatar7.png"><span class="textprofile">Nome</span><span class="textprofile">Email</span><span> </span></div>
-          <div class="mt-5 text-center"><button class="botaoEdicao" type="button">Save Profile</button></div>
+          <div class="mt-5 text-center"><button class="botaoEdicao" type="button" onclick="addFalconi()">Save Profile</button></div>
       </div>
       <div class="col-md-5 border-right">
           <div class="p-3 py-5">
@@ -92,11 +93,11 @@
                   <h4 class="text-right">Edição de cadastro</h4>
               </div>
               <div class="row mt-2">
-                  <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Nome" value=""></div>
+                  <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Nome" value="" id="nomeFalconi"></div>
               </div>
               <div class="row mt-3">
-                  <div class="col-md-12"><label class="labels">Nome da escola</label><input type="text" class="form-control" placeholder="qual é o nome da escola?" value=""></div>        <!-- Rede: sem nada - Falconi: sem nada --> 
-                  <div class="col-md-12"><label class="labels">Rede que pertence</label><input type="text" class="form-control" placeholder="qual rede a escola pertence" value=""></div>     <!-- Rede: tipo de rede - Falconi: sem nada -->
+                  <div class="col-md-12"><label class="labels">Nome da escola</label><input type="text" class="form-control" placeholder="qual é o nome da escola?" value="" id="emailFalconi"></div>        <!-- Rede: sem nada - Falconi: sem nada --> 
+                  <div class="col-md-12"><label class="labels">Rede que pertence</label><input type="text" class="form-control" placeholder="qual rede a escola pertence" value="" id="cargoFalconi"></div>     <!-- Rede: tipo de rede - Falconi: sem nada -->
                   <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="qual cidade" value=""></div>    <!-- Rede: cidade - Falconi: sem nada -->
                   <div class="col-md-12"><label class="labels">Estado</label><input type="text" class="form-control" placeholder="qual estado" value=""></div>    <!-- Rede: cidade - Falconi: sem nada -->
                   <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="seu email" value=""></div>       <!-- Rede: email - Falconi: email -->
@@ -137,5 +138,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="visao falconi.js"></script>
+        <script src="visao falconi.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="../DataBase/backend/get.js"></script>
     </body>
 </html>

@@ -77,7 +77,25 @@
     border: none;
     margin-top: 1rem;
 }
-.btn-primary {
+.btn_primary{
+    background-color: #7c7511;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+    border-radius: 15px;
+    /* padding: 10px 40px; */
+    cursor: pointer;
+    font-weight: bold;
+    width: 180px;
+    align-self: center;
+    text-align: center;
+    border: none;
+    margin-top: 1rem;
+    height: 60px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.btn_cadastrar{
     background-color: #7c7511;
     border: 1px solid #fff;
     transition: background-color .5s;
@@ -89,8 +107,10 @@
     align-self: center;
     text-align: center;
     border: none;
+    padding: 10px 40px;
     margin-top: 1rem;
 }
+
 .btn-primary:hover {
     background-color: #fff;
     color: #7c7511;
