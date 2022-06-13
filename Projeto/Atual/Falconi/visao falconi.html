@@ -71,9 +71,9 @@
       <div class="col-sm-6">
         <div class="card-informations mb-3">
           <div class="card-body">
-            <div class="FalconiAtributes" id="nomeFalconi"><h4>NOME</h4></div>
-            <div class="FalconiAtributes" id="emailFalconi"><h4>EMAIL</h4></div>
-            <div class="FalconiAtributes" id="cargoFalconi"><h4>CARGO</h4></div>
+            <div class="FalconiAtributes" id="nomeFalconiAppear"><h4>NOME</h4></div>
+            <div class="FalconiAtributes" id="emailFalconiAppear"><h4>EMAIL</h4></div>
+            <div class="FalconiAtributes" id="cargoFalconiAppear"><h4>CARGO</h4></div>
             </div><!--CARD BODY  -->
         </div><!--CARD INFORMATIONS -->
       </div><!--COL SM 6 -->
@@ -85,7 +85,7 @@
   <div class="row edicao">
       <div class="col-md-3 border-right">
           <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://bootdey.com/img/Content/avatar/avatar7.png"><span class="textprofile">Nome</span><span class="textprofile">Email</span><span> </span></div>
-          <div class="mt-5 text-center"><button class="botaoEdicao" type="button" onclick="addFalconi()">Save Profile</button></div>
+          <div class="mt-5 text-center"><button class="botaoEdicao" type="button" onclick="insertFalconi()">Save Profile</button></div>
       </div>
       <div class="col-md-5 border-right">
           <div class="p-3 py-5">
@@ -141,5 +141,19 @@
         <script src="visao falconi.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="../DataBase/backend/get.js"></script>
+        <script type="text/javascript">
+          function insertFalconi(){
+            $.ajax({
+                url: "http://127.0.0.1:3080/falconi/userinsert",
+                type: 'POST',
+                async: false,
+                data: {
+                    nome: $("#nomeFalconi").val(),
+                    email: $("#emailFalconi").val(),
+                    cargo: $("#cargoFalconi").val(),
+                }
+            });
+          }
+      </script>
     </body>
 </html>

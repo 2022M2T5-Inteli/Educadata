@@ -42,9 +42,9 @@ function getFalconi(){
   var nomeFalconi = "";
   var emailFalconi = "";
   var cargoFalconi = "";
-  document.getElementById("nomeFalconi").innerHTML = "<h4>NOME</h4>"
-  document.getElementById("emailFalconi").innerHTML = "<h4>EMAIL</h4>"
-  document.getElementById("cargoFalconi").innerHTML = "<h4>CARGO</h4>"
+  document.getElementById("nomeFalconiAppear").innerHTML = "<h4>NOME</h4>"
+  document.getElementById("emailFalconiAppear").innerHTML = "<h4>EMAIL</h4>"
+  document.getElementById("cargoFalconiAppear").innerHTML = "<h4>CARGO</h4>"
   for(var i=0; i < resposta.length; i++){
     idFalconi = resposta[i].idFalconi + ".  ";
     nomeFalconi = resposta[i].nome + "</br>";
@@ -90,3 +90,4 @@ function addFalconi() {
   var cargo = document.getElementById("cargoFalconi").value;
   contaFalconi.create(nome, email, cargo);
 }
+
