@@ -22,7 +22,7 @@ body{
 /* QUESTIONARIO */
 
 .questionBtn{
-    margin-bottom: 7px;
+    margin-bottom: 1px;
     width: 70px;
     height: 70px;
     color: white;
@@ -213,7 +213,15 @@ body{
   padding-right: 2vh;
 }
 
+.botao:hover{
+  color: #7c75115f;
+}
 
+.position_btn{
+  margin-top: 2vh;
+  margin-left: 80vw;
+  font-size: 10px;
+}
 
 
 
