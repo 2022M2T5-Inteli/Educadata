@@ -31,6 +31,7 @@ function getEscola(){
   //console.log(xhttp.responseText);
 }
 
+<<<<<<< Updated upstream
 function getFalconi(){
   var url = "http://127.0.0.1:3080/falconi/users";
   var resposta;
@@ -91,3 +92,56 @@ function addFalconi() {
   contaFalconi.create(nome, email, cargo);
 }
 
+=======
+function updateEscola(){
+  
+}
+
+function insertEscola(){
+  var url = "http://127.0.0.1:3080/escola/usersinsert";
+  var resposta;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", url, false);
+  xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+  resposta = JSON.parse(xhttp.responseText);
+  resposta.Instituicao = document.getElementById("instituicao");
+  resposta.idRede = document.getElementById("idRede");
+  resposta.Email = document.getElementById("email");
+  resposta.nFuncionarios = document.getElementById("nFuncionarios");
+  resposta.nAluno = document.getElementById("nAluno");
+  resposta.idEndereco = document.getElementById("pais");
+  // var estado = document.getElementById("estado");
+  // var cidade = document.getElementById("cidade");
+  // var bairro = document.getElementById("bairro");
+  // var rua = document.getElementById("rua");
+  // var numero = document.getElementById("numero");
+  // var complemento = document.getElementById("complemento");
+
+  // for(var i=0; i < resposta.length; i++){
+  //   instituicao += i+1;
+  //   instituicao += ". ";
+  //   instituicao += resposta[i].Instituicao;
+  //   instituicao += "</br>";
+  //   endereco += resposta[i].idEndereco;
+  //   endereco += "</br>";
+  //   nFuncionario += resposta[i].nFuncionario;
+  //   nAluno += resposta[i].nAluno;
+  //   nAluno += "</br>";
+  // }
+  // document.getElementById("listaEscola").innerHTML = ("<center>" + instituicao + "</center>");
+  // document.getElementById("listaEnderecoEscola").innerHTML = ("<center>" + endereco + "</center>");
+  // document.getElementById("listanFuncAlun").innerHTML = ("<center>" + nFuncionario + "  " + nAluno + "</center>");
+  //console.log(xhttp.responseText);
+  }
+
+  $(document).ready(function(){
+    $('#cadastrar').click(function(){
+      var instituicao = $('#instituicao')
+      var idRede = $('#idRede').val();
+      var email = $('#email').val();
+      var nFuncionaraio = $('#nFuncionario').val();
+      var nAluno = $('#nAluno').val();
+      var document
+    });
+  });
+>>>>>>> Stashed changes
