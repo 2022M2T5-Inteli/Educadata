@@ -166,6 +166,7 @@ body{
 }
 
 .row{
+  margin-top: -10vh;
   width: 200vh;
 }
 .card-picture {
@@ -186,21 +187,22 @@ body{
 }
 .card-body {
   flex: 1 1 auto;
-  min-height: 1px;
   padding: 1rem;
-}
-.card-informations{
   background-color: #c4c4c4;
+  border-radius: 5px;}
+  
+.card-informations{
+  width: 55vw;
   border-top: 10vh;
+  padding-right: 0vw;
   border-radius: .25rem;
-  margin-right: 10vh;
   margin-top: 15vh;
   font-family: 'Public Sans', sans-serif;
   font-weight: bolder;
 }
 .botao{
   display: block;
-  font-size: 20px;
+  font-size: 10px;
   font-family: 'Public Sans', sans-serif;
   font-style: 'thin';
   color: #7c7511;
@@ -218,9 +220,10 @@ body{
 }
 
 .position_btn{
-  margin-top: 2vh;
-  margin-left: 80vw;
+  margin-left: 45vw;
+  margin-bottom: 2vh;
   font-size: 10px;
+  width: max-content;
 }
 
 

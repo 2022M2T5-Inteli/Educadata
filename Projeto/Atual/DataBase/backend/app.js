@@ -389,7 +389,7 @@ app.get('/endereco/users', (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
   var db = new sqlite3.Database(DBPATH);
-var sql = 'SELECT * FROM Endereco ORDER BY idEndereco COLLATE NOCASE';
+var sql = 'SELECT * FROM Endereco ORDER BY idCEP COLLATE NOCASE';
   db.all(sql, [],  (err, rows ) => {
       if (err) {
           throw err;
@@ -401,10 +401,10 @@ var sql = 'SELECT * FROM Endereco ORDER BY idEndereco COLLATE NOCASE';
 app.post('/endereco/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-  sql = "INSERT INTO Endereco (idEndereco, Pais, Estado, Cidade, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+  sql = "INSERT INTO Endereco (idCEP, Pais, Estado, Cidade, Bairro, Rua, Numero, Complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
-  params.push(req.body.idEndereco);
+  params.push(req.body.idCEP);
   params.push(req.body.Pais);
   params.push(req.body.Estado);
   params.push(req.body.Cidade);
@@ -423,7 +423,7 @@ app.post('/endereco/userinsert', urlencodedParser, (req, res) => {
 app.get('/endereco/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
-  sql = "UPDATE Endereco SET Pais=?, Estado=?, Cidade=?, Bairro=?, Rua=?, Numero=?, Complemento=? WHERE idEndereco=? ";
+  sql = "UPDATE Endereco SET Pais=?, Estado=?, Cidade=?, Bairro=?, Rua=?, Numero=?, Complemento=? WHERE idCEP=? ";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.Pais);
@@ -433,7 +433,7 @@ app.get('/endereco/userupdate', urlencodedParser, (req, res) => {
   params.push(req.body.Rua);
   params.push(req.body.Numero);
   params.push(req.body.Complemento);
-  params.push(req.body.idEndereco);
+  params.push(req.body.idCEP);
   db.run(sql, params,  err => {
       if (err) {
           throw err;
@@ -476,7 +476,7 @@ app.post('/escola/userinsert', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  sql = "INSERT INTO Escola (idEscola, Instituicao, nAluno, nFuncionario, idRede, idEndereco, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+  sql = "INSERT INTO Escola (idEscola, Instituicao, nAluno, nFuncionario, idRede, idCEP, Email) VALUES (?, ?, ?, ?, ?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
   params.push(req.body.idEscola);
@@ -484,7 +484,7 @@ app.post('/escola/userinsert', urlencodedParser, (req, res) => {
   params.push(req.body.nAluno);
   params.push(req.body.nFuncionario);
   params.push(req.body.idRede);
-  params.push(req.body.idEndereco);
+  params.push(req.body.idCEP);
   params.push(req.body.Email);
 
   db.run(sql, params,  err => {
