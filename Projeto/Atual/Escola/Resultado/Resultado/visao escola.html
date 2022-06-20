@@ -141,67 +141,75 @@
 <!-- RESULTADOS -->
 <div id="results" class="results" style="display: none;">
   <div id="results2" class="results2">
-    <h1 class="results-font">Resultados</h1>
-    <img class="graphresults1" src="fotos/grafico barra.png"">
-    <img class="graphresults2" src="fotos/grafico barra.png">
-    <img class="pizzagraphresults1" src="fotos/grafico pizza.png">
-    <img class="pizzagraphresults2" src="fotos/grafico pizza.png">
-    <div class="pointsbuttons">
-      <div class="pontosNegativos">
-        <!-- Button trigger modal -->
-        <button type="button" class="btnarr1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Pontos Fortes
-        </button>
+    <div class="conteudo">
+      <div class="top">
+          <h1 class="titulo">Visão geral dos resultados</h1>
+      </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum purus mattis velit elementum, vitae tincidunt tellus ornare. Vestibulum ut ante pretium, vehicula diam blandit, feugiat justo. Duis varius ex lorem, et laoreet diam semper vel. Sed vehicula quis turpis eget consequat. Quisque tellus purus, mattis at ligula non, eleifend aliquam ex. Nam et lacus varius, porttitor ligula a, posuere ipsum. Integer id risus vitae lorem pellentesque faucibus. Sed tincidunt sapien commodo hendrerit tempus. Ut hendrerit tincidunt enim, tempus cursus eros pharetra eu. Quisque a fringilla est, vitae condimentum felis. Integer eu arcu dapibus, interdum elit sit amet, tempor risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
+      <div class="grafico">
+        <div class="gridColuna" id="gridColuna">
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 1</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">90%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 2</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem2"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">50%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 3</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem3"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">20%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 4</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem4"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">70%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 5</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem5"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">30%</span>
             </div>
           </div>
         </div>
+        <select class="dropdown resultados">
+            <option value="...">Escolher Questionário</option>
+            <option value="Questionario1">Questionário 1</option>
+            <option value="Questionario2">Questionário 2</option>
+            <option value="Questionario3">Questionário 3</option>
+            <option value="Questionario4">Questionário 4</option>
+            <option value="Questionario5">Questionário 5</option>
+        </select>
+        <div><img class="radarimg2" src="./fotos/radar-chart-in-r-customized-fmstb-radar-chart-1.png"></div>
       </div>
-      <div class="pontosNegativos">
-        <!-- Button trigger modal -->
-        <button type="button" class="btnarr2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Pontos Fracos
-        </button>
+      
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum purus mattis velit elementum, vitae tincidunt tellus ornare. Vestibulum ut ante pretium, vehicula diam blandit, feugiat justo. Duis varius ex lorem, et laoreet diam semper vel. Sed vehicula quis turpis eget consequat. Quisque tellus purus, mattis at ligula non, eleifend aliquam ex. Nam et lacus varius, porttitor ligula a, posuere ipsum. Integer id risus vitae lorem pellentesque faucibus. Sed tincidunt sapien commodo hendrerit tempus. Ut hendrerit tincidunt enim, tempus cursus eros pharetra eu. Quisque a fringilla est, vitae condimentum felis. Integer eu arcu dapibus, interdum elit sit amet, tempor risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-  </div>
+</div>
+    
 
 
 

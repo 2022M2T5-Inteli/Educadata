@@ -14,7 +14,7 @@ body{
     margin: 0;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #7C7C7C;
+    /* background: #7C7C7C; */
 }
 
 
@@ -66,7 +66,7 @@ body{
 .questionsBox{
   box-sizing: border-box;
   background-color: var(--gray);
-  position: absolute;
+  /* position: absolute; */
   max-height: 80vh;
   overflow: auto;
   border-radius: 10px;
@@ -227,132 +227,180 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* RESULTADOS */
-.results{
-    background-image: url("fotos/resultsImg.jpg");
-    background-size: 100%;
-    border: 50px;
-  }  
-  .results2{
-    background-color: rgba(0, 0, 0, 0.7);
-    background-size: 100%;
-  }
+.conteudo{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+  display: contents;
+}
+.top{
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+  background: #7C7C7C;
+}
+.titulo{
+  color: honeydew;
+  margin: 1rem;
+  font-family: 'Public Sans', sans-serif;
+}
+.grafico{
+  height: 400px;
+  width: 100%;
+  position: absolute;
   
-  .results-font{
-    font-size: 60px;
-    color: white;
-  }
-  
-  .editregistrationbtn{
-    display: block;
-    font-size: 25px;
-    color: #7c7511;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    padding-top: 0.7vh;
-    padding-bottom: 0.7vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    margin-left: 150vh;
-  }
-  
-  .fontSize25{
-    font-size: 25px;
-    color: #fff;
-  }
-  
-  .graphresults1{
-    margin-left: 150vh;
-  }
-  
-  .graphresults2{
-    margin-left: 50vh;
-    margin-top: -62.5vh;
-  }
-  
-  .pizzagraphresults1{
-    margin-right: 150vh;
-    margin-top: -90vh;
-  }
-  
-  .pizzagraphresults2{
-    margin-right: 150vh;
-    margin-top: -10vh;
-  }
-  
-  .btnarr1{
-    background-color: black;
-    color: white;
-    font-size: 30px;
-    border-radius: 2vh;
-    margin-left: 5vh;
-  
-  }
-  
-  .btnarr2{
-    background-color: black;
-    color: white;
-    font-size: 30px;
-    border-radius: 2vh;
-    margin-left: 5vh;
-  }
-  
-  .pointsbuttons{
-    align-content: center;
-    flex-direction: row;
-    display: flex;
-    margin-left: 140vh;
-  }
+}
+.gridColuna{
+  display: flex;
+  width: 100%;
+  height: 79.8vh;
+  padding: 2px;
+  position: absolute;
+  background: rgba(220, 220, 220, 0.488);
+  padding: 1rem;
 
-
-
-
-
-
-
-  /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 25vh; /* Location of the box */
-  padding-left: 40vh;
-  padding-right: 40vh;
-  padding-bottom: 25vh;
-  left: 0;
-  top: 0;
-  width: 100vw; /* Full width */
-  height: 80vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.coluna{
+  height: 400px;
+  width: 100px;
+  margin-left: 3.8%;
+  background: rgba(220, 220, 220, 0.488);
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-radius: 16px;
+}
+.tituloColuna{
+  width: 100px;
+  height: 10px;
+  bottom: 50px;
+  position: absolute;
+  font-size: 15px;
+  font-style: normal;
+  font-family: 'Public Sans', sans-serif;
+  margin-left: 5px;
+}
+.colunaPorcentagem{
+  width: 10px;
+  border-radius: 7px;
+  height: 280px;
+  background: lightgray ;
+  bottom: 100px;
+  position: absolute;
+  margin-left: 45px;
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #C4C4C4;
-  width: 80vh;
-  font-size: 20px;
-  text-align: center;
+.bolinha{
+  width: 45px;
+  border-radius: 25px;
+  height: 45px;
+  background: whitesmoke;
+  border: 1px solid black;
+  border-style: dashed;
+  position: absolute;
+  margin-left: 30px;
+  top: 60px;
+  display: flex;
+  justify-content: center;
 }
+.porcentagemTitulo{
+  font-size: 12px;
+  font-style: normal;
+  font-family: 'Public Sans', sans-serif;
+  top: 15px;
+  position: absolute;
+}
+.bolinhaVermelha{
+  background: mistyrose;
+}
+.radarimg2{
+  margin-left: 130vh;
+  padding-top: 2vh;
+  width: 60vh;
+}
+.resultados{
+  margin-left: 145vh;
+  margin-top: 5vh;
+  background-color: #ecf0f1;
+}
+.porcentagem{
+  width: 6px;
+  height: 90%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.porcentagem2{
+  width: 6px;
+  height: 50%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.porcentagem3{
+  width: 6px;
+  height: 20%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.porcentagem4{
+  width: 6px;
+  height: 70%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.porcentagem5{
+  width: 6px;
+  height: 30%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.porcentagem6{
+  width: 6px;
+  height: 10%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.porcentagem7{
+  width: 6px;
+  height: 80%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .opcoes{
   font-size: 2rem;
   text-align: center;

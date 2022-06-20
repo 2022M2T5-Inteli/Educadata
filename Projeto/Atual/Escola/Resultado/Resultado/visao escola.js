@@ -21,6 +21,60 @@ var QuestaoMatriz = {
 }
 var quest = 0
 
+// RESULTADOS
+var objetoGrafico = new Object();
+
+objetoGrafico.CarregaGrafico = function (){
+
+  $("#gridColuna").html("");
+
+  $.ajax(
+    {
+      type: 'GET',
+      timeout: 5000,
+      url: '',
+      async: true,
+
+      success: function (jsonResult){
+        jsonResult.dados.forEach (function (item) {
+          var coluna = $("<div>", { class: "coluna"});
+          var tituloColuna = $("<div>", { class: "tituloColuna"});
+          tituloColuna.text(item.tituloRodape);
+
+          var colunaPorcentagem = $("<div>", { class: "colunaPorcentagem"});
+          var porcentagem = $("<div>", { class: "porcentagem", style:"height: " + item.porcentagem + "%"});
+          colunaPorcentagem.append(porcentagem);
+
+          var bolinha = $("<div>", { class: "bolinha"});
+          var porcentagemTitulo = $("<div>", { class: "porcentagemTitulo"});
+          porcentagemTitulo.text(item.porcentagem + "%");
+
+          bolinha.append(porcentagemTitulo);
+
+          coluna.append(tituloColuna);
+          coluna.append(colunaPorcentagem);
+          coluna.append(bolinha);
+
+          $("#gridColuna").append();
+
+
+
+
+
+
+        })
+      }
+    })
+}
+
+$(function () {
+  objetoGrafico.CarregaGrafico();
+});
+
+
+
+
+
 
 // var modal = document.getElementById("loginModal");
 
