@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.logo{
+    max-width:80px;
+    max-height:80px;
+    padding-left: 2vw;
+}
+
+.falconiBar{
+    color: #7c7511 !important;
+    font-weight: 800;
+    margin-left: 2vw;
+    font-size: 1.55vmax;
+  }
+  
+.navbar{
+    background-color: #fff;
+    font-size: 15px;
+    height: 9vh;
+    margin-bottom: 0px;
+}
+
+.nav-item{
+    padding-left: 2vw;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #7c7511;
+    padding-top: 2vh;
+}
+
+.row{
+    width: 50%;
+    padding: 10%;
+}
+
+.row1{
+    display: flex;
+    flex-direction: row;
+}
+
+.title-primary {
+    color: rgba(92, 92, 92, 0.493);
+    text-align: left;
+    padding-left: 1vw;
+}
+.title-second {
+    color: #7c7511;
+}
+.description {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 30px;
+}
+.description-primary {
+    color: #fff;
+}
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 160px;
+    align-self: center;
+    text-align: center;
+    border: none;
+    margin-top: 1rem;
+}
+.btn_primary{
+    background-color: #7c7511;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+    border-radius: 15px;
+    /* padding: 10px 40px; */
+    cursor: pointer;
+    font-weight: bold;
+    width: 180px;
+    align-self: center;
+    text-align: center;
+    border: none;
+    margin-top: 1rem;
+    height: 60px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.btn_cadastrar{
+    background-color: #7c7511;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+    border-radius: 15px;
+    /* padding: 10px 40px; */
+    cursor: pointer;
+    font-weight: bold;
+    width: 160px;
+    align-self: center;
+    text-align: center;
+    border: none;
+    padding: 10px 40px;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    color: #7c7511;
+}
+
+.cadastroEscola{
+    background-color: #7c7c7c6c;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+.form input {
+    height: 45px;
+    width: 100%;
+    background-color: #ecf0f1;
+}
+.label-input {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    border-radius: 10px;
+    border: #7c7511;
+}

@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap');
+
+*{
+    --primary-color: #948d28;
+    --black: #010101;
+    --white: #F3F3F3;
+    --gray: #C4C4C4;
+    --dark-gray: #7C7C7C;
+}
+
+body{
+    top: 0; right: 0; bottom: 0; left: 0;
+    padding: 0;
+    margin: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #7C7C7C;
+}
+
+
+
+/* QUESTIONARIO */
+
+.questionBtn{
+    margin-bottom: 7px;
+    width: 70px;
+    height: 70px;
+    color: white;
+    border-radius: 5px;
+    border: 1.5px solid rgb(205, 205, 205);
+    background-color: var(--white);
+    margin: 20px;
+}
+
+.question_Btn:hover{
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+
+.answers_Btn{
+    color: var(--black);
+    background-color: var(--white);
+    font-weight: bold;
+    margin: 0.5rem;
+    border: 1px groove white;
+    width: 27rem;
+    height: 3rem;
+    border-radius: 10px;
+}
+
+.answers_Btn:hover{
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+
+.survey{
+  background-color: var(--gray);
+	max-width: 500px;
+  overflow: auto;
+	min-height: 300px;
+	border-radius: 10px;
+  position: relative;
+  margin-top: 6vh;
+}
+
+.questionsBox{
+  box-sizing: border-box;
+  background-color: var(--gray);
+  position: absolute;
+  max-height: 80vh;
+  overflow: auto;
+  border-radius: 10px;
+  padding-bottom: 75vh;
+  margin-left: 10vh;
+  margin-top: 0vh;
+}
+
+.containerQuestions{
+  box-sizing: border-box;
+  background-color: #F3F3F3;
+}
+
+.heptagonGraphDivClass{
+    background-color: white;
+}
+
+
+
+
+
+/* EDITAR CADASTRO */
+/* .editProfile {
+  background: #7c7c7c;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 5vh;
+}
+.edicao{
+  background-color: #F3F3F3;
+  color: #7c7511;
+  width: fit-content;
+  align-items: center;
+}
+.textprofile{
+  font-family: 'Public Sans', sans-serif;
+  padding-top: 2vh;
+}
+.labels{
+  font-family: 'Public Sans', sans-serif;
+}
+.form-control{
+  width: 50vh;
+}
+.botaoEdicao{
+  display: block;
+  font-size: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #F3F3F3;
+  background-color: #7c7511;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10vh;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+} */
+
+
+
+
+
+
+
+
+/* NAVBAR */
+.navbar{
+    height: 50px;
+}
+
+.falconiBar{
+    color: #7c7511 !important;
+    font-weight: 700;
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+.bg-whitecolor{
+    background: var(--white);
+}
+
+
+
+
+
+
+
+
+
+
+/* PERFIL */
+.container{
+  margin: 5vh;
+}
+
+.row{
+  width: 200vh;
+}
+.card-picture {
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #c4c4c4;
+  background-clip: border-box;
+  margin-left: 15vh;
+  margin-top: 15vh;
+  border-radius: .25rem;
+  border: 10vh;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: bolder;
+}
+.image{
+  width: 30vh;
+  margin-top: 15vh;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+.card-informations{
+  background-color: #c4c4c4;
+  border-top: 10vh;
+  border-radius: .25rem;
+  margin-right: 10vh;
+  margin-top: 15vh;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: bolder;
+}
+.botao{
+  display: block;
+  font-size: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #7c7511;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESULTADOS */
+.results{
+    background-image: url("fotos/resultsImg.jpg");
+    background-size: 100%;
+    border: 50px;
+  }  
+  .results2{
+    background-color: rgba(0, 0, 0, 0.7);
+    background-size: 100%;
+  }
+  
+  .results-font{
+    font-size: 60px;
+    color: white;
+  }
+  
+  .editregistrationbtn{
+    display: block;
+    font-size: 25px;
+    color: #7c7511;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    padding-top: 0.7vh;
+    padding-bottom: 0.7vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-left: 150vh;
+  }
+  
+  .fontSize25{
+    font-size: 25px;
+    color: #fff;
+  }
+  
+  .graphresults1{
+    margin-left: 150vh;
+  }
+  
+  .graphresults2{
+    margin-left: 50vh;
+    margin-top: -62.5vh;
+  }
+  
+  .pizzagraphresults1{
+    margin-right: 150vh;
+    margin-top: -90vh;
+  }
+  
+  .pizzagraphresults2{
+    margin-right: 150vh;
+    margin-top: -10vh;
+  }
+  
+  .btnarr1{
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    border-radius: 2vh;
+    margin-left: 5vh;
+  
+  }
+  
+  .btnarr2{
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    border-radius: 2vh;
+    margin-left: 5vh;
+  }
+  
+  .pointsbuttons{
+    align-content: center;
+    flex-direction: row;
+    display: flex;
+    margin-left: 140vh;
+  }
+
+
+
+
+
+
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 25vh; /* Location of the box */
+  padding-left: 40vh;
+  padding-right: 40vh;
+  padding-bottom: 25vh;
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 80vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #C4C4C4;
+  width: 80vh;
+  font-size: 20px;
+  text-align: center;
+}
+.opcoes{
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 2vh;
+}
+
+.botoesPerfil{
+  display: block;
+  font-size: 1.5rem;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #7c7511;
+  background-color: #C4C4C4;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 3vh;
+}
+.botoesPerfil:hover{
+  background-color: #C4C4C4;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: end;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+  

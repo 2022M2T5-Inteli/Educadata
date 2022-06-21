@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="login rede.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-column">
+                <h2 class="title title-primary">Seja bem-vindo!</h2>
+                <p class="description description-primary">Se você já tem uma conta,</p>
+                <p class="description description-primary">por favor entre com seus dados</p>
+                <button id="signin" class="btn btn-primary">Entrar</button>
+            </div>    
+            <div class="second-column">
+                <h2 class="title title-second">Criar conta</h2>
+                <form class="form">
+                    <label class="label-input" for="">
+                        <i class="bi bi-person" id="icon"></i>
+                        <input type="text" placeholder="Nome do(a) gestor(a)">
+                    </label>
+                    
+                    <label class="label-input" for="">
+                        <i class="bi bi-arrows-angle-expand" id="icon"></i>
+                        <input type="text" placeholder="Tipo de rede">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="bi bi-geo-alt" id="icon"></i>
+                        <input type="text" placeholder="Cidade">
+                    </label>
+                    
+                    <label class="label-input" for="">
+                        <i class="bi bi-geo-alt" id="icon"></i>
+                        <input type="text" placeholder="Estado">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="bi bi-envelope" id="icon"></i>
+                        <input type="email" placeholder="Email">
+                    </label>
+                    <a href="visao rede.html" class="btn btn-second">Inscrever-se</a>        
+                </form>
+            </div><!-- second column -->
+        </div><!-- first content -->
+        <div class="content second-content">
+            <div class="first-column">
+                <h1 class=" title-primary">Olá gestor(a)!</h1>
+                <p class="description description-primary">Entre aqui com seus dados</p>
+                <button id="signup" class="btn btn-primary">Inscrever-se</button>
+            </div>
+            <div class="second-column">
+                <h2 class="title title-second">Entrar como gestor(a)</h2>
+                <form class="form">
+                
+                    <label class="label-input" for="">
+                        <i class="bi bi-envelope" id="icon"></i>
+                        <input type="email" placeholder="Email">
+                    </label>
+                
+                    <label class="label-input" for="">
+                        <i class="bi bi-person" id="icon"></i>
+                        <input type="text" placeholder="Nome do(a) gestor(a)">
+                    </label>
+                
+                    <a href="visao rede.html" class="btn btn-second">Login</a>
+                </form>
+            </div><!-- second column -->
+        </div><!-- second-content -->
+    </div>
+    <script src="login rede.js"></script>
+</body>
+</html>
