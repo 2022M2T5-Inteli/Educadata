@@ -23,25 +23,25 @@
                 <form class="form">
                     <label class="label-input" for="">
                         <i class="bi bi-person" id="icon"></i>
-                        <input type="text" placeholder="Nome do(a) gestor(a)">
+                        <input type="text" placeholder="Nome da rede" id="nome">
                     </label>
                     
                     <label class="label-input" for="">
                         <i class="bi bi-list" id="icon"></i>
-                        <select class="dropdown">
+                        <select class="dropdown" id="tipo">
                             <option value="...">Tipo de rede</option>
-                            <option value="Municipal">Municipal</option>
-                            <option value="Estadual">Estadual</option>
-                            <option value="Federal">Federal</option>
-                            <option value="Privada">Privada</option>
+                            <option value="Municipal" id="municipal">Municipal</option>
+                            <option value="Estadual" id="estadual">Estadual</option>
+                            <option value="Federal" id="federal" >Federal</option>
+                            <option value="Privada" id="privada">Privada</option>
                         </select>
                     </label>
 
                     <label class="label-input" for="">
                         <i class="bi bi-envelope" id="icon"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Email" id="email">
                     </label>
-                    <a class="btn btn-second">Inscrever-se</a>        
+                    <a class="btn btn-second" onclick="insertRede()">Inscrever-se</a>        
                 </form>
             </div><!-- second column -->
         </div><!-- first content -->
@@ -57,19 +57,40 @@
                 
                     <label class="label-input" for="">
                         <i class="bi bi-envelope" id="icon"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" id="email1">
                     </label>
                 
                     <label class="label-input" for="">
                         <i class="bi bi-person" id="icon"></i>
-                        <input type="text" placeholder="Nome do(a) gestor(a)">
+                        <input type="text" placeholder="Nome da Rede" id="nome1">
                     </label>
-                
-                    <a href="visaoRede.html" class="btn btn-second">Login</a>
+                    <!-- href="visaoRede.html" -->
+                    <a class="btn btn-second" onclick="getRede()">Login</a>
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->
     </div>
     <script src="loginRede.js"></script>
+    <script src="../DataBase/backend/get.js"></script>
+    <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../DataBase/backend/get.js"></script>
+    <script type="text/javascript">
+      
+      function insertRede(){
+        $.ajax({
+            url: "http://127.0.0.1:3080/rede/userinsert",
+            type: 'POST',
+            async: false,
+            data: {
+                Rede: $("#nome").val(),
+                Tipo: $("#tipo").val(),
+                Email: $("#email").val(),
+            }
+        })
+        var body = document.querySelector("body");
+        body.className = "sign-in-js";
+    };
+    </script>
 </body>
 </html>

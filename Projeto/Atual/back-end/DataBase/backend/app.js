@@ -924,13 +924,12 @@ app.post('/rede/userinsert', urlencodedParser, (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
 
-  sql = "INSERT INTO Rede (idRede, Rede, Tipo, email) VALUES (?, ?, ?, ?)";
+  sql = "INSERT INTO Rede (Rede, Tipo, Email) VALUES (?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
-  params.push(req.body.idRede);
   params.push(req.body.Rede);
   params.push(req.body.Tipo);
-  params.push(req.body.email);
+  params.push(req.body.Email);
 
   db.run(sql, params,  err => {
       if (err) {
