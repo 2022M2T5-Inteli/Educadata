@@ -25,6 +25,42 @@ var respostaMatriz = {
 var quest = 0
 var answ = 0
 
+//Funções de troca de tela
+
+function profileBtn(){
+  const profileBtn = document.getElementById("profileBtn")
+  const editProfileBtn = document.getElementById("editProfileBtn")
+  profileBtn.classList.add("disabled")
+  editProfileBtn.classList.remove("disabled")
+
+  document.getElementById("profile").style.display = "block";
+  document.getElementById("surveyEdit").style.display = "none";
+  document.getElementById("editProfile").style.display = "none";
+}
+
+function surveyEditBtn(){
+  const profileBtn = document.getElementById("profileBtn")
+  const editProfileBtn = document.getElementById("editProfileBtn")
+  profileBtn.classList.remove("disabled")
+  editProfileBtn.classList.remove("disabled")
+  
+
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("surveyEdit").style.display = "block";
+  document.getElementById("editProfile").style.display = "none";
+}
+
+
+function editProfileBtn(){
+  const profileBtn = document.getElementById("profileBtn")
+  const editProfileBtn = document.getElementById("editProfileBtn")
+  profileBtn.classList.remove("disabled")
+  editProfileBtn.classList.add("disabled")
+
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("surveyEdit").style.display = "none";
+  document.getElementById("editProfile").style.display = "block";
+}
 
 //Passa  para a próxima questão, faz o cálculo de pontos e soma os pontos na variável do eixo da pergunta
 function passar(i) {
@@ -106,7 +142,7 @@ function mudarQuestao(i, a) {
     };
     questionAnswers.answer.setAttribute("onclick", "passar(" + a + ")");
     questionAnswers.answer.setAttribute("id", "button" + a);
-    questionAnswers.answer.setAttribute("class", "answers_Btn");
+    questionAnswers.answer.setAttribute("class", "answersBtn");
     questionAnswers.answer.textContent = questions[i].respostas[a].resposta
     document.getElementById("questions").appendChild(questionAnswers.answer);
   }
@@ -193,38 +229,6 @@ function next(){
     config
   );
 }
-
-
-//Funções de troca de tela
-function profileBtn(){
-  document.getElementById("profile").style.display = "block";
-  document.getElementById("registeredSchools").style.display = "none";
-  document.getElementById("surveyEdit").style.display = "none";
-  document.getElementById("editProfile").style.display = "none";
-}
-
-
-function registeredSchoolsBtn(){
-  document.getElementById("profile").style.display = "none";
-  document.getElementById("registeredSchools").style.display = "block";
-  document.getElementById("surveyEdit").style.display = "none";
-  document.getElementById("editProfile").style.display = "none";
-}
-
-function surveyEditBtn(){
-  document.getElementById("profile").style.display = "none";
-  document.getElementById("registeredSchools").style.display = "none";
-  document.getElementById("surveyEdit").style.display = "block";
-  document.getElementById("editProfile").style.display = "none";
-}
-
-function editProfileBtn(){
-  document.getElementById("profile").style.display = "none";
-  document.getElementById("registeredSchools").style.display = "none";
-  document.getElementById("surveyEdit").style.display = "none";
-  document.getElementById("editProfile").style.display = "block";
-}
-
 
 //Cria uma pergunta nova na array "questions[]"
 function addQuestion(){

@@ -1,10 +1,12 @@
+//COLORS
 var primaryColor = '#948d28'
 var black = '#151515'
 var gray = '#C4C4C4'
 var white = '#F3F3F3'
 
-//Funções de troca de tela
+//FUNCTION TO CHANGE PAGE
 
+// Profile page:
 function profileBtn(){
   const profileBtn = document.getElementById("profileBtn")
   const editProfileBtn = document.getElementById("editProfileBtn")
@@ -17,6 +19,7 @@ function profileBtn(){
   loadSurvey();
 }
 
+// Survey page:
 function surveyBtn(){
   document.getElementById("profile").style.display = "none";
   document.getElementById("survey").style.display = "block";
@@ -25,7 +28,7 @@ function surveyBtn(){
   loadSurvey();
 }
 
-//Desativa o botao de resultados (HARD-CODE)
+//Turn off results button:
 function resultsDisable(){
   const btn = document.getElementById("resultsBtn")
   var survey = 1;
@@ -36,7 +39,7 @@ function resultsDisable(){
   };
 }
 
-
+//Edit profile:
 function editProfileBtn(){
   const profileBtn = document.getElementById("profileBtn")
   const editProfileBtn = document.getElementById("editProfileBtn")
@@ -48,13 +51,15 @@ function editProfileBtn(){
   document.getElementById("editProfile").style.display = "block";
 }
 
-//QUESTIONÁRIO
 
+//QUESTIONS
+
+//Database variables
 var url = "http://127.0.0.1:3080/pergunta/users";
 var resposta;
 var xhttp = new XMLHttpRequest();
 xhttp.open("GET", url, false);
-xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+xhttp.send();
 resposta = JSON.parse(xhttp.responseText);
 var notLoaded = true;
 var multiplier;
@@ -63,6 +68,7 @@ var gray = '#C4C4C4'
 var eixo1 = 0;
 var eixo2 = 0;
 
+//Function to load survey
 function loadSurvey(){
   if(notLoaded === true){
       for(var i=0; i < resposta.length; i++){
@@ -91,9 +97,10 @@ function loadSurvey(){
           var resposta1;
           var xhttp1 = new XMLHttpRequest();
           xhttp1.open("GET", url1, false);
-          xhttp1.send();//A execução do script pára aqui até a requisição retornar do servidor
+          xhttp1.send();
           resposta1 = JSON.parse(xhttp1.responseText);
       }
+// Create questions on front:
       for(var a=0; a < resposta1.length; a++){
           var answers = document.createElement("button")
           answers.setAttribute("id", "answerID" + resposta1[a].idPergunta + a);
@@ -106,8 +113,9 @@ function loadSurvey(){
   }
 }
 
+
+//Function to switch to the question that was clicked: 
 function mudarQuestao(i) {
-  //passar pra questão que foi clicada
   multiplier = resposta[i].Peso
   document.getElementById("question" + lastQuestion).style.display = "none";
   document.getElementById("question" + i).style.display = "block";
@@ -119,6 +127,7 @@ function mudarQuestao(i) {
   document.getElementById("getQuestion" + i).disabled = true;
   lastQuestion = i;
 }
+
 
 function compute(i, a){
   //passar pra questão que foi clicada
@@ -137,26 +146,12 @@ function compute(i, a){
   eixo1 += (a * (100/5));
   console.log(eixo1)
   console.log(resposta[i].Peso)
-
-  // var totalWeight = 0;
-  // var point = 0;
-  // for (var b = 0; b < resposta.length; b++){
-  //     totalWeight += resposta[b].Peso;
-  // }
-  // for (var b = 0; b < resposta.length; b++){
-  //     if(resposta[b].idEixo === 1){
-  //         eixo1 += (b * multiplier * ((100/totalWeight)/5));
-  //     }
-  //     else{
-  //         eixo2 += (b * multiplier * ((100/totalWeight)/5));
-  //     }
-  // }
 }
 
+//Functions to animate quetions buttons:
 function getQuestionMouseOver(i){
   document.getElementById("getQuestion" + i).style.backgroundColor = "#C4C4C4"
 }
-
 function getQuestionMouseOut(i){
   var a = document.getElementById("getQuestion" + i).style.backgroundColor
   if (document.getElementById("getQuestion" + i).disabled != true){

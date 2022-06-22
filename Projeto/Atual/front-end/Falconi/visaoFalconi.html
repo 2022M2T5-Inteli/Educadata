@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="visaoFalconi.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Gestor - escola</title>
+  </head>
+  <body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
+    <a href="../Inicio/index.html">
+      <img src="../Inicio/images/EduX_Logo2.png" alt="Logo" href="../Inicio/index.html" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse bg-whitecolor" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="../Inicio/index.html">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Inicio/knowmore.html">Saiba mais</a>
+        </li>
+      </ul>
+    </div> <!-- close collapse  -->
+  </nav>
+  <!-- BUTTON -->
+  <div class="container" id="buttons">
+    <div class="row justify-content-center">
+      <button class="col-4 botao botaoE" id="editProfileBtn" onclick="editProfileBtn()">Editar cadastro</button> 
+      <button class="col-4 botao botaoD" id="profileBtn" onclick="profileBtn()">Perfil e Escolas Cadastradas</button>
+      <button class="col-4 botao2 botaoF" id="surveyBtn" onclick="surveyEditBtn()">Editar questionário</button> 
+    </div>
+  </div>  <!-- close container  -->
+
+ <!-- PROFILE - GENERAL -->
+  <div id="profile">
+    <div class="container">
+      <div class="row justify-content-between margin-top">
+          <!--PROFILE-->
+          <div class="col-4 card card-profile align-itens-center text-center">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Escola" class="rounded-circle" width="150" height="140">
+            <div class="mt-3">
+              <h3>Nome Sobrenome</h3>
+              <h4>Cargo</h2>
+              <p class="text-secondary mb-1">Example</p>
+              <h4>Email</h4>
+              <p class="text-secondary mb-1">Example</p>
+            </div> <!--close mt-3-->
+          </div> <!-- close col-4-->
+          <!--LIST-->
+          <div class="col-3 card card-registration">
+            <div class="card-agenda mb-3">
+              <div class="card-body">
+                <table>
+                  <h3 class="agendas">Escolas Registradas</h3> 
+                </table>
+              </div> <!--close card-body-->
+            </div> <!--close card-agenda-->
+          </div> <!--close col-3-->
+          <!--LIST-->
+          <div class="col-3 card card-registration">
+            <div class="card-agenda mb-3">
+              <div class="card-body">
+                <table>
+                    <h3 class="agendas">Cidade e estado</h3> 
+                </table>
+              </div>
+            </div>
+          </div>
+          <!--LIST-->
+          <div class="col-3 card card-registration">
+            <div class="card-agenda mb-3">
+              <div class="card-body">
+                <table>
+                    <h3 class="agendas">Avaliação geral</h3> 
+                </table>
+              </div> <!-- close card-body -->
+            </div> <!-- close card-agenda -->
+          </div> <!-- close clo-3 -->
+      </div><!--close row-->
+    </div><!--close container-->
+  </div><!--close profile-->
+
+  <!--BUTTON-->
+  <div class="container" id="editProfile" style="display: none;">
+    <div class="row edicao">
+      <!-- EDIT PROFILE -->
+      <div class="row justify-content-between">
+        <div class="col-4 card card-profile align-itens-center text-center"> <!-- PERFIL -->
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+          <div class="mt-3">
+            <h4>Nome</h4>
+            <p class="text-secondary mb-1">Cargo</p>
+            <p class="text-muted font-size-sm">email</p>
+            <div class="mt-5 text-center"><button class="botaoEdicao" type="button">Save Profile</button></div>
+          </div> <!-- close mt-3 -->
+        </div> <!-- close col-4 -->
+        <div class="col-4 inputs"> <!-- inputs -->
+          <h4 class="text-right">Edição de cadastro</h4>
+          <div class="col-md-12"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="qual seu nome?" value=""></div>       
+          <div class="col-md-12"><label class="labels">E-mail</label><input type="text" class="form-control" placeholder="email da Falconi" value=""></div>     
+          <div class="col-md-12"><label class="labels">Cargo</label><input type="text" class="form-control" placeholder="cargo na Falconi" value=""></div>  
+        </div> <!-- close col-4 -->
+        <div class="col-4 inputs">
+          <h4 class="text-right">Endereço</h4>
+          <div class="col-md-12"><label class="labels">País</label><input type="text" class="form-control" placeholder="país" value=""></div> 
+          <div class="col-md-12"><label class="labels">Estado</label><input type="text" class="form-control" placeholder="estado" value=""></div> 
+          <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="cidade" value=""></div> 
+        </div> <!-- close col-4 -->
+        </div> <!-- close row -->
+      </div> <!-- close row -->
+  </div> <!-- close container -->
+
+
+    <!-- SURVEY EDIT -->
+  <center>
+    <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
+      <h1 class="text-black">Editar Questionário</h1>
+      <br>
+      <button onclick="addQuestion()" class="addQuestion">Adicionar Pergunta</button>
+      <br>
+      <div class="modal fade" id="falconiModal">
+        <div class="modal-dialog padding-top-5">
+          <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Editor de respostas</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div> <!-- close modal-header -->
+            <div id="modalBody" class="modal-body">
+              <button class="borderRadius addAnswer btn" onclick="addAnswer()">+</button>
+            </div> <!-- close modalBody -->
+            <div class="modal-footer">
+              <button class="modalBtn fontColorGray fontGeneva">Redefinir</button>
+              <button class="modalBtn fontColorBlue fontGeneva" onclick="saveAnswers()">Salvar Mudanças</button>
+            </div> <!-- close modal-footer -->
+          </div> <!-- close modal-dialog -->
+        </div> <!-- close modal -->
+      </div> <!-- close surveyEdit -->
+  </center>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="visaoFalconi.js"></script>
+</body>
+</html>
