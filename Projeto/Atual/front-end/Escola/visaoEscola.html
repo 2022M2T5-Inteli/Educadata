@@ -11,8 +11,8 @@
   <body onload="resultsDisable()">
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
-    <a href="../Inicio/index.html">
-      <img src="../images/EduX - Logo 2.png" alt="Logo" href="../Inicio/index.html" class="logo">
+    <a href="../Inicio/inicio.html">
+      <img src="images/EduX_Logo2.png" alt="Logo" href="../Inicio/inicio.html" class="logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse bg-whitecolor" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="../Inicio/index.html">Início</a>
+            <a class="nav-link" href="../Inicio/inicio.html">Início</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../Inicio/knowmore.html">Saiba mais</a>
@@ -53,8 +53,8 @@
           </div> <!-- CLOSE COL-4 CARD CARD-PROFILE -->
           <!--HEPTAGON-->
           <div class="col-4 card">
-            <img src="./fotos/radar-chart-in-r-customized-fmstb-radar-chart-1.png" class="radarimg">
-            <button class="button"><a href="resultado.html">Resultados</a></button> 
+            <img src="images/radar-chart-in-r-customized-fmstb-radar-chart-1.png" class="radarimg">
+            <button class="button"> <a href="resultado.html" class="profileButton">Resultados</a></button>
           </div> <!-- CLOSE COL-4 CARD -->
           <!-- GRAPHIC-->
           <div class="col-4 card">
@@ -93,26 +93,26 @@
             <h4>Nome</h4>
             <p class="text-secondary mb-1">Cargo</p>
             <p class="text-muted font-size-sm">email</p>
-            <div class="mt-5 text-center"><button class="buttonEdition" type="button">Save Profile</button></div>
+            <div class="mt-5 text-center"><button class="buttonEdition" type="button"><a href="visaoEscola.html">Salvar alterações</button></div></a>
           </div> <!--CLOSE MT-3-->
         </div> <!-- CLOSE COL-4 CARD CARD-PROFILE -->
         <div class="col-4 inputs"> <!-- INPUTS -->
           <h4 class="text-right">Edição de cadastro</h4>
           <div class="col-md-12"><label class="labels">Nome da escola / Instituição</label><input type="text" class="form-control" placeholder="qual é o nome da escola?" value=""></div>       
-          <div class="col-md-12"><label class="labels">E-mail institucional</label><input type="text" class="form-control" placeholder="qual rede a escola pertence" value=""></div>     
-          <div class="col-md-12"><label class="labels">Nº de funcionários</label><input type="text" class="form-control" placeholder="qual cidade" value=""></div>  
-          <div class="col-md-12"><label class="labels">Nº de alunos</label><input type="text" class="form-control" placeholder="qual estado" value=""></div>    
+          <div class="col-md-12"><label class="labels">E-mail institucional</label><input type="text" class="form-control" placeholder="e-mail institucional" value=""></div>     
+          <div class="col-md-12"><label class="labels">Nº de funcionários</label><input type="text" class="form-control" placeholder="número de funcionários" value=""></div>  
+          <div class="col-md-12"><label class="labels">Nº de alunos</label><input type="text" class="form-control" placeholder="número de alunos" value=""></div>    
         </div> <!--CLOSE COL-4 INPUTS-->
         <div class="col-4 inputs">
           <h4 class="text-right">Endereço</h4>
-          <div class="col-md-12"><label class="labels">País</label><input type="text" class="form-control" placeholder="seu email" value=""></div> 
-          <div class="col-md-12"><label class="labels">Estado</label><input type="text" class="form-control" placeholder="seu email" value=""></div> 
-          <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="seu email" value=""></div> 
-          <div class="col-md-12"><label class="labels">Bairro</label><input type="text" class="form-control" placeholder="seu email" value=""></div> 
-          <div class="col-md-12"><label class="labels">Rua</label><input type="text" class="form-control" placeholder="seu email" value=""></div>
+          <div class="col-md-12"><label class="labels">País</label><input type="text" class="form-control" placeholder="país" value=""></div> 
+          <div class="col-md-12"><label class="labels">Estado</label><input type="text" class="form-control" placeholder="estado" value=""></div> 
+          <div class="col-md-12"><label class="labels">Cidade</label><input type="text" class="form-control" placeholder="cidade" value=""></div> 
+          <div class="col-md-12"><label class="labels">Bairro</label><input type="text" class="form-control" placeholder="bairro" value=""></div> 
+          <div class="col-md-12"><label class="labels">Rua</label><input type="text" class="form-control" placeholder="rua" value=""></div>
           <div class="row justify-content-between">
-            <div class="col-md-5"><label class="labels">Número</label><input type="text" class="form-control" placeholder="seu email" value=""></div> 
-            <div class="col-md-5"><label class="labels">Complemento</label><input type="text" class="form-control" placeholder="seu email" value=""></div>
+            <div class="col-md-5"><label class="labels">Número</label><input type="text" class="form-control" placeholder="número" value=""></div> 
+            <div class="col-md-5"><label class="labels">Complemento</label><input type="text" class="form-control" placeholder="Complemento" value=""></div>
           </div> <!--CLOSE ROW JUSTIFY-CONTENT-BETWEEN-->
         </div> <!--CLOSE COL-4 INPUTS-->
       </div> <!--CLOSE ROW JUSTIFY-CONTENT-BETWEEN -->
@@ -122,6 +122,8 @@
   <div id="home"> 
     <div id="survey" style="display: none;">
       <div class="container">
+        <button class="buttonBack"><a href="visaoEscola.html">Voltar</a></button>
+
         <div class="row">
           <div class="col-4 questionsBox" id="questionsBox">
         

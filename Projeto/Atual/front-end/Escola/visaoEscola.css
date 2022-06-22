@@ -182,8 +182,8 @@ a:link {
   font-size: 20px;
   font-family: 'Public Sans', sans-serif;
   font-style: 'thin';
-  color: #F3F3F3;
-  background-color: #7c7511;
+  color: #F3F3F3 !important;
+  background-color: #7c7511 !important; 
   font-weight: bolder;
   border-radius: 10px;
   border: none;
@@ -207,6 +207,24 @@ a:link {
   justify-items: center;
   align-items: center;
   align-content: center;
+}
+
+.buttonBack{
+  display: block;
+  font-size: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #7c7511;
+  font-weight: bolder;
+  border: none;
+
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  border-radius: 16px;
+  background-color: white;
+  filter: drop-shadow(.1rem .1rem .5rem rgba(90, 90, 90, 0.3));
 }
 
 .questionsBox{

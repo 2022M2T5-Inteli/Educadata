@@ -128,9 +128,20 @@ function mudarQuestao(i) {
   lastQuestion = i;
 }
 
-//Function to switch to the next question when the answer is clicked:
+
 function compute(i, a){
-  mudarQuestao(i);
+  //passar pra questão que foi clicada
+  multiplier = resposta[i].Peso
+  document.getElementById("question" + lastQuestion).style.display = "none";
+  document.getElementById("question" + i).style.display = "block";
+  document.getElementById("answerDivID" + lastQuestion).style.display = "none";
+  document.getElementById("answerDivID" + i).style.display = "block";
+  document.getElementById("getQuestion" + lastQuestion).style.backgroundColor = white;
+  document.getElementById("getQuestion" + lastQuestion).disabled = false;
+  document.getElementById("getQuestion" + i).style.backgroundColor = "#989393";
+  document.getElementById("getQuestion" + i).disabled = true;
+  lastQuestion = i;
+
 
   eixo1 += (a * (100/5));
   console.log(eixo1)
