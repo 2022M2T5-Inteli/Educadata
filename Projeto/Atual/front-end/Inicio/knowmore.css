@@ -158,9 +158,19 @@ padding: 5%;
     margin-bottom: 0;
   }
 
+.linkedin{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.linkedin:hover{
+  color: #7c7511;
+}
+
 .contactBox{
   background-color: rgba(0, 0, 0, 0.272);
-  color: #fff;
+  color: #fff !important;
   font-size: .92rem;
   line-height: 1.75;
   margin: 0;
@@ -168,7 +178,7 @@ padding: 5%;
   margin-right: 4rem;
   padding: 5rem 3rem 3rem;
   transform: translateY(-3rem);
-  width: 50%;
+  width: 30%;
   z-index: 0;
 }
 

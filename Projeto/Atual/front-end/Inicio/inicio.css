@@ -211,6 +211,11 @@ padding: 5%;
   border-radius: 10px;
   border: none;
   margin-bottom: 3vh;
+  text-decoration: none;
+}
+
+.profileButton:hover{
+  color:rgba(0,0,0, 0.7)
 }
 
 .botoesPerfil:hover{
