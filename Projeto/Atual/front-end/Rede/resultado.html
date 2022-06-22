@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="resultado.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Gestor - escola</title>
+  </head>
+    <body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
+    <a href="../Inicio/index.html">
+      <img src="../Inicio/images/EduX_Logo2.png" alt="Logo" href="../Inicio/index.html" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse bg-whitecolor" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="../Inicio/index.html">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Inicio/knowmore.html">Saiba mais</a>
+        </li>
+      </ul>
+    </div> <!--CLOSE COLLAPSE NAVBAR-COLLAPSE -->
+  </nav>
+<!-- RESULTADOS -->
+<div id="results" class="results">
+  <div id="results2" class="results2">
+    <div class="conteudo">
+      <div class="top">
+          <button class="button"><a href="visaoRede.html">Voltar</a></button>
+          <h1 class="titulo">Visão geral dos resultados</h1>
+      </div>
+
+      <div class="grafico">
+        <div class="gridColuna" id="gridColuna">
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 1</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">90%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 2</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem2"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">50%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 3</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem3"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">20%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 4</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem4"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">70%</span>
+            </div>
+          </div>
+          <div class="coluna">
+            <div class="tituloColuna">Questionário 5</div>
+            <div class="colunaPorcentagem">
+              <div class="porcentagem5"></div>
+            </div>
+            <div class="bolinha">
+              <span class="porcentagemTitulo">30%</span>
+            </div>
+          </div>
+        </div>
+        <select class="dropdown resultados">
+            <option value="...">Escolher Questionário</option>
+            <option value="Questionario1">Questionário 1</option>
+            <option value="Questionario2">Questionário 2</option>
+            <option value="Questionario3">Questionário 3</option>
+            <option value="Questionario4">Questionário 4</option>
+            <option value="Questionario5">Questionário 5</option>
+        </select>
+        <div><img class="radarimg2" src="./fotos/radar-chart-in-r-customized-fmstb-radar-chart-1.png"></div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+</div> <!--    FECHAR HOME  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="visaoEscola.js"></script>
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    </body>
+</html>

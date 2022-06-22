@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="visaoRede.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Gestor - escola</title>
+  </head>
+  <body onload="resultsDisable()">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
+    <a href="../Inicio/index.html">
+      <img src="../Inicio/images/EduX_Logo2.png" alt="Logo" href="../Inicio/index.html" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse bg-whitecolor" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="../Inicio/index.html">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Inicio/knowmore.html">Saiba mais</a>
+        </li>
+      </ul><!--navbar-links-->
+    </div><!--navbar-collapse-->
+  </nav><!--navbar-->
+  <!-- BOTÕES -->
+  <div class="container" id="buttons">
+    <div class="row justify-content-center">
+      <button class="col-4 botao botaoE" id="editProfileBtn" onclick="editProfileBtn()">Editar cadastro</button> 
+      <button class="col-4 botao botaoD" id="profileBtn" onclick="profileBtn()">Perfil e Escolas Cadastradas</button>
+      <button class="col-4 botao botaoG"><a href="resultado.html">Resultados</a></button> 
+    </div><!--row-->
+  </div><!--container-->
+
+  <!-- PERFIL - VISÃO GERAL -->
+  <div id="profile">
+    <div class="container">
+      <div class="row justify-content-between margin-top">
+        <!--PERFIL-->
+        <div class="col-4 card card-profile align-itens-center text-center">
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Escola" class="rounded-circle" width="150" height="140">
+          <div class="mt-3">
+            <h3>Nome Sobrenome</h3>
+            <h4>Tipo de Rede</h2>  
+          </div><!--mt-3-->
+        </div><!--col-4-->
+        <!--TABELA1-->
+        <div class="col-3 card card-registration">
+          <div class="card-agenda mb-3">
+            <div class="card-body">
+              <table>
+                <h3 class="agendas">Lista de escolas</h3> 
+              </table>
+            </div><!--card-body-->
+          </div><!--card-agenda-->
+        </div><!--col-3 card-->
+        <!--TABELA2-->
+        <div class="col-3 card card-registration">
+          <div class="card-agenda mb-3">
+            <div class="card-body">
+              <table>
+                  <h3 class="agendas">Cidade e estado</h3> 
+              </table>
+            </div><!--card-body-->
+          </div><!--card-agenda-->
+        </div><!--col-3 card-->
+        <!--TABELA3-->
+        <div class="col-3 card card-registration">
+          <div class="card-agenda mb-3">
+            <div class="card-body">
+              <table>
+                  <h3 class="agendas">Avaliação geral</h3> 
+              </table>
+            </div><!--card-body-->
+          </div><!--card-agenda-->
+        </div> <!--col-3 card-->
+      </div><!--row-->
+    </div><!--container-->
+  </div><!--profile-->
+
+  <!--BOTOES-->
+  <div class="container" id="editProfile" style="display: none;">
+    <div class="row edicao">
+      <!-- EDITAR CADASTRO -->
+      <div class="row justify-content-between">
+        <div class="col-4 card card-profile align-itens-center text-center"> <!-- PERFIL -->
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+          <div class="mt-3">
+            <h4>Nome</h4>
+            <p class="text-secondary mb-1">Tipo de rede</p>
+            <p class="text-muted font-size-sm">email</p>
+            <div class="mt-5 text-center"><button class="botaoEdicao" type="button">Save Profile</button></div>
+          </div><!--mt-3-->
+        </div><!--col-4-->
+        <!-- INPUTS -->
+        <div class="col-9 inputs">
+          <h4 class="text-right">Edição de cadastro</h4>
+          <div class="col-md-12"><label class="labels">Nome do gestor(a)</label><input type="text" class="form-control" placeholder="Nome" value=""></div>       
+          <div class="col-md-12"><label class="labels">Tipo de rede</label><input type="text" class="form-control" placeholder="Qual é o seu tipo de rede?" value=""></div>     
+          <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Insira seu email" value=""></div>      
+        </div><!--col-9-->
+      </div><!--row justify-->
+    </div><!--row-->
+  </div><!--container-->
+      
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="visaoRede.js"></script>
+</body>
+</html>
