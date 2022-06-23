@@ -32,7 +32,7 @@ padding: 5%;
 }
   
 .layout {
-  background-image: url(images/imagem\ falconi\ pagina\ inicial.png);
+  background-image: url(/images/imagem\ falconi\ pagina\ inicial.png);
   background-position: 0 0;
   background-size: cover;
   height: 100vh;
