@@ -16,7 +16,6 @@ function profileBtn(){
   document.getElementById("profile").style.display = "block";
   document.getElementById("survey").style.display = "none";
   document.getElementById("editProfile").style.display = "none";
-  loadSurvey();
 }
 
 // Survey page:

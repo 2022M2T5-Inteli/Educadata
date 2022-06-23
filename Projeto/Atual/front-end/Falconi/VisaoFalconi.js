@@ -1,30 +1,3 @@
-var answerButtonBeingUsed = false
-var multiplier = 0
-var currentQuestion = 0;
-var lastQuestion = 0;
-var primaryColor = '#948d28'
-var black = '#151515'
-var verifier = 0
-var allPoints = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-];
-var teaching = 0;
-var people = 0;
-var questions = []
-var questaoMatriz = {
-  pergunta: "null",
-  eixo: 1,
-  peso: 1,
-  respostas: []
-}
-var respostaMatriz = {
-  resposta: "null",
-  valor: 1
-}
-var quest = 0
-var answ = 0
-
 //Funções de troca de tela
 
 function profileBtn(){
@@ -48,8 +21,8 @@ function surveyEditBtn(){
   document.getElementById("profile").style.display = "none";
   document.getElementById("surveyEdit").style.display = "block";
   document.getElementById("editProfile").style.display = "none";
+  getQuestions();
 }
-
 
 function editProfileBtn(){
   const profileBtn = document.getElementById("profileBtn")
@@ -62,415 +35,172 @@ function editProfileBtn(){
   document.getElementById("editProfile").style.display = "block";
 }
 
-//Passa  para a próxima questão, faz o cálculo de pontos e soma os pontos na variável do eixo da pergunta
-function passar(i) {
-  if (currentQuestion <= questions.length){
-    answerButtonBeingUsed = true
-    document.getElementById("getQuestion" + currentQuestion).disabled = false;
-    document.getElementById("getQuestion" + currentQuestion).click();
-    document.getElementById("getQuestion" + currentQuestion).disabled = true;
+
+var notLoaded = true;
+var notLoadedAnswer = [];
+
+function getQuestions(){
+  if (notLoaded){
+    var url = "http://127.0.0.1:3080/pergunta/users";
+    var resposta;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url, false);
+    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+    resposta = JSON.parse(xhttp.responseText);
+    var idPergunta;
+    var pergunta;
+    var peso;
+    var idEixo;
+    for(var i=0; i < resposta.length; i++){
+      var questDiv = document.createElement("div");
+      var btnShow = document.createElement("button");
+      var btnEdit = document.createElement("button");
+      var btnAdd = document.createElement("button");
+      var btnSave = document.createElement("button");
+      var questDelete = document.createElement("button");
+      var questShow = document.createElement("p");
+      var weightShow = document.createElement("label");
+      var axleShow = document.createElement("label");
+      idPergunta = resposta[i].idPergunta;
+      pergunta = resposta[i].Pergunta;
+      peso = resposta[i].Peso;
+      idEixo = resposta[i].idEixo;
+      questDiv.setAttribute("id", "questDiv" + idPergunta);
+      questDiv.setAttribute("class", "addQuestion");
+      btnShow.setAttribute("id", "buttonShowID" + idPergunta);
+      btnShow.setAttribute("class", "buttonShow float-right");
+      btnShow.setAttribute("onclick", "editQuestion(" + idPergunta + ")");
+      btnEdit.setAttribute("id", "buttonEditID" + idPergunta);
+      btnEdit.setAttribute("class", "buttonShow float-right");
+      btnEdit.setAttribute("onclick", "getEditable(" + idPergunta + ")");
+      btnAdd.setAttribute("id", "buttonAddID" + idPergunta);
+      btnAdd.setAttribute("class", "buttonShow float-right");
+      btnAdd.setAttribute("onclick", "addAnswer(" + idPergunta + ")");
+      btnSave.setAttribute("id", "buttonSaveID" + idPergunta);
+      btnSave.setAttribute("class", "buttonShow float-right");
+      btnSave.setAttribute("onclick", "saveQuestion(" + idPergunta + ")");
+      questDelete.setAttribute("id", "buttonDeleteID" + idPergunta);
+      questDelete.setAttribute("onclick", "deleteQuestion(" + idPergunta + ")");
+      questDelete.setAttribute("class", "buttonShow float-right");
+      questShow.setAttribute("id", "questShowID" + idPergunta);
+      weightShow.setAttribute("id", "weightShowID" + idPergunta);
+      axleShow.setAttribute("id", "axleShowID" + idPergunta);
+      questDiv.style.backgroundColor = "#FFFFFF";
+      document.getElementById("surveyEdit").appendChild(questDiv);
+      document.getElementById("questDiv" + idPergunta).appendChild(questShow);
+      document.getElementById("questDiv" + idPergunta).appendChild(weightShow);
+      document.getElementById("questDiv" + idPergunta).appendChild(axleShow);
+      document.getElementById("questShowID" + idPergunta).innerHTML = pergunta;
+      document.getElementById("weightShowID" + idPergunta).innerHTML = peso;
+      document.getElementById("axleShowID" + idPergunta).innerHTML = idEixo;
+      document.getElementById("questDiv" + idPergunta).appendChild(btnShow);
+      document.getElementById("questDiv" + idPergunta).appendChild(btnEdit);
+      document.getElementById("questDiv" + idPergunta).appendChild(btnAdd);
+      document.getElementById("questDiv" + idPergunta).appendChild(btnSave);
+      document.getElementById("questDiv" + idPergunta).appendChild(questDelete);
+      document.getElementById("buttonSaveID" + idPergunta).style.backgroundColor = "#00FF00"
+      document.getElementById("buttonEditID" + idPergunta).style.backgroundColor = "#FFFF00"
+      document.getElementById("buttonDeleteID" + idPergunta).style.backgroundColor = "#FF0000"
+      document.getElementById("buttonAddID" + idPergunta).style.backgroundColor = "#993399"
+      notLoadedAnswer.push(1);
+    }
+    //console.log(xhttp.responseText);
+    notLoaded = false;
   }
-  //calculo de pontos
-  if(i == 1) {
-    allPoints[currentQuestion] = 5 * multiplier
-  }else if (i == 2) {
-    allPoints[currentQuestion] = 4 * multiplier
-  }else if (i == 3) {
-    allPoints[currentQuestion] = 3 * multiplier
-  }else if (i == 4) {
-    allPoints[currentQuestion] = 2 * multiplier
-  }else if (i == 5) {
-    allPoints[currentQuestion] = 1 * multiplier
-  }
-  teaching = 0;
-  var totalWeight = 0
-  for (var a = 0; a < questions.length; a++){
-    totalWeight += Number(questions[a].peso);
-  }
-  for (var a = 0; a < questions.length; a++){
-    teaching += allPoints[a] * ((100/totalWeight)/5);
-  }
-  people = 0;
-  for (var i = 14; i <= 33; i++){
-    people += allPoints[i] * 0.21739130435;
-  }
-  document.getElementById("teachingPoints").textContent = teaching;
-  document.getElementById("peoplePoints").textContent = people;
-  for (var a = 0; a <= questions.length; a++){
-    if (allPoints[a] != 0){
-      verifier += 1;
-      if (verifier >= questions.length){
-        document.getElementById("buttonNext").style.display = "block";
+}
+
+function editQuestion(quest){
+  if (notLoadedAnswer[quest] == 1){
+    var url = "http://127.0.0.1:3080/resposta/users";
+    var resposta;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url, false);
+    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+    resposta = JSON.parse(xhttp.responseText);
+    var idResposta;
+    var respostaA;
+    var maturidade;
+    for(var i=0; i < resposta.length; i++){
+      idResposta = resposta[i].idResposta;
+      respostaA = resposta[i].Resposta;
+      maturidade = resposta[i].Maturidade;
+      idPergunta = resposta[i].idPergunta;
+      if(idPergunta == quest){
+        var answDiv = document.createElement("div");
+        var btnDelete = document.createElement("button");
+        var answShow = document.createElement("p");
+        var matureShow = document.createElement("label");
+        answDiv.setAttribute("id", "answDiv" + idResposta);
+        answDiv.setAttribute("class", "addQuestion");
+        btnDelete.setAttribute("id", "btnDelete" + idResposta);
+        btnDelete.setAttribute("class", "buttonShow float-right");
+        btnDelete.setAttribute("onclick", "answDelete(" + idResposta + "," + idPergunta + ")");
+        btnDelete.style.backgroundColor = "#FF0000";
+        answShow.setAttribute("id", "answShowID" + idResposta);
+        matureShow.setAttribute("id", "matureShowID" + idResposta);
+        document.getElementById("questDiv" + quest).appendChild(answDiv);
+        document.getElementById("answDiv" + idResposta).appendChild(answShow);
+        document.getElementById("answDiv" + idResposta).appendChild(matureShow);
+        document.getElementById("answShowID" + idResposta).innerHTML = respostaA;
+        document.getElementById("matureShowID" + idResposta).innerHTML = maturidade;
+        document.getElementById("answDiv" + idResposta).appendChild(btnDelete);
       }
+      notLoadedAnswer[quest] = 0;
     }
   }
-  verifier = 0;
-
-  //passar pra próxima questão
-  currentQuestion++;
-  if (currentQuestion > questions.length - 1) {
-    currentQuestion = 0;
-  }
-  document.getElementById("question" + currentQuestion).style.display = "block";
-  document.getElementById("question" + lastQuestion).style.display = "none";
-  document.getElementById("getQuestion" + currentQuestion).style.backgroundColor = '#948d28';
-  document.getElementById("getQuestion" + currentQuestion).disabled = true;
-  document.getElementById("getQuestion" + lastQuestion).style.backgroundColor = '#151515';
-  document.getElementById("getQuestion" + lastQuestion).disabled = false;
-  lastQuestion = currentQuestion;
-}
-
-function mudarQuestao(i, a) {
-  //passar pra questão que foi clicada
-  multiplier = questions[i].peso
-  if (answerButtonBeingUsed == false){
-    currentQuestion = i;
-    document.getElementById("question" + lastQuestion).style.display = "none";
-    document.getElementById("question" + i).style.display = "block";
-    document.getElementById("getQuestion" + lastQuestion).style.backgroundColor = '#151515';
-    document.getElementById("getQuestion" + lastQuestion).disabled = false;
-    document.getElementById("getQuestion" + i).style.backgroundColor = '#948d28';
-    document.getElementById("getQuestion" + i).disabled = true;
-    lastQuestion = currentQuestion;
-  }
   else{
-    answerButtonBeingUsed = false
-  }
-  for(var a = 0; a < questions[i].respostas.length; a++){
-    var questionAnswers = {
-      answer: document.createElement("button")
-    };
-    questionAnswers.answer.setAttribute("onclick", "passar(" + a + ")");
-    questionAnswers.answer.setAttribute("id", "button" + a);
-    questionAnswers.answer.setAttribute("class", "answersBtn");
-    questionAnswers.answer.textContent = questions[i].respostas[a].resposta
-    document.getElementById("questions").appendChild(questionAnswers.answer);
-  }
-}
-
-
-//funções para mudar a cor dos botões de navegação
-function mouseOver(i){
-  document.getElementById("getQuestion" + i).style.backgroundColor = primaryColor
-}
-
-function mouseOut(i){
-  document.getElementById("getQuestion" + i).style.backgroundColor = black
-}
-
-
-//faz aparecer o gráfico e sumir com as perguntas e respostas
-function next(){
-  for (i = 0; i < questions.length; i++){
-    document.getElementById("question" + i).style.display = "none";
-    document.getElementById("getQuestion" + i).style.display = "none";
-  }
-  document.getElementById("button1").style.display = "none";
-  document.getElementById("button2").style.display = "none";
-  document.getElementById("button3").style.display = "none";
-  document.getElementById("button4").style.display = "none";
-  document.getElementById("button5").style.display = "none";
-  document.getElementById("buttonNext").style.display = "none";
-  document.getElementById("title").textContent = "Resultado:";
-  document.getElementById("heptagonGraphDiv").style.display = "block";
-
-  //seta um gráfico de heptágono para o chart.js
-  var data = {
-    labels: [
-      'Ensino',
-      'Pessoas',
-      'Fluxo',
-      'Infraestrutura e TI',
-      'Gestão para Resultados',
-      'Incentivos',
-      'Equidade'
-    ],
-    datasets: [{
-      label: 'Sua instituição de ensino',
-      data: [teaching, 50, 50, 50, 50, 50, 50],
-      fill: true,
-      backgroundColor: 'rgba(135, 206, 250, 0.2)',
-      borderColor: 'rgb(135, 206, 250)',
-      pointBackgroundColor: 'rgb(135, 206, 250)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(135, 206, 250)'
-    }, {
-      label: 'Média das instituições de ensino',
-      data: [42, 42, 42, 42, 42, 42, 42],
-      fill: true,
-      backgroundColor: 'rgba(255, 255, 0, 0.2)',
-      borderColor: 'rgb(255, 255, 0)',
-      pointBackgroundColor: 'rgb(255, 255, 0)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(255, 255, 0)'
-    }]
-  };
-  const config = {
-    type: 'radar',
-    data: data,
-    options: {
-      elements: {
-        line: {
-          borderWidth: 1
-        }
-      },
-      scale: {
-        ticks: {
-          beginAtZero: true,
-          max: 5,
-        }
+    var url = "http://127.0.0.1:3080/resposta/users";
+    var resposta;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url, false);
+    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+    resposta = JSON.parse(xhttp.responseText);
+    var idResposta;
+    var respostaA;
+    var maturidade;
+    for(var i=0; i < resposta.length; i++){
+      idResposta = resposta[i].idResposta;
+      respostaA = resposta[i].Resposta;
+      maturidade = resposta[i].Maturidade;
+      idPergunta = resposta[i].idPergunta;
+      if(idPergunta == quest){
+        document.getElementById("questDiv" + idPergunta).removeChild(document.getElementById("answDiv" + idResposta));
       }
-    },
-  };
-  var heptagonGraph = new Chart(
-    document.getElementById('heptagonGraph'),
-    config
-  );
-}
-
-//Cria uma pergunta nova na array "questions[]"
-function addQuestion(){
-  var addNewQuestion = {
-    questionShowDiv: document.createElement("div"),
-    questionShow: document.createElement("p"),
-    axleShow: document.createElement("p"),
-    buttonShow: document.createElement("button"),
-    questionDiv: document.createElement("div"),
-    question: document.createElement("input"),
-    axle: document.createElement("select"),
-    weight: document.createElement("input"),
-    answers: document.createElement("button"),
-    confirm: document.createElement("button"),
-    erase: document.createElement("button"),
-    jump: document.createElement("p")
-  };
-  addNewQuestion.questionShowDiv.setAttribute("id", "questionShowDivID" + quest);
-  addNewQuestion.questionShowDiv.setAttribute("class", "addQuestion");
-  addNewQuestion.questionShowDiv.style.backgroundColor = "#FFFFFF";
-  addNewQuestion.questionShow.setAttribute("id", "questionShowID" + quest);
-  addNewQuestion.questionShow.setAttribute("class", "questionShow")
-  addNewQuestion.questionShow.innerHTML = "Pergunta " + (quest + 1) + ". voce e do rock?";
-  addNewQuestion.axleShow.setAttribute("id", "axleShowID" + quest);
-  addNewQuestion.axleShow.setAttribute("class", "weightAxleSize axleShow");
-  addNewQuestion.axleShow.innerHTML = "Eixo: 1";
-  addNewQuestion.buttonShow.setAttribute("id", "buttonShowID" + quest);
-  addNewQuestion.buttonShow.setAttribute("class", "buttonShow float-right");
-  addNewQuestion.buttonShow.setAttribute("data-bs-toggle", "modal");
-  addNewQuestion.buttonShow.setAttribute("data-bs-target", "#falconiModal");
-  addNewQuestion.buttonShow.setAttribute("onclick", "editQuestion(" + quest + ")");
-  addNewQuestion.questionDiv.setAttribute("id", "questionDivID" + quest);
-  addNewQuestion.question.setAttribute("type", "text");
-  addNewQuestion.question.setAttribute("id", "questionID" + quest);
-  addNewQuestion.question.setAttribute("class", "addQuestion");
-  addNewQuestion.question.setAttribute("placeholder", "Digite a pergunta " + (quest + 1));
-  addNewQuestion.axle.setAttribute("id", "axleID" + quest);
-  addNewQuestion.axle.setAttribute("class", "addQuestion weightAxleSize");
-  addNewQuestion.weight.setAttribute("type", "number");
-  addNewQuestion.weight.setAttribute("id", "weightID" + quest);
-  addNewQuestion.weight.setAttribute("placeholder", "Peso");
-  addNewQuestion.weight.setAttribute("class", "addQuestion weightAxleSize");
-  addNewQuestion.answers.setAttribute("id", "answersID" + quest);
-  addNewQuestion.answers.setAttribute("class", "modifyBtn");
-  addNewQuestion.answers.setAttribute("data-bs-toggle", "modal");
-  addNewQuestion.answers.setAttribute("data-bs-target", "#falconiModal");
-  addNewQuestion.answers.setAttribute("onclick", "editQuestion(" + quest + ")");
-  addNewQuestion.confirm.setAttribute("onclick", "confirmQuestion(" + quest + ")");
-  addNewQuestion.confirm.setAttribute("id", "confirmID" + quest);
-  addNewQuestion.confirm.setAttribute("class", "modifyBtn");
-  addNewQuestion.confirm.style.backgroundColor = "#7CFC00";
-  addNewQuestion.erase.setAttribute("onclick", "eraseQuestion(" + quest + ")");
-  addNewQuestion.erase.setAttribute("id", "eraseID" + quest);
-  addNewQuestion.erase.setAttribute("class", "modifyBtn");
-  addNewQuestion.erase.style.backgroundColor = "#FF0000";
-  addNewQuestion.jump.innerHTML = "</br>";
-  addNewQuestion.jump.setAttribute("id", "jumpID" + quest);
-  document.getElementById("surveyEdit").appendChild(addNewQuestion.questionShowDiv);
-  document.getElementById("questionShowDivID" + quest).appendChild(addNewQuestion.buttonShow);
-  document.getElementById("questionShowDivID" + quest).appendChild(addNewQuestion.questionShow);
-  document.getElementById("questionShowDivID" + quest).appendChild(addNewQuestion.axleShow);
-  document.getElementById("falconiModal").appendChild(addNewQuestion.questionDiv);
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.jump);
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.question);
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.axle);
-  document.getElementById("axleID" + quest).innerHTML = "<option value='1'>Eixo 1</option><option value='2'>Eixo 2</option><option value='3'>Eixo 3</option><option value='4'>Eixo 4</option><option value='5'>Eixo 5</option><option value='6'>Eixo 6</option><option value='7'>Eixo 7</option>"
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.weight);
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.answers);
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.confirm);
-  document.getElementById("questionDivID" + quest).appendChild(addNewQuestion.erase);
-  confirmQuestion(quest)
-  quest ++;
-}
-
-//Carrega o questionário com as perguntas atuais
-function loadSurvey(){
-  for (var i = 0; i < questions.length; i++){
-    var getQuestion = document.createElement("button")
-    getQuestion.setAttribute("id", "getQuestion" + i);
-    getQuestion.setAttribute("class", "questionBtn");
-    getQuestion.setAttribute("onclick", "mudarQuestao(" + i +", " +  questions[i].peso + ")");
-    getQuestion.setAttribute("onmouseover", "mouseOver(" + i + ")");
-    getQuestion.setAttribute("onmouseout", "mouseOut(" + i + ")");
-    document.getElementById("questions").appendChild(getQuestion);
-    document.getElementById("getQuestion" + i).textContent = i + 1;
-  }
-  var jump = document.createElement("p")
-  document.getElementById("questions").appendChild(jump);
-  for (var i = 0; i < questions.length; i++){
-    var question = document.createElement("p");
-    question.textContent = i + 1 + ". " + questions[i].pergunta;
-    question.setAttribute("style", "display: none");
-    question.setAttribute("id", "question" + i);
-    question.setAttribute("class", "text-primarycolor");
-    document.getElementById("questions").appendChild(question);
-  }
-  mudarQuestao(0, questions[0].peso)
-}
-
-//Edita a questão ao clicar no botão verde
-function confirmQuestion(i){
-  var objetoCriado = Object.create(questaoMatriz);
-  objetoCriado.pergunta = document.getElementById("questionID" + i).value;
-  objetoCriado.eixo = document.getElementById("axleID" + i).value;
-  objetoCriado.peso = document.getElementById("weightID" + i).value;
-  if (i >= questions.length){
-    questions.push(objetoCriado);
-  }
-  else{
-    questions[i].pergunta = document.getElementById("questionID" + i).value;
-    questions[i].eixo = document.getElementById("axleID" + i).value;
-    questions[i].peso = document.getElementById("weightID" + i).value;
-  }
-}
-
-//Deleta a questão
-function eraseQuestion(i){
-  document.getElementById("falconiModal").removeChild(document.getElementById("questionDivID" + i));
-  document.getElementById("falconiModal").removeChild(document.getElementById("axleID" + i));
-  document.getElementById("falconiModal").removeChild(document.getElementById("weightID" + i));
-  document.getElementById("falconiModal").removeChild(document.getElementById("answersID" + i));
-  document.getElementById("falconiModal").removeChild(document.getElementById("confirmID" + i));
-  document.getElementById("falconiModal").removeChild(document.getElementById("eraseID" + i));
-  document.getElementById("falconiModal").removeChild(document.getElementById("jumpID" + i));
-  for (var a = i; a < questions.length - 1; a++){
-    questions[a].pergunta = questions[a+1].pergunta;
-    questions[a].eixo = questions[a+1].eixo;
-    questions[a].peso = questions[a+1].peso;
-    document.getElementById("questionID" + (a + 1)).id = "questionID" + a;
-    document.getElementById("questionID" + a).setAttribute("placeholder", "Digite a pergunta " + (a + 1));
-    document.getElementById("axleID" + (a + 1)).id = "axleID" + a;
-    document.getElementById("weightID" + (a + 1)).id = "weightID" + a;
-    document.getElementById("answersID" + (a + 1)).setAttribute("onclick", "editQuestion(" + a + ")");
-    document.getElementById("answersID" + (a + 1)).id = "answersID" + a;
-    document.getElementById("confirmID" + (a + 1)).setAttribute("onclick", "confirmQuestion(" + a + ")");
-    document.getElementById("confirmID" + (a + 1)).id = "confirmID" + a;
-    document.getElementById("eraseID" + (a + 1)).setAttribute("onclick", "eraseQuestion(" + a + ")");
-    document.getElementById("eraseID" + (a + 1)).id = "eraseID" + a;
-    document.getElementById("jumpID" + (a + 1)).id = "jumpID" + a;
-  }
-  quest -= 1;
-  questions.pop()
-}
-
-
-//Ao sair da tela do questionário, reseta ele, para poder carregá-lo novamente
-function resetSurvey(){
-  for (var i = 0; i < questions.length; i++){
-    document.getElementById("questions").removeChild(document.getElementById("getQuestion" + i));
-    document.getElementById("questions").removeChild(document.getElementById("question" + i));
-    for(var a = 0; a < questions[i].respostas.length; a++){
-      document.getElementById("questions").removeChild(document.getElementById("button" + a));
+      notLoadedAnswer[quest] = 1;
     }
   }
-  currentQuestion = 0;
-  lastQuestion = 0;
 }
 
-function editQuestion(i){
-  answ = i
-  for(var a = 0; a < questions[answ].respostas.length; a++){
-    var addNewAnswer = {
-      answer: document.createElement("input"),
-      value: document.createElement("input"),
-      erase: document.createElement("button")
-    };
-    addNewAnswer.answer.setAttribute("type", "text");
-    addNewAnswer.answer.setAttribute("id", "answerID" + a);
-    addNewAnswer.answer.setAttribute("class", "addQuestion");
-    addNewAnswer.answer.setAttribute("placeholder", "Resposta " + (a + 1));
-    addNewAnswer.value.setAttribute("type", "number");
-    addNewAnswer.value.setAttribute("id", "valueID" + a);
-    addNewAnswer.value.setAttribute("placeholder", "Peso");
-    addNewAnswer.value.setAttribute("class", "addQuestion weightAxleSize");
-    addNewAnswer.erase.setAttribute("onclick", "eraseAnswer(" + a + ")");
-    addNewAnswer.erase.setAttribute("id", "eraseAnswerID" + a);
-    addNewAnswer.erase.setAttribute("class", "modifyBtn");
-    addNewAnswer.erase.style.backgroundColor = "#FF0000";
-    document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.answer);
-    document.getElementById("answerID" + a).value = questions[answ].respostas.resposta[a]
-    document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.value);
-    document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.erase);
+function answDeleteFront(answ, quest){
+  document.getElementById("questDiv" + quest).removeChild(document.getElementById("answDiv" + answ));
+}
+
+function deleteQuestion(quest){
+  document.getElementById("surveyEdit").removeChild(document.getElementById("questDiv" + quest));
+  questDelete(quest);
+}
+
+function getEditable(quest){
+  document.getElementById("questShowID" + quest).setAttribute("contenteditable", "true");
+  document.getElementById("weightShowID" + quest).setAttribute("contenteditable", "true");
+  document.getElementById("axleShowID" + quest).setAttribute("contenteditable", "true");
+  var url = "http://127.0.0.1:3080/resposta/users";
+  var resposta;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+  xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+  resposta = JSON.parse(xhttp.responseText);
+  var idResposta;
+  var respostaA;
+  var maturidade;
+  for(var i=0; i < resposta.length; i++){
+    idResposta = resposta[i].idResposta;
+    respostaA = resposta[i].Resposta;
+    maturidade = resposta[i].Maturidade;
+    idPergunta = resposta[i].idPergunta;
+    if(idPergunta == quest){
+      document.getElementById("answShowID" + idResposta).setAttribute("contenteditable", "true");
+      document.getElementById("matureShowID" + idResposta).setAttribute("contenteditable", "true");
+    }
   }
-}
-
-function addAnswer(){
-  var addNewAnswer = {
-    answer: document.createElement("input"),
-    value: document.createElement("input"),
-    erase: document.createElement("button")
-  };
-  for(var a = 0; a < questions[answ].respostas.length; a++){}
-  addNewAnswer.answer.setAttribute("type", "text");
-  addNewAnswer.answer.setAttribute("id", "answerID" + a);
-  addNewAnswer.answer.setAttribute("class", "addQuestion");
-  addNewAnswer.answer.setAttribute("placeholder", "Resposta " + (a + 1));
-  addNewAnswer.value.setAttribute("type", "number");
-  addNewAnswer.value.setAttribute("id", "valueID" + a);
-  addNewAnswer.value.setAttribute("placeholder", "Peso");
-  addNewAnswer.value.setAttribute("class", "addQuestion weightAxleSize");
-  addNewAnswer.erase.setAttribute("onclick", "eraseAnswer(" + a + ")");
-  addNewAnswer.erase.setAttribute("id", "eraseAnswerID" + a);
-  addNewAnswer.erase.setAttribute("class", "modifyBtn");
-  addNewAnswer.erase.style.backgroundColor = "#FF0000";
-  document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.answer);
-  document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.value);
-  document.getElementById("questionShowDivID" + answ).appendChild(addNewAnswer.erase);
-  var objetoCriado = Object.create(respostaMatriz);
-  objetoCriado.pergunta = document.getElementById("answerID" + a).value;
-  objetoCriado.valor = document.getElementById("valueID" + a).value;
-  questions[answ].respostas.push(objetoCriado);
-  console.log(questions[answ])
-}
-
-function eraseAnswer(i){
-  document.getElementById("questionShowDivID" + i).removeChild(document.getElementById("answerID" + i));
-  document.getElementById("questionShowDivID" + i).removeChild(document.getElementById("valueID" + i));
-  document.getElementById("questionShowDivID" + i).removeChild(document.getElementById("eraseAnswerID" + i));
-  for (var a = i; a < questions[answ].respostas.length - 1; a++){
-    questions[answ].respostas[a] = questions[answ].respostas[a+1];
-    document.getElementById("answerID" + (a + 1)).id = "answerID" + a
-    document.getElementById("answerID" + a).setAttribute("placeholder", "Pergunta " + (a +1))
-    document.getElementById("valueID" + (a + 1)).id = "valueID" + a
-    document.getElementById("eraseAnswerID" + (a + 1)).id = "eraseAnswerID" + a
-    document.getElementById("eraseAnswerID" + a).setAttribute("onclick", "eraseAnswer(" + a + ")");
-  }
-  questions[answ].respostas.pop();
-}
-
-function resetSurveyEdit(){
-  console.log("bonk survey")
-  for(var a = 0; a < questions[answ].respostas.length; a++){
-    document.getElementById("questionShowDivID" + answ).removeChild(document.getElementById("answerID" + a));
-    document.getElementById("questionShowDivID" + answ).removeChild(document.getElementById("valueID" + a));
-    document.getElementById("questionShowDivID" + answ).removeChild(document.getElementById("eraseAnswerID" + a));
-  }
-}
-
-function saveAnswers(){
-  console.log("bonk 2 save")
-  for(i = 0; i < questions[answ].respostas.length; i++){
-    questions[answ].respostas[i].resposta = document.getElementById("answerID" + i).value;
-  }
-  document.getElementById("falconiModal").style.overflow = "hidden"
 }

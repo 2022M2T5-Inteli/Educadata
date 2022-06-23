@@ -1,6 +1,4 @@
-
-
-
+var notLoaded = true;
 
 function getEscola(){
   var url = "http://127.0.0.1:3080/escola/users";

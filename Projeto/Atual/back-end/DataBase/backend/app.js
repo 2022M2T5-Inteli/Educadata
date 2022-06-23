@@ -54,7 +54,7 @@ app.post('/diagnosticoEixo/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Delete
-app.get('/diagnosticoEixo/userdelete', urlencodedParser, (req, res) => {
+app.post('/diagnosticoEixo/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM DiagnosticoEixo WHERE idDiagnostico =?";
@@ -69,7 +69,7 @@ app.get('/diagnosticoEixo/userdelete', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.get('/diagnosticoEixo/userupdate', urlencodedParser, (req, res) => {
+app.post('/diagnosticoEixo/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -131,7 +131,7 @@ app.post('/diagnosticoEixoEscola/userinsert', urlencodedParser, (req, res) => {
 
 
 //Delete
-app.get('/diagnosticoEixoEscola/userdelete', urlencodedParser, (req, res) => {
+app.post('/diagnosticoEixoEscola/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Diagnostico_Eixo_Escola WHERE idDiagnostico=?";
@@ -145,7 +145,7 @@ app.get('/diagnosticoEixoEscola/userdelete', urlencodedParser, (req, res) => {
 });
 
 //Update
-app.get('/diagnosticoEixoEscola/userupdate', urlencodedParser, (req, res) => {
+app.post('/diagnosticoEixoEscola/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
   sql =   'UPDATE Diagnostico_Eixo_Escola SET idEixo=?, idEscola=?, notaEixo=? WHERE idDiagnostico=?';
@@ -203,7 +203,7 @@ app.post('/diagnosticoQuestionario/userinsert', urlencodedParser, (req, res) => 
 });
 
 //Update
-app.get('/diagnosticoQuestionario/userupdate', urlencodedParser, (req, res) => {
+app.post('/diagnosticoQuestionario/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -224,7 +224,7 @@ app.get('/diagnosticoQuestionario/userupdate', urlencodedParser, (req, res) => {
 });
 
 //Delete
-app.get('/diagnosticoQuestionario/userdelete', urlencodedParser, (req, res) => {
+app.post('/diagnosticoQuestionario/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Diagnostico_Questionario WHERE idDiagnostico =?";
@@ -277,7 +277,7 @@ app.post('/diagnosticoQuestionarioEscola/userinsert', urlencodedParser, (req, re
   res.end();
 });
 
-app.get('/diagnosticoQuestionarioEscola/userupdate', urlencodedParser, (req, res) => {
+app.post('/diagnosticoQuestionarioEscola/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -298,7 +298,7 @@ app.get('/diagnosticoQuestionarioEscola/userupdate', urlencodedParser, (req, res
   res.end();
 });
 
-app.get('/diagnosticoQuestionarioEscola/userdelete', urlencodedParser, (req, res) => {
+app.post('/diagnosticoQuestionarioEscola/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Diagnostico_Questionario_Escola WHERE idDiagnostico =?";
@@ -351,7 +351,7 @@ app.post('/eixo/userinsert', urlencodedParser, (req, res) => {
 });
 
 //Update
-app.get('/eixo/userupdate', urlencodedParser, (req, res) => {
+app.post('/eixo/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
   sql = "UPDATE Eixo SET Eixo=?, idQuestionario=?, Dominio=? WHERE idEixo=? ";
@@ -371,7 +371,7 @@ app.get('/eixo/userupdate', urlencodedParser, (req, res) => {
 });
 
 //Delete
-app.get('/eixo/userdelete', urlencodedParser, (req, res) => {
+app.post('/eixo/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Eixo WHERE idEixo =?";
@@ -420,7 +420,7 @@ app.post('/endereco/userinsert', urlencodedParser, (req, res) => {
   db.close();
   res.end();
 });
-app.get('/endereco/userupdate', urlencodedParser, (req, res) => {
+app.post('/endereco/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
   sql = "UPDATE Endereco SET Pais=?, Estado=?, Cidade=?, Bairro=?, Rua=?, Numero=?, Complemento=? WHERE idCEP=? ";
@@ -442,7 +442,7 @@ app.get('/endereco/userupdate', urlencodedParser, (req, res) => {
   db.close();
   res.end();
 });
-app.get('/endereco/userdelete', urlencodedParser, (req, res) => {
+app.post('/endereco/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Endereco WHERE idCEP =?";
@@ -497,7 +497,7 @@ app.post('/escola/userinsert', urlencodedParser, (req, res) => {
 
 
 //Update
-app.get('/escola/userupdate', urlencodedParser, (req, res) => {
+app.post('/escola/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 // Inserir no código:
@@ -522,7 +522,7 @@ app.get('/escola/userupdate', urlencodedParser, (req, res) => {
 
 
 //Delete
-app.get('/escola/userdelete', urlencodedParser, (req, res) => {
+app.post('/escola/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Escola WHERE idEscola =?";
@@ -574,7 +574,7 @@ app.post('/falconi/userinsert', urlencodedParser, (req, res) => {
 
 
 //Update
-app.get('/falconi/userupdate', urlencodedParser, (req, res) => {
+app.post('/falconi/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 // Inserir no código:
@@ -596,7 +596,7 @@ app.get('/falconi/userupdate', urlencodedParser, (req, res) => {
 
 
 //Delete
-app.get('/falconi/userdelete', urlencodedParser, (req, res) => {
+app.post('/falconi/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Falconi WHERE idFalconi =?";
@@ -650,7 +650,7 @@ app.post('/gestor/userinsert', urlencodedParser, (req, res) => {
 });
 
 //Update
-app.get('/gestor/userupdate', urlencodedParser, (req, res) => {
+app.post('/gestor/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 // Inserir no código:
@@ -672,7 +672,7 @@ app.get('/gestor/userupdate', urlencodedParser, (req, res) => {
 
 
 //Delete
-app.get('/gestor/userdelete', urlencodedParser, (req, res) => {
+app.post('/gestor/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Gestor WHERE idGestor =?";
@@ -726,7 +726,7 @@ app.post('/maturidade/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Delete
-app.get('/maturidade/userdelete', urlencodedParser, (req, res) => {
+app.post('/maturidade/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Maturidade WHERE idMaturidade=?";
@@ -740,7 +740,7 @@ app.get('/maturidade/userdelete', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.get('/maturidade/userupdate', urlencodedParser, (req, res) => {
+app.post('/maturidade/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -782,10 +782,9 @@ app.post('/pergunta/userinsert', urlencodedParser, (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
 
-  sql = "INSERT INTO Pergunta (idPergunta, Pergunta, Peso, idEixo) VALUES (?, ?, ?, ?)";
+  sql = "INSERT INTO Pergunta (Pergunta, Peso, idEixo) VALUES (?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
-  params.push(req.body.idPergunta);
   params.push(req.body.Pergunta);
   params.push(req.body.Peso)
   params.push(req.body.idEixo);
@@ -801,7 +800,7 @@ app.post('/pergunta/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Delete
-app.get('/pergunta/userdelete', urlencodedParser, (req, res) => {
+app.post('/pergunta/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Pergunta WHERE idPergunta=?";
@@ -816,7 +815,7 @@ app.get('/pergunta/userdelete', urlencodedParser, (req, res) => {
 });
 
 //Update
-app.get('/pergunta/userupdate', urlencodedParser, (req, res) => {
+app.post('/pergunta/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -872,7 +871,7 @@ app.post('/questionario/userinsert', urlencodedParser, (req, res) => {
 });
 
 //Delete
-app.get('/questionario/userdelete', urlencodedParser, (req, res) => {
+app.post('/questionario/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Questionario WHERE idQuestionario=?";
@@ -886,7 +885,7 @@ app.get('/questionario/userdelete', urlencodedParser, (req, res) => {
 });
 
 //Update
-app.get('/questionario/userupdate', urlencodedParser, (req, res) => {
+app.post('/questionario/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*');
   sql =   'UPDATE Questionario SET Questionario=? WHERE idQuestionario=?';
@@ -943,7 +942,7 @@ app.post('/rede/userinsert', urlencodedParser, (req, res) => {
 
 
 // Delete
-app.get('/rede/userdelete', urlencodedParser, (req, res) => {
+app.post('/rede/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM rede WHERE idrede =?";
@@ -958,7 +957,7 @@ app.get('/rede/userdelete', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.get('/rede/userupdate', urlencodedParser, (req, res) => {
+app.post('/rede/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -1000,10 +999,9 @@ app.post('/resposta/userinsert', urlencodedParser, (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
 
-  sql = "INSERT INTO Resposta (idResposta, Resposta, Maturidade, idPergunta) VALUES (?, ?, ?, ?)";
+  sql = "INSERT INTO Resposta (Resposta, Maturidade, idPergunta) VALUES (?, ?, ?)";
   var db = new sqlite3.Database(DBPATH);
   var params = []
-  params.push(req.body.idResposta);
   params.push(req.body.Resposta);
   params.push(req.body.Maturidade);
   params.push(req.body.idPergunta)
@@ -1018,7 +1016,7 @@ app.post('/resposta/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Delete
-app.get('/resposta/userdelete', urlencodedParser, (req, res) => {
+app.post('/resposta/userdelete', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
   const sql = "DELETE FROM Resposta WHERE idResposta=?";
@@ -1033,7 +1031,7 @@ app.get('/resposta/userdelete', urlencodedParser, (req, res) => {
 });
 
 // Update
-app.get('/resposta/userupdate', urlencodedParser, (req, res) => {
+app.post('/resposta/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 

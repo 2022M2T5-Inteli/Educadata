@@ -71,11 +71,11 @@ body{
 .buttonShow{
   position: static;
   background-color: #0D6EFD;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 3px;
   margin-right: 1vw;
-  margin-top: 1vh;
+  margin-top: 0vh;
   float: right;
 }
 
