@@ -24,9 +24,11 @@ function getRede(){
   resposta = JSON.parse(xhttp.responseText);
   var Email = "";
   var Rede = "";
+  console.log(document.getElementById("email").value)
   for(var i=0; i < resposta.length; i++){
-    if(resposta[i].Email == document.getElementById("email").innerHTML && resposta[i].Rede == document.getElementById("nome").innerHTML){
-      
+    console.log(resposta[i].Email)
+    if(resposta[i].Email === document.getElementById("email").value && resposta[i].Rede === document.getElementById("nome").value){
+        window.location.href = "visaoRede.html";
     }
     else{
         alert("Você ainda não possui cadastro. Cadastre-se antes de entrar!")
