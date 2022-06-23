@@ -127,9 +127,8 @@ function mudarQuestao(i) {
   lastQuestion = i;
 }
 
-
+// go to the question that was clicked
 function compute(i, a){
-  //passar pra questão que foi clicada
   multiplier = resposta[i].Peso
   document.getElementById("question" + lastQuestion).style.display = "none";
   document.getElementById("question" + i).style.display = "block";

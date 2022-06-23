@@ -137,7 +137,15 @@
     padding-left: 2vh;
     padding-right: 1vh;
 }
-
+.dropdown{
+    background-color: #ecf0f1;
+    width: 100%;
+    border: transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: -5px;
+}
 /* second content*/
 
 .second-content {

@@ -96,7 +96,7 @@ body{
   margin-bottom: 5vh;
   margin-left: 5vh;
 }
-.edicao{
+.edit{
   border-radius: 16px;
   background-color: #F3F3F3;
   color: #7c7511;
@@ -123,7 +123,7 @@ body{
 }
 
 
-.botaoEdicao{
+.buttonEdition{
   margin-top: 15px;
   display: block;
   font-size: 20px;
@@ -139,6 +139,15 @@ body{
   padding-left: 2vh;
   padding-right: 2vh;
   filter: drop-shadow(.1rem .1rem .5rem rgba(90, 90, 90, 0.3));
+}
+
+.save{
+  text-decoration: none;
+  color: #F3F3F3;
+}
+
+.save:hover{
+  color: #F3F3F3;
 }
 .paddingForms{
   padding-top: 12px;
