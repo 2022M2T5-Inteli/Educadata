@@ -27,6 +27,21 @@
                     </label>
 
                     <label class="label-input" for="">
+                        <i class="bi bi-shop-window" id="icon"></i>
+                        <input type="text" id="nAlunoCadastro" placeholder="Número de alunos">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="bi bi-shop-window" id="icon"></i>
+                        <input type="text" id="nFuncionarioCadastro" placeholder="Número de funcionários">
+                    </label>
+
+                    <label class="label-input" for="">
+                        <i class="bi bi-shop-window" id="icon"></i>
+                        <input type="text" id="redeID" placeholder="Identificador da rede">
+                    </label>
+
+                    <label class="label-input" for="">
                         <i class="bi bi-map" id="icon"></i>
                         <input type="text" id="pais" placeholder="País">
                     </label>
@@ -62,10 +77,15 @@
                     </label>
 
                     <label class="label-input" for="">
+                        <i class="bi bi-geo-alt" id="icon"></i>
+                        <input type="text" id="complemento" placeholder="Complemento">
+                    </label>
+
+                    <label class="label-input" for="">
                         <i class="bi bi-envelope" id="icon"></i>
                         <input type="email" id="emailInstitucionalCadastro" placeholder="Email">
                     </label>
-                    <a class="btn btn-second">Inscrever-se</a>      
+                    <button onclick="insertEscola()" class="btn btn-second">Inscrever-se</button>      
                 </form>
             </div><!-- second column -->
         </div><!-- first content -->
@@ -101,18 +121,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../DataBase/backend/get.js"></script>
     <script type="text/javascript">
-      
-      function insertEscola(){
+    function insertEscola(){
+
+        $.ajax({
+            url: "http://127.0.0.1:3080/endereco/userinsert",
+            type: 'POST',
+            async: false,
+            data: {
+                idCEP: $("#cepCadastro").val(),
+                Pais: $("#pais").val(),
+                Estado: $("#estado").val(),
+                Cidade: $("#cidade").val(),
+                Bairro: $("#bairro").val(),
+                Rua: $("#rua").val(),
+                Numero: $("#numero").val(),
+                Complemento: $("#complemento").val(),
+            }
+        })
+
         $.ajax({
             url: "http://127.0.0.1:3080/escola/userinsert",
             type: 'POST',
             async: false,
             data: {
                 Instituicao: $("#nomeEscolaCadastro").val(),
+                nAluno: $("#nAlunoCadastro").val(),
+                nFuncionario: $("#nFuncionarioCadastro").val(),
+                idRede: $("#redeID").val(),
                 idCEP: $("#cepCadastro").val(),
                 Email: $("#emailInstitucionalCadastro").val(),
             }
-        }) };
+        }) 
+    };
     </script>
 </body>
 </html>
