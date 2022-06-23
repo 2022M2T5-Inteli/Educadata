@@ -98,14 +98,15 @@
             <h4>Nome</h4>
             <p class="text-secondary mb-1">Cargo</p>
             <p class="text-muted font-size-sm">email</p>
-            <div class="mt-5 text-center"><button class="buttonEdition" type="button"><a href="visaoFalconi.html" class="save">Salvar alterações</button></div></a>
+            <div class="mt-5 text-center"><button class="buttonEdition" type="button"><a onclick="updateFalconi()" href="visaoFalconi.html" class="save">Salvar alterações</button></div></a>
           </div> <!-- close mt-3 -->
         </div> <!-- close col-4 -->
         <div class="col-4 inputs"> <!-- inputs -->
           <h4 class="text-right">Edição de cadastro</h4>
-          <div class="col-md-12"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="qual seu nome?" value=""></div>       
-          <div class="col-md-12"><label class="labels">E-mail</label><input type="text" class="form-control" placeholder="email da Falconi" value=""></div>     
-          <div class="col-md-12"><label class="labels">Cargo</label><input type="text" class="form-control" placeholder="cargo na Falconi" value=""></div>  
+          <div class="col-md-12"><label class="labels">Nome</label><input type="text" id="nomeFalconi" class="form-control" placeholder="qual seu nome?" value=""></div>       
+          <div class="col-md-12"><label class="labels">E-mail</label><input type="text" id="emailFalconi" class="form-control" placeholder="email da Falconi" value=""></div>     
+          <div class="col-md-12"><label class="labels">Cargo</label><input type="text" id="cargoFalconi" class="form-control" placeholder="cargo na Falconi" value=""></div>
+          <div class="col-md-12"><label class="labels">Cargo</label><input type="text" id="idFalconi" class="form-control" placeholder="id da conta" value=""></div>   
         </div> <!-- close col-4 -->
         <div class="col-4 inputs">
           <h4 class="text-right">Endereço</h4>
@@ -250,6 +251,22 @@
             });
             alert("reinicie a página para carregar as novas perguntas");
           }
+
+          function updateFalconi(){
+            $.ajax({
+              url: "http://127.0.0.1:3080/falconi/userupdate",
+              type: 'POST',
+              async: false,
+              data: {
+                nome: $("#nomeFalconi").val(),
+                email: $("#emailFalconi").val(),
+                cargo: $("#cargoFalconi").val(),
+                idFalconi: $("#idFalconi").val(),
+              }
+            });
+          }
+
+
         </script>
 </body>
 </html>

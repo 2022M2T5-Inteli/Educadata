@@ -578,7 +578,7 @@ app.post('/falconi/userupdate', urlencodedParser, (req, res) => {
   res.statusCode = 200;
   res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 // Inserir no código:
-  sql = 'UPDATE Escola SET nome=?, email=?, cargo=? WHERE idFalconi=?';
+  sql = 'UPDATE Falconi SET nome=?, email=?, cargo=? WHERE idFalconi=?';
   var db = new sqlite3.Database(DBPATH); // Abre o banco
   var params = []
   params.push(req.body.nome);
