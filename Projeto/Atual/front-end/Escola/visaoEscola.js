@@ -66,6 +66,8 @@ var lastQuestion = 2;
 var gray = '#C4C4C4'
 var eixo1 = 0;
 var eixo2 = 0;
+var pesoSomado = 0;
+var allAnswers = []
 
 //Function to load survey
 function loadSurvey(){
@@ -99,6 +101,9 @@ function loadSurvey(){
         xhttp1.open("GET", url1, false);
         xhttp1.send();
         resposta1 = JSON.parse(xhttp1.responseText);
+
+        pesoSomado += Number(resposta[i].Peso);
+        allAnswers.push(0);
       }
 // Create questions on front:
       for(var a=0; a < resposta1.length; a++){
@@ -127,19 +132,26 @@ function mudarQuestao(i) {
   lastQuestion = i;
 }
 
+
 // go to the question that was clicked
 function compute(i, a){
-  document.getElementById("question" + lastQuestion).style.display = "none";
-  document.getElementById("question" + i).style.display = "block";
-  document.getElementById("answerDivID" + lastQuestion).style.display = "none";
-  document.getElementById("answerDivID" + i).style.display = "block";
-  document.getElementById("getQuestion" + lastQuestion).style.backgroundColor = white;
-  document.getElementById("getQuestion" + lastQuestion).disabled = false;
-  document.getElementById("getQuestion" + i).style.backgroundColor = "#989393";
-  document.getElementById("getQuestion" + i).disabled = true;
-  lastQuestion = i;
+  if(i <= allAnswers.length){
+    mudarQuestao(i);
+  }
+  else{
+    mudarQuestao(1);
+  }
 
+  var url = "http://127.0.0.1:3080/pergunta/users";
+  var resposta;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+  xhttp.send();
+  resposta = JSON.parse(xhttp.responseText);
 
+  allAnswers[(i-2)] = (100/(pesoSomado*5))*a*resposta[i-2].Peso;
+  console.log(allAnswers);
+  console.log(pesoSomado);
 }
 
 //Functions to animate quetions buttons:
