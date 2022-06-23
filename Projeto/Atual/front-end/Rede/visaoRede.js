@@ -24,18 +24,4 @@ function editProfileBtn(){
 
 
 
-//FUNCTION TO DISABLED THE RESULT BUTTON (HARD-CODE)
-
-function resultsDisable(){
-  const btn = document.getElementById("resultsBtn")
-  var survey = 1;
-  if(survey == 0){
-    btn.classList.add("disabled")
-  }else{
-    btn.classList.remove("disabled")
-  };
-}
-
-
-
 

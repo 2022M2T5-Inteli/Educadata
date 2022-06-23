@@ -965,7 +965,7 @@ app.post('/rede/userupdate', urlencodedParser, (req, res) => {
   var params = []
   params.push(req.body.Rede);
   params.push(req.body.Tipo);
-  params.push(req.body.email);
+  params.push(req.body.Email);
   params.push(req.body.idRede);
 
   db.run(sql, params,  err => {

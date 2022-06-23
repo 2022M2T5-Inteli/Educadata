@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Gestor - Rede</title>
   </head>
-  <body onload="resultsDisable()">
+  <body>
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
@@ -95,15 +95,16 @@
             <h4>Nome</h4>
             <p class="text-secondary mb-1">Tipo de rede</p>
             <p class="text-muted font-size-sm">email</p>
-            <div class="mt-5 text-center"><button class="buttonEdition" type="button"><a href="visaoRede.html" class="save">Salvar alterações</button></div></a>
+            <div class="mt-5 text-center"><button class="buttonEdition" type="button"><a href="visaoRede.html" onclick="redeUpdate()" class="save">Salvar alterações</button></div></a>
           </div><!--mt-3-->
         </div><!--col-4-->
         <!-- INPUTS -->
         <div class="col-9 inputs">
           <h4 class="text-right">Edição de cadastro</h4>
-          <div class="col-md-12"><label class="labels">Nome do gestor(a)</label><input type="text" class="form-control" placeholder="Nome" value=""></div>       
-          <div class="col-md-12"><label class="labels">Tipo de rede</label><input type="text" class="form-control" placeholder="Qual é o seu tipo de rede?" value=""></div>     
-          <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Insira seu email" value=""></div>      
+          <div class="col-md-12"><label class="labels">Nome do gestor(a)</label><input type="text" id="nomeRede" class="form-control" placeholder="Qual o nome da sua rede?" value=""></div>       
+          <div class="col-md-12"><label class="labels">Tipo de rede</label><input type="text" id="tipoRede" class="form-control" placeholder="Qual é o seu tipo de rede?" value=""></div>     
+          <div class="col-md-12"><label class="labels">Email</label><input type="text" id="emailRede" class="form-control" placeholder="Qual o email de sua rede?" value=""></div>
+          <div class="col-md-12"><label class="labels">Email</label><input type="text" id="idRede" class="form-control" placeholder="Qual o id de sua rede?" value=""></div>      
         </div><!--col-9-->
       </div><!--row justify-->
     </div><!--row-->
@@ -113,5 +114,20 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="visaoRede.js"></script>
+        <script type="text/javascript">
+          function redeUpdate(){
+            $.ajax({
+              url: "http://127.0.0.1:3080/rede/userupdate",
+              type: 'POST',
+              async: false,
+              data: {
+                Rede: $("#nomeRede").val(),
+                Tipo: $("#tipoRede").val(),
+                Email: $("#emailRede").val(),
+                idRede: $("#idRede").val(),
+              }
+            });
+          }
+        </script>
 </body>
 </html>
