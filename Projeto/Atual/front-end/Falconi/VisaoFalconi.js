@@ -68,23 +68,26 @@ function getQuestions(){
       questDiv.setAttribute("id", "questDiv" + idPergunta);
       questDiv.setAttribute("class", "addQuestion");
       btnShow.setAttribute("id", "buttonShowID" + idPergunta);
-      btnShow.setAttribute("class", "buttonShow float-right");
+      btnShow.setAttribute("class", "buttonShow float-right bi bi-caret-down");
       btnShow.setAttribute("onclick", "editQuestion(" + idPergunta + ")");
       btnEdit.setAttribute("id", "buttonEditID" + idPergunta);
-      btnEdit.setAttribute("class", "buttonShow float-right");
+      btnEdit.setAttribute("class", "buttonShow float-right bi bi-pencil");
       btnEdit.setAttribute("onclick", "getEditable(" + idPergunta + ")");
       btnAdd.setAttribute("id", "buttonAddID" + idPergunta);
-      btnAdd.setAttribute("class", "buttonShow float-right");
+      btnAdd.setAttribute("class", "buttonShow float-right bi bi-plus-lg");
       btnAdd.setAttribute("onclick", "addAnswer(" + idPergunta + ")");
       btnSave.setAttribute("id", "buttonSaveID" + idPergunta);
-      btnSave.setAttribute("class", "buttonShow float-right");
+      btnSave.setAttribute("class", "buttonShow float-right bi bi-clipboard-check");
       btnSave.setAttribute("onclick", "saveQuestion(" + idPergunta + ")");
       questDelete.setAttribute("id", "buttonDeleteID" + idPergunta);
       questDelete.setAttribute("onclick", "deleteQuestion(" + idPergunta + ")");
-      questDelete.setAttribute("class", "buttonShow float-right");
+      questDelete.setAttribute("class", "buttonShow float-right bi bi-trash3");
       questShow.setAttribute("id", "questShowID" + idPergunta);
+      questShow.setAttribute("class", "labels bold");
       weightShow.setAttribute("id", "weightShowID" + idPergunta);
+      weightShow.setAttribute("class", "labels bold");
       axleShow.setAttribute("id", "axleShowID" + idPergunta);
+      axleShow.setAttribute("class", "labels bold");
       questDiv.style.backgroundColor = "#FFFFFF";
       document.getElementById("surveyEdit").appendChild(questDiv);
       document.getElementById("questDiv" + idPergunta).appendChild(questShow);
@@ -98,10 +101,10 @@ function getQuestions(){
       document.getElementById("questDiv" + idPergunta).appendChild(btnAdd);
       document.getElementById("questDiv" + idPergunta).appendChild(btnSave);
       document.getElementById("questDiv" + idPergunta).appendChild(questDelete);
-      document.getElementById("buttonSaveID" + idPergunta).style.backgroundColor = "#00FF00"
-      document.getElementById("buttonEditID" + idPergunta).style.backgroundColor = "#FFFF00"
-      document.getElementById("buttonDeleteID" + idPergunta).style.backgroundColor = "#FF0000"
-      document.getElementById("buttonAddID" + idPergunta).style.backgroundColor = "#993399"
+      // document.getElementById("buttonSaveID" + idPergunta).style.backgroundColor = "#00FF00"
+      // document.getElementById("buttonEditID" + idPergunta).style.backgroundColor = "#FFFF00"
+      // document.getElementById("buttonDeleteID" + idPergunta).style.backgroundColor = "#FF0000"
+      // document.getElementById("buttonAddID" + idPergunta).style.backgroundColor = "#993399"
       notLoadedAnswer.push(1);
     }
     //console.log(xhttp.responseText);
@@ -133,11 +136,12 @@ function editQuestion(quest){
         answDiv.setAttribute("id", "answDiv" + idResposta);
         answDiv.setAttribute("class", "addQuestion");
         btnDelete.setAttribute("id", "btnDelete" + idResposta);
-        btnDelete.setAttribute("class", "buttonShow float-right");
+        btnDelete.setAttribute("class", "buttonShow float-right bi bi-trash3");
         btnDelete.setAttribute("onclick", "answDelete(" + idResposta + "," + idPergunta + ")");
-        btnDelete.style.backgroundColor = "#FF0000";
         answShow.setAttribute("id", "answShowID" + idResposta);
+        answShow.setAttribute("class", "labels bold");
         matureShow.setAttribute("id", "matureShowID" + idResposta);
+        matureShow.setAttribute("class", "labels bold");
         document.getElementById("questDiv" + quest).appendChild(answDiv);
         document.getElementById("answDiv" + idResposta).appendChild(answShow);
         document.getElementById("answDiv" + idResposta).appendChild(matureShow);

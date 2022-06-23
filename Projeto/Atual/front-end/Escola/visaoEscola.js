@@ -62,7 +62,7 @@ xhttp.send();
 resposta = JSON.parse(xhttp.responseText);
 var notLoaded = true;
 var multiplier;
-var lastQuestion = 0;
+var lastQuestion = 2;
 var gray = '#C4C4C4'
 var eixo1 = 0;
 var eixo2 = 0;
@@ -71,41 +71,42 @@ var eixo2 = 0;
 function loadSurvey(){
   if(notLoaded === true){
       for(var i=0; i < resposta.length; i++){
-          var getQuestion = document.createElement("button")
-          getQuestion.setAttribute("id", "getQuestion" + i);
-          getQuestion.setAttribute("class", "questionBtn");
-          getQuestion.setAttribute("onclick", "mudarQuestao(" + i + ")");
-          getQuestion.setAttribute("onmouseover", "getQuestionMouseOver(" + i + ")");
-          getQuestion.setAttribute("onmouseout", "getQuestionMouseOut(" + i + ")");
-          document.getElementById("questionsBox").appendChild(getQuestion);
-          document.getElementById("getQuestion" + i).innerHTML = i + 1;
-  
-          var question = document.createElement("p");
-          question.textContent = i + 1 + ". " + resposta[i].Pergunta;
-          question.setAttribute("style", "display: none");
-          question.setAttribute("id", "question" + i);
-          question.setAttribute("class", "text-primarycolor");
-          document.getElementById("container").appendChild(question);
-  
-          var answerDiv = document.createElement("div");
-          answerDiv.setAttribute("style", "display: none");
-          answerDiv.setAttribute("id", "answerDivID" + i);
-          document.getElementById("container").appendChild(answerDiv);
-  
-          var url1 = "http://127.0.0.1:3080/resposta/users";
-          var resposta1;
-          var xhttp1 = new XMLHttpRequest();
-          xhttp1.open("GET", url1, false);
-          xhttp1.send();
-          resposta1 = JSON.parse(xhttp1.responseText);
+        var idPerguntaX = resposta[i].idPergunta
+        var getQuestion = document.createElement("button")
+        getQuestion.setAttribute("id", "getQuestion" + idPerguntaX);
+        getQuestion.setAttribute("class", "questionBtn");
+        getQuestion.setAttribute("onclick", "mudarQuestao(" + idPerguntaX + ")");
+        getQuestion.setAttribute("onmouseover", "getQuestionMouseOver(" + idPerguntaX + ")");
+        getQuestion.setAttribute("onmouseout", "getQuestionMouseOut(" + idPerguntaX + ")");
+        document.getElementById("questionsBox").appendChild(getQuestion);
+        document.getElementById("getQuestion" + idPerguntaX).innerHTML = i+1;
+
+        var question = document.createElement("p");
+        question.textContent = i + 1 + ". " + resposta[i].Pergunta;
+        question.setAttribute("style", "display: none");
+        question.setAttribute("id", "question" + idPerguntaX);
+        question.setAttribute("class", "text-primarycolor");
+        document.getElementById("container").appendChild(question);
+
+        var answerDiv = document.createElement("div");
+        answerDiv.setAttribute("style", "display: none");
+        answerDiv.setAttribute("id", "answerDivID" + idPerguntaX);
+        document.getElementById("container").appendChild(answerDiv);
+
+        var url1 = "http://127.0.0.1:3080/resposta/users";
+        var resposta1;
+        var xhttp1 = new XMLHttpRequest();
+        xhttp1.open("GET", url1, false);
+        xhttp1.send();
+        resposta1 = JSON.parse(xhttp1.responseText);
       }
 // Create questions on front:
       for(var a=0; a < resposta1.length; a++){
-          var answers = document.createElement("button")
+          var answers = document.createElement("button");
           answers.setAttribute("id", "answerID" + resposta1[a].idPergunta + a);
           answers.setAttribute("class", "answersBtn");
-          answers.setAttribute("onclick", "compute(" + resposta1[a].idPergunta + ", " + resposta1[a].Maturidade +")");
-          document.getElementById("answerDivID" + (resposta1[a].idPergunta-1)).appendChild(answers);
+          answers.setAttribute("onclick", "compute(" + (resposta1[a].idPergunta+1) + ", " + resposta1[a].Maturidade +")");
+          document.getElementById("answerDivID" + (resposta1[a].idPergunta)).appendChild(answers);
           document.getElementById("answerID" + resposta1[a].idPergunta + a).innerHTML = resposta1[a].Resposta;
       }
       notLoaded = false;
@@ -115,7 +116,6 @@ function loadSurvey(){
 
 //Function to switch to the question that was clicked: 
 function mudarQuestao(i) {
-  multiplier = resposta[i].Peso
   document.getElementById("question" + lastQuestion).style.display = "none";
   document.getElementById("question" + i).style.display = "block";
   document.getElementById("answerDivID" + lastQuestion).style.display = "none";
@@ -129,7 +129,6 @@ function mudarQuestao(i) {
 
 // go to the question that was clicked
 function compute(i, a){
-  multiplier = resposta[i].Peso
   document.getElementById("question" + lastQuestion).style.display = "none";
   document.getElementById("question" + i).style.display = "block";
   document.getElementById("answerDivID" + lastQuestion).style.display = "none";
@@ -141,9 +140,6 @@ function compute(i, a){
   lastQuestion = i;
 
 
-  eixo1 += (a * (100/5));
-  console.log(eixo1)
-  console.log(resposta[i].Peso)
 }
 
 //Functions to animate quetions buttons:

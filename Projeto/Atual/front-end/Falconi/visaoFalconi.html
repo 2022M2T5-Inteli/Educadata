@@ -3,10 +3,11 @@
   <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="visaoFalconi.css">
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Colaborador da Falconi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaborador da Falconi</title>
   </head>
   <body>
   <!-- NAVBAR -->
@@ -120,9 +121,11 @@
     <!-- SURVEY EDIT -->
   <center>
     <div id="surveyEdit" class="surveyEdit screenFiller" style="display: none;">
-      <h1 class="text-black">Editar Questionário</h1>
+      <div class="barraCinza">
+        <h1 class="surveyEditText">Edição de Questionário</h1>
+      </div>
       <br>
-      <button onclick="addQuestion()" class="addQuestion">Adicionar Pergunta</button>
+      <button onclick="addQuestion()" class="addQuestion2 button">Adicionar Pergunta</button>
       <br>
       <div class="modal fade" id="falconiModal">
         <div class="modal-dialog padding-top-5">
@@ -228,7 +231,7 @@
               async: false,
               data: {
                 Resposta: "Insira a resposta aqui",
-                Maturidade: "Insira o valor da maturidade aqui",
+                Maturidade: "1",
                 idPergunta: quest
               }
             });
