@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colaborador da Falconi</title>
   </head>
-  <body>
+  <body onload="getEscola()">
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
     <a href="../index.html">
@@ -38,52 +38,51 @@
     </div>
   </div>  <!-- close container  -->
 
- <!-- PROFILE - GENERAL -->
+  <!-- PROFILE - GENERAL -->
   <div id="profile">
     <div class="container">
       <div class="row justify-content-between margin-top">
-          <!--PROFILE-->
-          <div class="col-4 card card-profile align-itens-center text-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Escola" class="rounded-circle" width="150" height="140">
-            <div class="mt-3">
-              <h3>Nome Sobrenome</h3>
-              <h4>Cargo</h2>
-              <p class="text-secondary mb-1">Example</p>
-              <h4>Email</h4>
-              <p class="text-secondary mb-1">Example</p>
-            </div> <!--close mt-3-->
-          </div> <!-- close col-4-->
-          <!--LIST-->
-          <div class="col-3 card card-registration">
-            <div class="card-agenda mb-3">
-              <div class="card-body">
+        <!--PROFILE-->
+        <div class="col-4 card card-profile align-itens-center text-center">
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Escola" class="rounded-circle" width="150" height="140">
+          <div class="mt-3">
+            <h3>Nome Sobrenome</h3>
+            <h4>Cargo</h2>
+            <p class="text-secondary mb-1">Example</p>
+            <h4>Email</h4>
+            <p class="text-secondary mb-1">Example</p>
+          </div> <!--close mt-3-->
+        </div> <!-- close col-4-->
+        <!--LIST-->
+        <div class="col-9 card scroll">
+          <div class="row justify-content-between">
+            <div class="col-4 center">
+              <center>
                 <table>
-                  <h3 class="agendas">Escolas Registradas</h3> 
+                  <h3 class="margem-card">Lista de escolas</h3>
+                  <div class="margin-top" id="schoolList"></div>
                 </table>
-              </div> <!--close card-body-->
-            </div> <!--close card-agenda-->
-          </div> <!--close col-3-->
-          <!--LIST-->
-          <div class="col-3 card card-registration">
-            <div class="card-agenda mb-3">
-              <div class="card-body">
+              </center>
+            </div><!--close col-4-->
+            <div class="col-4 center">
+              <center>
                 <table>
-                    <h3 class="agendas">Cidade e estado</h3> 
+                  <h3 class="margem-card">Alunos</h3>
+                  <div class="margin-top" id="nAlunoList"></div>
                 </table>
-              </div>
-            </div>
-          </div>
-          <!--LIST-->
-          <div class="col-3 card card-registration">
-            <div class="card-agenda mb-3">
-              <div class="card-body">
+              </center>
+            </div><!--close col-4-->
+            <div class="col-4 center">
+              <center>
                 <table>
-                    <h3 class="agendas">Avaliação geral</h3> 
+                  <h3 class="margem-card">Avaliação geral</h3>
+                  <div class="margin-top" id="avaluationList"></div>
                 </table>
-              </div> <!-- close card-body -->
-            </div> <!-- close card-agenda -->
-          </div> <!-- close clo-3 -->
-      </div><!--close row-->
+              </center>
+            </div><!--close col-4-->
+          </div><!--close row-->
+        </div><!-- close card scroll -->
+      </div><!-- close row -->
     </div><!--close container-->
   </div><!--close profile-->
 

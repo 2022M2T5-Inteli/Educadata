@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Gestor - Rede</title>
   </head>
-  <body>
+  <body onload="getEscola()">
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-whitecolor border-bottom border-top border-2 border-light">
@@ -48,41 +48,40 @@
           <div class="mt-3">
             <h3>Nome Sobrenome</h3>
             <h4>Tipo de Rede</h2>  
-          </div><!--mt-3-->
-        </div><!--col-4-->
-        <!--TABELA1-->
-        <div class="col-3 card card-registration" id="schoolList">
-          <div class="card-school mb-3">
-            <div class="card-body">
-              <table>
-                <h3 class="schools">Lista de escolas</h3> 
-              </table>
-            </div><!--card-body-->
-          </div><!--card-agenda-->
-        </div><!--col-3 card-->
-        <!--TABELA2-->
-        <div class="col-3 card card-registration" id="nAlunoList">
-          <div class="card-school mb-3">
-            <div class="card-body">
-              <table>
-                  <h3 class="place">Alunos</h3> 
-              </table>
-            </div><!--card-body-->
-          </div><!--card-agenda-->
-        </div><!--col-3 card-->
-        <!--TABELA3-->
-        <div class="col-3 card card-registration" id="avaluationList">
-          <div class="card-school mb-3">
-            <div class="card-body">
-              <table>
-                  <h3 class="evaluation">Avaliação geral</h3> 
-              </table>
-            </div><!--card-body-->
-          </div><!--card-agenda-->
-        </div> <!--col-3 card-->
-      </div><!--row-->
-    </div><!--container-->
-  </div><!--profile-->
+          </div><!--close mt-3-->
+        </div><!--close col-4-->
+        <!--LIST-->
+        <div class="col-9 card scroll">
+          <div class="row justify-content-between">
+            <div class="col-4 center">
+              <center>
+                <table>
+                  <h3 class="margem-card">Lista de escolas</h3>
+                  <div class="margin-top" id="schoolList"></div>
+                </table>
+              </center>
+            </div><!--close col-4-->
+            <div class="col-4 center">
+              <center>
+                <table>
+                  <h3 class="margem-card">Alunos</h3>
+                  <div class="margin-top" id="nAlunoList"></div>
+                </table>
+              </center>
+            </div><!--close col-4-->
+            <div class="col-4 center">
+              <center>
+                <table>
+                  <h3 class="margem-card">Avaliação geral</h3>
+                  <div class="margin-top" id="avaluationList"></div>
+                </table>
+              </center>
+            </div><!--close col-4-->
+          </div><!--close row-->
+        </div><!-- close card scroll -->
+      </div><!--close row-->
+    </div><!--close container-->
+  </div><!--close profile-->
 
   <!--BUTTON-->
   <div class="container" id="editProfile" style="display: none;">

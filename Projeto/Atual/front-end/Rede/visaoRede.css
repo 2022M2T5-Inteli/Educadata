@@ -122,6 +122,15 @@ padding: 5%;
 .resultsButton:hover{
   color: #7c7511;
 }
+.scroll{
+  overflow: auto;
+  padding: 30px;
+  margin: 10px;
+}
+
+.margem-card{
+  margin: 10px;
+}
 
 
 
