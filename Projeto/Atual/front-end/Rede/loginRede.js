@@ -34,3 +34,19 @@ function getRede(){
         alert("Você ainda não possui cadastro. Cadastre-se antes de entrar!")
     }
 }}
+
+// AJAX - function insert
+function insertRede(){
+    $.ajax({
+        url: "http://127.0.0.1:3080/rede/userinsert",
+        type: 'POST',
+        async: false,
+        data: {
+            Rede: $("#nome").val(),
+            Tipo: $("#tipo").val(),
+            Email: $("#email").val(),
+        }
+    })
+    var body = document.querySelector("body");
+    body.className = "sign-in-js";
+};
