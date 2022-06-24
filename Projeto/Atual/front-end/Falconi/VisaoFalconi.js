@@ -269,3 +269,124 @@ function getEditable(quest){
     }
   }
 }
+
+//FUNCTION AJAX DELETE
+function answDelete(i,quest){
+  $.ajax({
+    url: "http://127.0.0.1:3080/resposta/userdelete",
+    type: 'POST',
+    async: false,
+    data: {idResposta:i}
+  });
+  answDeleteFront(i,quest)
+}
+
+//FUNCTION AJAX DELETE
+function questDelete(quest){
+  var url = "http://127.0.0.1:3080/resposta/users";
+  var resposta;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+  xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+  resposta = JSON.parse(xhttp.responseText);
+  for(var i=0; i < resposta.length; i++){
+    idRespostaA = resposta[i].idResposta;
+    idPergunta = resposta[i].idPergunta;
+    if(idPergunta == quest){
+      $.ajax({
+        url: "http://127.0.0.1:3080/resposta/userdelete",
+        type: 'POST',
+        async: false,
+        data: {idResposta:idRespostaA}
+    });
+    }
+  }
+  $.ajax({
+    url: "http://127.0.0.1:3080/pergunta/userdelete",
+    type: 'POST',
+    async: false,
+    data: {idPergunta:quest}
+  });
+}
+
+//FUNCTION AJAX SAVE
+function saveQuestion(quest){
+  $.ajax({
+    url: "http://127.0.0.1:3080/pergunta/userupdate",
+    type: 'POST',
+    async: false,
+    data: {
+      Pergunta: $("#questShowID" + quest).html(),
+      Peso: $("#weightShowID" + quest).html(),
+      idEixo: $("#axleShowID" + quest).html(),
+      idPergunta: quest
+    }
+  });
+  var url = "http://127.0.0.1:3080/resposta/users";
+  var resposta;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+  xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
+  resposta = JSON.parse(xhttp.responseText);
+  for(var i=0; i < resposta.length; i++){
+    idRespostaA = resposta[i].idResposta;
+    idPergunta = resposta[i].idPergunta;
+    if(idPergunta == quest){
+      $.ajax({
+        url: "http://127.0.0.1:3080/resposta/userupdate",
+        type: 'POST',
+        async: false,
+        data: {
+          Resposta: $("#answShowID" + idRespostaA).html(),
+          Maturidade: $("#matureShowID" + idRespostaA).html(),
+          idPergunta: quest,
+          idResposta:idRespostaA
+        }
+    });
+    }
+  }
+}
+
+// FUNCTION AJAX ADD
+function addAnswer(quest){
+  $.ajax({
+    url: "http://127.0.0.1:3080/resposta/userinsert",
+    type: 'POST',
+    async: false,
+    data: {
+      Resposta: "Insira a resposta aqui",
+      Maturidade: "1",
+      idPergunta: quest
+    }
+  });
+}
+
+// FUNCTION AJAX ADD
+function addQuestion(){
+  $.ajax({
+    url: "http://127.0.0.1:3080/pergunta/userinsert",
+    type: 'POST',
+    async: false,
+    data: {
+      Pergunta: "Insira a pergunta aqui",
+      Peso: "1",
+      idEixo: "1",
+    }
+  });
+  alert("reinicie a página para carregar as novas perguntas");
+}
+
+// FUNCTION AJAX UPDATE
+function updateFalconi(){
+  $.ajax({
+    url: "http://127.0.0.1:3080/falconi/userupdate",
+    type: 'POST',
+    async: false,
+    data: {
+      nome: $("#nomeFalconi").val(),
+      email: $("#emailFalconi").val(),
+      cargo: $("#cargoFalconi").val(),
+      idFalconi: $("#idFalconi").val(),
+    }
+  });
+}
