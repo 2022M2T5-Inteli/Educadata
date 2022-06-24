@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap');
+
+*{
+    --primary-color: #948d28;
+    --black: #010101;
+    --white: #F3F3F3;
+    --gray: #C4C4C4;
+    --dark-gray: #7C7C7C;
+}
+
+body{
+    top: 0; right: 0; bottom: 0; left: 0;
+    padding: 0;
+    margin: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: #7C7C7C; */
+}
+
+
+/* NAVBAR */
+
+.navbar{
+  height: 50px;
+}
+
+.bg-whitecolor{
+  background: var(--white);
+}
+
+.logo{
+width: 100px;
+padding: 5%;
+}
+
+
+
+/* RESULTS */
+.content{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+  display: contents;
+}
+
+.top{
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+  background: #7C7C7C;
+  display: flex;
+}
+
+.title{
+  color: honeydew;
+  margin: 1rem;
+  font-family: 'Public Sans', sans-serif;
+  text-align: center;
+}
+
+.button{
+  display: block;
+  font-size: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #7c7511;
+  font-weight: bolder;
+  border: none;
+  margin: 20px 10px;
+  padding-top: 0.7vh;
+  padding-bottom: 0.7vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  border-radius: 16px;
+  background-color: white;
+  filter: drop-shadow(.1rem .1rem .5rem rgba(90, 90, 90, 0.3));
+}
+
+.back{
+  text-decoration: none;
+  color: #7c7511;
+}
+
+.back:hover{
+  color: #7c7511;
+}
+
+.graphic{
+  height: 400px;
+  width: 100%;
+  position: absolute;
+}
+.gridColumn{
+  display: flex;
+  width: 100%;
+  height: 79.8vh;
+  padding: 2px;
+  position: absolute;
+  background: rgba(220, 220, 220, 0.488);
+  padding: 1rem;
+
+}
+.column{
+  height: 400px;
+  width: 100px;
+  margin-left: 3.8%;
+  background: rgba(220, 220, 220, 0.488);
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-radius: 16px;
+}
+.titleColumn{
+  width: 100px;
+  height: 10px;
+  bottom: 50px;
+  position: absolute;
+  font-size: 15px;
+  font-style: normal;
+  font-family: 'Public Sans', sans-serif;
+  margin-left: 5px;
+}
+
+.percentageColumn{
+  width: 10px;
+  border-radius: 7px;
+  height: 280px;
+  background: lightgray ;
+  bottom: 100px;
+  position: absolute;
+  margin-left: 45px;
+}
+
+.ball{
+  width: 45px;
+  border-radius: 25px;
+  height: 45px;
+  background: whitesmoke;
+  border: 1px solid black;
+  border-style: dashed;
+  position: absolute;
+  margin-left: 30px;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.titlePercentage{
+  font-size: 12px;
+  font-style: normal;
+  font-family: 'Public Sans', sans-serif;
+  top: 15px;
+  position: absolute;
+}
+
+.radarimg{
+  margin-left: 130vh;
+  padding-top: 2vh;
+  width: 60vh;
+}
+
+.survey{
+  margin-left: 145vh;
+  margin-top: 5vh;
+  background-color: #ecf0f1;
+}
+
+.percentage1{
+  width: 6px;
+  height: 90%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+
+.percentage2{
+  width: 6px;
+  height: 50%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.percentage3{
+  width: 6px;
+  height: 20%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.percentage4{
+  width: 6px;
+  height: 70%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.percentage5{
+  width: 6px;
+  height: 30%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.percentage6{
+  width: 6px;
+  height: 10%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}
+.percentage7{
+  width: 6px;
+  height: 80%;
+  background: #7c75115f;
+  position: absolute;
+  bottom: 7px;
+  margin-left: 1.9px;
+  border-radius: 5px;
+}

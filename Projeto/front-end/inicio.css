@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100&display=swap');
+
+body{
+  top: 0; right: 0; bottom: 0; left: 0;
+  padding: 0;
+  margin: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--primary-color);
+}
+
+.home{
+    background-color: rgba(0,0,0, 0.7);
+    background-image: url("images/escolainicio.jpg");
+    width: 100%;
+    height: 98vh;
+    background-size: 92%;
+    background-size: cover;
+}
+
+
+
+
+/* NAVBAR */
+
+.navbar{
+  height: 50px;
+}
+
+.bg-whitecolor{
+  background: var(--white);
+}
+
+.logo{
+width: 100px;
+padding: 5%;
+}
+
+
+
+
+/* HOME */
+
+.text1{
+    padding-left: 20vh;
+    padding-top: 20vh;
+    font-family: 'Public Sans', sans-serif;
+    color: #fff;
+}
+
+.challenge{
+    font-size: 3.7em;
+}
+
+.middle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text{
+    padding-left: 11vw;
+    padding-top: 2vh;
+    color: #fff;
+    font-size: 15px;
+    font-style: 'thin';
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1vh;   
+}
+
+.informations{
+    padding-right: 20vh;
+    color: #fff;
+    font-style: 'thin';
+    font-family: 'Public Sans', sans-serif;
+}
+
+.data{
+    font-size: 2em;
+}
+
+.bottom{
+    padding-left: 37vh;
+    height: 11vh;
+}
+
+.button{
+    display: block;
+    font-size: 2rem;
+    font-family: 'Public Sans', sans-serif;
+    font-style: 'thin';
+    color: #7c7511;
+    font-weight: bolder;
+    border-radius: 10px;
+    border: none;
+    padding-top: 0.7vh;
+    padding-bottom: 0.7vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+.button:hover{
+  background-color: #C4C4C4;
+}
+
+.btn btn-primary{
+  color: #fff;
+}
+
+.baseboard{
+    padding-top: 20.5vh;
+}
+
+.screen2{
+    background-color: #C4C4C4;
+    padding-top: 15vh;
+}
+
+.speed{
+    font-size: 2.5rem;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: bolder;
+    padding-left: 90vh;
+}
+
+.phrase{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.28rem;
+    font-weight: bold;
+    padding-left: 76vh;
+    padding-top: 1.5vh;
+    padding-bottom: 3.5vh;
+}
+
+.homeChart{
+  width: 40vh;
+  height: 40vh;
+  margin-left: 82vh;
+}
+
+.endScreen2{
+  padding-bottom: 21vh;
+}
+
+.baseboardScreen2{
+  background-color: #7C7C7C;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.instagram{
+  width: 4.5vh;
+  height: 4.5vh;
+  margin-left: 85vh;
+}
+
+.facebook{
+  width: 5vh;
+  height: 5vh;
+  margin-left: 10vh;
+}
+
+.linkedin{
+  width: 5vh;
+  height: 5vh;
+  margin-left: 10vh;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 25vh; /* Location of the box */
+  padding-left: 40vh;
+  padding-right: 40vh;
+  padding-bottom: 25vh;
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 80vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #C4C4C4;
+  width: 80vh;
+  font-size: 20px;
+  text-align: center;
+}
+
+.option{
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 2vh;
+}
+
+.profileButton{
+  display: block;
+  font-size: 1.5rem;
+  font-family: 'Public Sans', sans-serif;
+  font-style: 'thin';
+  color: #7c7511;
+  background-color: #C4C4C4;
+  font-weight: bolder;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 3vh;
+  text-decoration: none;
+}
+
+.profileButton:hover{
+  color:rgba(0,0,0, 0.7)
+}
+
+.botoesPerfil:hover{
+  background-color: #C4C4C4;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: end;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
