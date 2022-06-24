@@ -53,7 +53,8 @@
           </div> <!-- close col-4 card card-profile -->
           <!--HEPTAGON-->
           <div class="col-4 card">
-            <img src="images/radar-chart-in-r-customized-fmstb-radar-chart-1.png" class="radarimg">
+            <img id="heptagonGraphA" src="images/radar-chart-in-r-customized-fmstb-radar-chart-1.png" class="radarimg">
+            <div id="heptagonGraphDiv" class="radarimg"><canvas id="heptagonGraph" width="400" height="400"></canvas></div>
             <button class="button"> <a href="resultado.html" class="resultsButton">Resultados</a></button>
           </div> <!-- close col-4 card -->
           <!-- GRAPHIC-->
@@ -124,7 +125,7 @@
   <div id="home"> 
     <div id="survey" style="display: none;">
       <div class="container">
-        <button class="buttonBack"><a href="visaoEscola.html" class="back">Voltar</a></button>
+        <button class="buttonBack" onclick="profileBtn()"><a class="back">Voltar</a></button>
 
         <div class="row">
           <div class="col-4 questionsBox" id="questionsBox">
@@ -139,7 +140,7 @@
             </center>
         
         </div> <!--close col-7 card-questions-->
-        <button class="buttonFinish"><a href="visaoEscola.html" class="back">Finalizar</a></button>
+        <button class="buttonFinish" id="resultButton" onclick="profileBtn()" style="display: none;"><a class="back">Finalizar</a></button>
       </div> <!--close row-->
     </div> <!--close container-->
   </div> <!--close survey-->

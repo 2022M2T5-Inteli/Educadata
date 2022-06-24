@@ -68,6 +68,7 @@ var eixo1 = 0;
 var eixo2 = 0;
 var pesoSomado = 0;
 var allAnswers = []
+var verify = 0;
 
 //Function to load survey
 function loadSurvey(){
@@ -149,9 +150,19 @@ function compute(i, a){
   xhttp.send();
   resposta = JSON.parse(xhttp.responseText);
 
-  allAnswers[(i-2)] = (100/(pesoSomado*5))*a*resposta[i-2].Peso;
-  console.log(allAnswers);
-  console.log(pesoSomado);
+  allAnswers[(i-2)] = (100/(resposta[i-2].Peso*5))*a*resposta[i-2].Peso;
+  for(var i = 0; i <= allAnswers.length; i++){
+    if(allAnswers[i]>0){
+      verify++;
+    }
+  }
+  if(verify>=allAnswers.length){
+    document.getElementById("resultButton").style.display = "block";
+    setGraph()
+  }
+  else{
+    verify = 0;
+  }
 }
 
 //Functions to animate quetions buttons:
@@ -163,4 +174,56 @@ function getQuestionMouseOut(i){
   if (document.getElementById("getQuestion" + i).disabled != true){
     document.getElementById("getQuestion" + i).style.backgroundColor = "#F3F3F3"
   }
+}
+
+function setGraph(){
+  var labelsA = []
+  var url = "http://127.0.0.1:3080/eixo/users";
+  var resposta;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, false);
+  xhttp.send();
+  resposta = JSON.parse(xhttp.responseText);
+  for(var i=0; i<3;i++){
+    labelsA.push(resposta[i].Eixo)
+  }
+
+
+
+  var data = {
+    labels: [labelsA[0],labelsA[1],labelsA[2]],
+    datasets: [{
+      label: 'Sua instituição de ensino',
+      data: [allAnswers[0], allAnswers[1], allAnswers[2]],
+      fill: true,
+      backgroundColor: 'rgba(135, 206, 250, 0.2)',
+      borderColor: 'rgb(135, 206, 250)',
+      pointBackgroundColor: 'rgb(135, 206, 250)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(135, 206, 250)'
+    }]
+  };
+  const config = {
+    type: 'radar',
+    data: data,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 1
+        }
+      },
+      scale: {
+        ticks: {
+          beginAtZero: true,
+          max: 5,
+        }
+      }
+    },
+  };
+  var heptagonGraph = new Chart(
+    document.getElementById('heptagonGraph'),
+    config
+  );
+  document.getElementById("heptagonGraphA").style.display = "none";
 }
