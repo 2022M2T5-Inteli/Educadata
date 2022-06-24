@@ -360,9 +360,15 @@ body{
 h2.agenda::after{
   content: url(info-circle-fill.svg);
 }
+.scroll{
+  overflow: auto;
+  padding: 30px;
+  margin: 10px;
+}
 
-
-
+.margem-card{
+  margin: 10px;
+}
 
 
 

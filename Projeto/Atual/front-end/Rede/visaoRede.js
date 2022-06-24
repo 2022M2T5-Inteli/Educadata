@@ -49,6 +49,20 @@ function getEscola(){
   //console.log(xhttp.responseText);
 }
 
+// AJAX - function get
+function redeUpdate(){
+  $.ajax({
+    url: "http://127.0.0.1:3080/rede/userupdate",
+    type: 'POST',
+    async: false,
+    data: {
+      Rede: $("#nomeRede").val(),
+      Tipo: $("#tipoRede").val(),
+      Email: $("#emailRede").val(),
+      idRede: $("#idRede").val(),
+    }
+  });
+}
 
 
 
