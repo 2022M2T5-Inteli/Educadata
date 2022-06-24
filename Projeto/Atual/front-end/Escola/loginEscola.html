@@ -120,39 +120,5 @@
     <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../DataBase/backend/get.js"></script>
-    <script type="text/javascript">
-    function insertEscola(){
-
-        $.ajax({
-            url: "http://127.0.0.1:3080/endereco/userinsert",
-            type: 'POST',
-            async: false,
-            data: {
-                idCEP: $("#cepCadastro").val(),
-                Pais: $("#pais").val(),
-                Estado: $("#estado").val(),
-                Cidade: $("#cidade").val(),
-                Bairro: $("#bairro").val(),
-                Rua: $("#rua").val(),
-                Numero: $("#numero").val(),
-                Complemento: $("#complemento").val(),
-            }
-        })
-
-        $.ajax({
-            url: "http://127.0.0.1:3080/escola/userinsert",
-            type: 'POST',
-            async: false,
-            data: {
-                Instituicao: $("#nomeEscolaCadastro").val(),
-                nAluno: $("#nAlunoCadastro").val(),
-                nFuncionario: $("#nFuncionarioCadastro").val(),
-                idRede: $("#redeID").val(),
-                idCEP: $("#cepCadastro").val(),
-                Email: $("#emailInstitucionalCadastro").val(),
-            }
-        }) 
-    };
-    </script>
 </body>
 </html>
