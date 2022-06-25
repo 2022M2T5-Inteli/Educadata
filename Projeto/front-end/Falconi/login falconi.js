@@ -21,6 +21,6 @@ function insertFalconi(){
         data: {
             Nome: $("#nome").val(),
             Email: $("#email").val(),
-            Cargo: $("#cargo").val(),
+            Cargo: $("#cargo").val()
         }
     }) };

@@ -115,8 +115,11 @@ function getQuestions(){
       var btnAdd = document.createElement("button");
       var btnSave = document.createElement("button");
       var questDelete = document.createElement("button");
+      var questAppear = document.createElement("label");
       var questShow = document.createElement("p");
+      var weightAppear = document.createElement("label");
       var weightShow = document.createElement("label");
+      var axleAppear = document.createElement("label");
       var axleShow = document.createElement("label");
       idPergunta = resposta[i].idPergunta;
       pergunta = resposta[i].Pergunta;
@@ -145,10 +148,19 @@ function getQuestions(){
       weightShow.setAttribute("class", "labels bold");
       axleShow.setAttribute("id", "axleShowID" + idPergunta);
       axleShow.setAttribute("class", "labels bold");
+      questAppear.innerHTML = "Pergunta: "
+      questAppear.setAttribute("class", "labels bold");
+      weightAppear.innerHTML = "Peso: "
+      weightAppear.setAttribute("class", "labels bold");
+      axleAppear.innerHTML = "Eixo: "
+      axleAppear.setAttribute("class", "labels bold");
       questDiv.style.backgroundColor = "#FFFFFF";
       document.getElementById("surveyEdit").appendChild(questDiv);
+      document.getElementById("questDiv" + idPergunta).appendChild(questAppear);
       document.getElementById("questDiv" + idPergunta).appendChild(questShow);
+      document.getElementById("questDiv" + idPergunta).appendChild(weightAppear);
       document.getElementById("questDiv" + idPergunta).appendChild(weightShow);
+      document.getElementById("questDiv" + idPergunta).appendChild(axleAppear);
       document.getElementById("questDiv" + idPergunta).appendChild(axleShow);
       document.getElementById("questShowID" + idPergunta).innerHTML = pergunta;
       document.getElementById("weightShowID" + idPergunta).innerHTML = peso;
@@ -189,7 +201,9 @@ function editQuestion(quest){
       if(idPergunta == quest){
         var answDiv = document.createElement("div");
         var btnDelete = document.createElement("button");
+        var answAppear = document.createElement("label");
         var answShow = document.createElement("p");
+        var matureAppear = document.createElement("label");
         var matureShow = document.createElement("label");
         answDiv.setAttribute("id", "answDiv" + idResposta);
         answDiv.setAttribute("class", "addQuestion");
@@ -200,8 +214,14 @@ function editQuestion(quest){
         answShow.setAttribute("class", "labels bold");
         matureShow.setAttribute("id", "matureShowID" + idResposta);
         matureShow.setAttribute("class", "labels bold");
+        matureAppear.innerHTML = "Maturidade: "
+        matureAppear.setAttribute("class", "labels bold");
+        answAppear.innerHTML = "Resposta: "
+        answAppear.setAttribute("class", "labels bold");
         document.getElementById("questDiv" + quest).appendChild(answDiv);
+        document.getElementById("answDiv" + idResposta).appendChild(answAppear);
         document.getElementById("answDiv" + idResposta).appendChild(answShow);
+        document.getElementById("answDiv" + idResposta).appendChild(matureAppear);
         document.getElementById("answDiv" + idResposta).appendChild(matureShow);
         document.getElementById("answShowID" + idResposta).innerHTML = respostaA;
         document.getElementById("matureShowID" + idResposta).innerHTML = maturidade;

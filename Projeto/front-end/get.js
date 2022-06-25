@@ -73,21 +73,21 @@ function addFalconi(){
 }
 
 // Guarda as informações de cadastro no banco de dados
-$(document).ready(() => {
-  contaFalconi.create();
-})
-var contaFalconi = {
-  create(nome, email, cargo) {
-      $.ajax({
-          type: "POST",
-          url: "http://127.0.0.1:3080/falconi/users'",
-          data: {nome: nome, email: email, cargo: cargo},
-          success: function (resultado) {
-              console.log(123)
-          },
-      });
-  },
-};
+// $(document).ready(() => {
+//   contaFalconi.create();
+// })
+// var contaFalconi = {
+//   create(nome, email, cargo) {
+//       $.ajax({
+//           type: "POST",
+//           url: "http://127.0.0.1:3080/falconi/users'",
+//           data: {nome: nome, email: email, cargo: cargo},
+//           success: function (resultado) {
+//               console.log(123)
+//           },
+//       });
+//   },
+// };
 function addFalconi() {
   var nome = document.getElementById("nomeFalconi").value;
   var email = document.getElementById("emailFalconi").value;
