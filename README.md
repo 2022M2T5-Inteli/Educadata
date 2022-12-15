@@ -14,7 +14,7 @@
 - <a href="https://www.linkedin.com/in/maria-lu%C3%ADsa-maia-14384a212/">Maria Luísa Maia</a>
 - <a href="https://www.linkedin.com/in/marcos-vinicius-166531239/">Marcos Moura</a>
 - <a href="https://github.com/PriscilaFalcao">Priscila Falcão</a>
-- <a href="https://www.linkedin.com/in/luanadinamarcaparra/">Thomas Barton</a> 
+- <a href="">Thomas Barton</a> 
 - <a href="https://www.linkedin.com/in/vitor-moura-de-oliveira-979002232/">Vitor Oliveira</a>
 
 ## 📝 Descrição
